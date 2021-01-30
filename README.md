@@ -1,3 +1,3 @@
 # Riftek
 
-Experimenting in WebGL.
+Experiments in WebGL.
