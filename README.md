@@ -1,3 +1,3 @@
-# Riftek
+# Raktek
 
 Experiments in WebGL.
