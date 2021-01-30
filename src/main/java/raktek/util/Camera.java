@@ -1,14 +1,11 @@
 package raktek.util;
 
-import java.util.Objects;
 import javax.annotation.Nonnull;
 import org.realityforge.vecmath.Matrix4d;
 import org.realityforge.vecmath.Vector3d;
 
 public final class Camera
 {
-  @Nonnull
-  private final Projection _projection;
   /**
    * The world to camera space transform.
    */
@@ -25,22 +22,6 @@ public final class Camera
   private final Vector3d _up = new Vector3d( 0, 1, 0 );
   private double _pitch = 0.0;
   private double _yaw = -Math.PI / 2.0;
-
-  public Camera()
-  {
-    this( new Projection() );
-  }
-
-  public Camera( @Nonnull final Projection projection )
-  {
-    _projection = Objects.requireNonNull( projection );
-  }
-
-  @Nonnull
-  public Projection getProjection()
-  {
-    return _projection;
-  }
 
   @Nonnull
   public Vector3d getPosition()

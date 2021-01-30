@@ -14,6 +14,7 @@ import raktek.util.Camera;
 import raktek.util.CanvasUtil;
 import raktek.util.GL;
 import raktek.util.MathUtil;
+import raktek.util.PerspectiveViewport;
 import raktek.util.controls.FirsPersonControl;
 import raktek.util.geometries.CubeGeometryFactory;
 
@@ -159,18 +160,17 @@ public final class Main
   private boolean _sentToGpu;
   private float _time;
   private FirsPersonControl _control;
+  private PerspectiveViewport _viewport;
 
   @Override
   public void onModuleLoad()
   {
     final HTMLCanvasElement canvas = CanvasUtil.createCanvas();
     final WebGL2RenderingContext gl = CanvasUtil.getWebGL2RenderingContext( canvas );
-
-    _camera.getProjection()
-      .getProjectionMatrix().setPerspective( MathUtil.degreesToRadians( 45 ),
-                                             CanvasUtil.getAspect( canvas ),
-                                             0.1,
-                                             10.0 );
+    _viewport = new PerspectiveViewport( gl, canvas );
+    _viewport.setFovY( MathUtil.degreesToRadians( 45 ) );
+    _viewport.setZNear( 0.1 );
+    _viewport.setZFar( 10.0 );
 
     _mesh = new Mesh( gl,
                       CubeGeometryFactory.create( gl,
@@ -188,7 +188,14 @@ public final class Main
     final Document document = Global.document();
     _control = new FirsPersonControl( _camera, document );
 
-    CanvasUtil.renderLoop( canvas, gl, this::renderFrame );
+    renderLoop( gl );
+  }
+
+  private void renderLoop( @Nonnull final WebGL2RenderingContext gl )
+  {
+    Global.requestAnimationFrame( t -> renderLoop( gl ) );
+    _viewport.resize();
+    renderFrame( gl );
   }
 
   private void renderFrame( @Nonnull final WebGL2RenderingContext gl )
@@ -230,7 +237,7 @@ public final class Main
     _modelMatrix.rotateY( _angle );
     _modelMatrix.rotateX( 0.25 );
 
-    final Matrix4d projectionMatrix = _camera.getProjection().getProjectionMatrix();
+    final Matrix4d projectionMatrix = _viewport.getProjectionMatrix();
 
     _mesh.render( gl, _modelMatrix, viewMatrix, projectionMatrix, _light, _camera );
 
