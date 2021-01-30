@@ -220,7 +220,6 @@ public final class Main
     position.y = (float) ( 2 * Math.sin( 0.1 * ( _time + position.y ) ) );
     position.x = (float) ( -2 * Math.sin( 0.1 * ( _time + position.x ) ) );
 
-    _camera.updateViewMatrix();
     final Matrix4d viewMatrix = _camera.getViewMatrix();
 
     gl.useProgram( _mesh.getProgram() );
