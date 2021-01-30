@@ -1,0 +1,35 @@
+package elemental3.audio;
+
+import java.lang.annotation.Documented;
+import javax.annotation.Generated;
+import javax.annotation.Nonnull;
+import org.intellij.lang.annotations.MagicConstant;
+
+@Generated("org.realityforge.webtack")
+@Documented
+@MagicConstant(
+    valuesFromClass = OverSampleType.class
+)
+public @interface OverSampleType {
+  @Nonnull
+  String _2x = "2x";
+
+  @Nonnull
+  String _4x = "4x";
+
+  @Nonnull
+  String none = "none";
+
+  final class Validator {
+    private Validator() {
+    }
+
+    public static void assertValid(@Nonnull final String value) {
+      assert isValid( value );
+    }
+
+    public static boolean isValid(@Nonnull final String value) {
+      return OverSampleType._2x.equals( value ) || OverSampleType._4x.equals( value ) || OverSampleType.none.equals( value );
+    }
+  }
+}
