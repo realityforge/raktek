@@ -4,6 +4,9 @@ import elemental3.gl.WebGL2RenderingContext;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 
+/**
+ * A component in the rendering subsystem.
+ */
 public abstract class Component
 {
   /**
