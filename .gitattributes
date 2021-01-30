@@ -1,10 +1,15 @@
 # DO NOT EDIT: File is auto-generated
 * -text
+*.css text
+*.html text
 *.java text
+*.jpg binary
 *.md text
+*.png binary
 *.rake text
 *.xml text
 *.yaml text
+.gitattributes text
 .gitignore text
 .ruby-version text
 Gemfile text

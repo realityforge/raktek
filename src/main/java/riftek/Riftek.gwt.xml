@@ -1,0 +1,12 @@
+<module rename-to='riftek'>
+  <inherits name='com.google.gwt.core.Core'/>
+  <inherits name='org.realityforge.braincheck.BrainCheckDev'/>
+  <inherits name='elemental3.Elemental3'/>
+  <inherits name='org.realityforge.vecmath.VecmathDev'/>
+
+  <source path=''/>
+  <source path='util'/>
+  <public path='public'/>
+
+  <entry-point class='riftek.Main'/>
+</module>

@@ -19,29 +19,22 @@ define 'riftek' do
                :braincheck,
                :gwt_user
 
-  gwt_config = {}
-  base = _('src/main/java')
-  Dir["#{base}/**/Main.gwt.xml"].collect{|v|v.gsub(/\.gwt\.xml$/,'').gsub("#{base}/",'').gsub('/','.')}.each do |m|
-    module_name = m
-    gwt_config[module_name] = false
-    gwt([module_name],
-        {
-          :java_args => %w(-Xms512M -Xmx1024M -Dgwt.watchFileChanges=false),
-          :dependencies => project.compile.dependencies + [project.compile.target] + [Buildr.artifact(:gwt_user)],
-          :gwtc_args => %w(-optimize 9 -checkAssertions -XmethodNameDisplayMode FULL -noincremental),
-          :output_key => m
-        })
-    ipr.add_gwt_configuration(project,
-                              :name => "Run #{m.gsub('.Main','').gsub('org.realityforge.webgl.','')}",
-                              :gwt_module => module_name,
-                              :start_javascript_debugger => false,
-                              :open_in_browser => false,
-                              :vm_parameters => '-Xmx2G -Djava.awt.headless=true -Dgwt.watchFileChanges=false',
-                              :shell_parameters => "-strict -style PRETTY -XmethodNameDisplayMode FULL -nostartServer -incremental -codeServerPort 8889 -bindAddress 0.0.0.0 -deploy #{_(:generated, :gwt, 'deploy')} -extra #{_(:generated, :gwt, 'extra')} -war #{_(:generated, :gwt, 'war')}",
-                              :launch_page => "http://127.0.0.1:8889/example/index.html")
-  end
+  gwt(['riftek.Riftek'],
+      {
+        :java_args => %w(-Xms512M -Xmx1024M -Dgwt.watchFileChanges=false),
+        :dependencies => project.compile.dependencies + [project.compile.target] + [Buildr.artifact(:gwt_user)],
+        :gwtc_args => %w(-optimize 9 -checkAssertions -XmethodNameDisplayMode FULL -noincremental)
+      })
+  ipr.add_gwt_configuration(project,
+                            :name => "Run Riftek",
+                            :gwt_module => 'riftek.Riftek',
+                            :start_javascript_debugger => false,
+                            :open_in_browser => false,
+                            :vm_parameters => '-Xmx2G -Djava.awt.headless=true -Dgwt.watchFileChanges=false',
+                            :shell_parameters => "-strict -style PRETTY -XmethodNameDisplayMode FULL -nostartServer -incremental -codeServerPort 8889 -bindAddress 0.0.0.0 -deploy #{_(:generated, :gwt, 'deploy')} -extra #{_(:generated, :gwt, 'extra')} -war #{_(:generated, :gwt, 'war')}",
+                            :launch_page => "http://127.0.0.1:8889/riftek/index.html")
 
-  project.iml.add_gwt_facet(gwt_config, :settings => {
+  project.iml.add_gwt_facet({ 'riftek.Main' => false }, :settings => {
     :compilerMaxHeapSize => '1024',
     :compilerParameters => '-draftCompile -localWorkers 2 -strict'
   }, :gwt_dev_artifact => :gwt_dev)
