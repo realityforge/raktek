@@ -35,22 +35,22 @@ public final class PerspectiveViewport
     _fovY = fovY;
   }
 
-  public double getzNear()
+  public double getZNear()
   {
     return _zNear;
   }
 
-  public void setzNear( final double zNear )
+  public void setZNear( final double zNear )
   {
     _zNear = zNear;
   }
 
-  public double getzFar()
+  public double getZFar()
   {
     return _zFar;
   }
 
-  public void setzFar( final double zFar )
+  public void setZFar( final double zFar )
   {
     _zFar = zFar;
   }
