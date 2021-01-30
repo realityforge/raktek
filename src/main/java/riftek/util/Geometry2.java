@@ -19,7 +19,7 @@ public final class Geometry2
   @Nonnull
   private final Attribute[] _attributes;
   @Nullable
-  private final IndexBuffer _indexBuffer;
+  private final ElementBuffer _elementBuffer;
 
   public Geometry2( @Nonnull final WebGL2RenderingContext gl, final int count, @Nonnull final Attribute... attributes )
   {
@@ -30,10 +30,10 @@ public final class Geometry2
                     @DrawPrimitiveType final int mode,
                     final int offset,
                     final int count,
-                    @Nullable final IndexBuffer indexBuffer,
+                    @Nullable final ElementBuffer elementBuffer,
                     @Nonnull final Attribute... attributes )
   {
-    this( gl, mode, offset, count, 0, indexBuffer, attributes );
+    this( gl, mode, offset, count, 0, elementBuffer, attributes );
   }
 
   public Geometry2( @Nonnull final WebGL2RenderingContext gl,
@@ -41,7 +41,7 @@ public final class Geometry2
                     final int offset,
                     final int count,
                     final int maxInstances,
-                    @Nullable final IndexBuffer indexBuffer,
+                    @Nullable final ElementBuffer elementBuffer,
                     @Nonnull final Attribute... attributes )
   {
     super( gl, true );
@@ -54,7 +54,7 @@ public final class Geometry2
     _offset = offset;
     _count = count;
     _maxInstances = maxInstances;
-    _indexBuffer = indexBuffer;
+    _elementBuffer = elementBuffer;
     _attributes = Objects.requireNonNull( attributes );
   }
 
@@ -75,9 +75,9 @@ public final class Geometry2
   protected WebGLVertexArrayObject allocateResource()
   {
     // Upload the buffers ... outside the scope of the VAO
-    if ( null != _indexBuffer )
+    if ( null != _elementBuffer )
     {
-      _indexBuffer.allocateIfNecessary();
+      _elementBuffer.allocateIfNecessary();
     }
     for ( final Attribute attribute : _attributes )
     {
@@ -88,9 +88,9 @@ public final class Geometry2
     final WebGLVertexArrayObject vertexArrayObject = gl.createVertexArray();
     assert null != vertexArrayObject;
     gl.bindVertexArray( vertexArrayObject );
-    if ( null != _indexBuffer )
+    if ( null != _elementBuffer )
     {
-      _indexBuffer.bind();
+      _elementBuffer.bind();
     }
     for ( final Attribute attribute : _attributes )
     {
@@ -128,13 +128,13 @@ public final class Geometry2
     bind();
 
     final WebGL2RenderingContext gl = gl();
-    if ( null == _indexBuffer )
+    if ( null == _elementBuffer )
     {
       gl.drawArrays( _mode, _offset, _count );
     }
     else
     {
-      gl.drawElements( _mode, _count, _indexBuffer.getType(), _offset );
+      gl.drawElements( _mode, _count, _elementBuffer.getType(), _offset );
     }
     unbind();
   }
@@ -147,13 +147,13 @@ public final class Geometry2
     bind();
 
     final WebGL2RenderingContext gl = gl();
-    if ( null == _indexBuffer )
+    if ( null == _elementBuffer )
     {
       gl.drawArraysInstanced( _mode, _offset, _count, instanceCount );
     }
     else
     {
-      gl.drawElementsInstanced( _mode, _count, _indexBuffer.getType(), _offset, instanceCount );
+      gl.drawElementsInstanced( _mode, _count, _elementBuffer.getType(), _offset, instanceCount );
     }
     unbind();
   }

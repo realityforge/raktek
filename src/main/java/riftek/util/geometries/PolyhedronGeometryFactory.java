@@ -17,8 +17,8 @@ import org.realityforge.vecmath.Vector3d;
 import riftek.util.Accessor;
 import riftek.util.Attribute;
 import riftek.util.AttributeBuffer;
+import riftek.util.ElementBuffer;
 import riftek.util.Geometry;
-import riftek.util.IndexBuffer;
 
 /**
  * This file was extracted from https://github.com/mrdoob/three.js/blob/1040b5c9718eeb1b011b770ba56217ced3ca6bcc/src/geometries/PolyhedronBufferGeometry.js
@@ -156,7 +156,7 @@ public final class PolyhedronGeometryFactory
     _geometry = new Geometry( mode,
                               0,
                               _indexes.length,
-                              new IndexBuffer( gl, new Uint16Array( _indexes ), WebGL2RenderingContext.UNSIGNED_SHORT ),
+                              new ElementBuffer( gl, new Uint16Array( _indexes ), WebGL2RenderingContext.UNSIGNED_SHORT ),
                               attributes.toArray( new Attribute[ 0 ] ) );
   }
 
