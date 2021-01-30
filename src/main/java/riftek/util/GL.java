@@ -3,19 +3,12 @@ package riftek.util;
 import elemental3.Console;
 import elemental3.HTMLImageElement;
 import elemental3.Image;
-import elemental3.core.Float32Array;
-import elemental3.core.Uint16Array;
-import elemental3.gl.AttributeDataType;
-import elemental3.gl.BufferTargetType;
 import elemental3.gl.GLSL;
 import elemental3.gl.ShaderType;
 import elemental3.gl.TextureMagnificationFilter;
 import elemental3.gl.TextureMinificationFilter;
 import elemental3.gl.TextureWrapMode;
-import elemental3.gl.UsageType;
-import elemental3.gl.VertexDimensions;
 import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLBuffer;
 import elemental3.gl.WebGLProgram;
 import elemental3.gl.WebGLShader;
 import elemental3.gl.WebGLTexture;
@@ -32,49 +25,6 @@ public final class GL
 {
   private GL()
   {
-  }
-
-  @SuppressWarnings( { "SameParameterValue", "UnusedReturnValue" } )
-  @Nonnull
-  public static WebGLBuffer prepareBuffer( @Nonnull final WebGL2RenderingContext gl,
-                                           @BufferTargetType final int target,
-                                           @UsageType final int usage,
-                                           @Nonnull final Uint16Array data )
-  {
-    final WebGLBuffer buffer = gl.createBuffer();
-    assert null != buffer;
-    gl.bindBuffer( target, buffer );
-    gl.bufferData( target, data, usage );
-    return buffer;
-  }
-
-  @SuppressWarnings( "SameParameterValue" )
-  @Nonnull
-  public static WebGLBuffer prepareBuffer( @Nonnull final WebGL2RenderingContext gl,
-                                           @BufferTargetType final int target,
-                                           @UsageType final int usage,
-                                           @Nonnull final Float32Array data )
-  {
-    final WebGLBuffer buffer = gl.createBuffer();
-    assert null != buffer;
-    gl.bindBuffer( target, buffer );
-    gl.bufferData( target, data, usage );
-    return buffer;
-  }
-
-  @SuppressWarnings( "SameParameterValue" )
-  public static void sendToGpu( @Nonnull final WebGL2RenderingContext gl,
-                                @Nonnull final WebGLBuffer buffer,
-                                final int index,
-                                @BufferTargetType final int target,
-                                @VertexDimensions final int size,
-                                @AttributeDataType final int type,
-                                final int stride,
-                                final int offset )
-  {
-    gl.enableVertexAttribArray( index );
-    gl.bindBuffer( target, buffer );
-    gl.vertexAttribPointer( index, size, type, false, stride, offset );
   }
 
   @Nullable
@@ -227,17 +177,6 @@ public final class GL
       final HTMLImageElement image = new Image();
       image.src = src;
       image.onload = e -> resolveFn.resolve( prepareImageFn.prepareTexture( image ) );
-      image.onerror = ( e, s, l, c, o ) -> rejectFn.reject( e );
-    } );
-  }
-
-  @Nonnull
-  public static Promise<HTMLImageElement> loadImage( @Nonnull final String src )
-  {
-    return new Promise<>( ( resolveFn, rejectFn ) -> {
-      final HTMLImageElement image = new Image();
-      image.src = src;
-      image.onload = e -> resolveFn.resolve( image );
       image.onerror = ( e, s, l, c, o ) -> rejectFn.reject( e );
     } );
   }
