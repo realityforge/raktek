@@ -11,7 +11,12 @@ public final class Attribute
    * The data and layout of data.
    */
   @Nonnull
-  private final AttributeBuffer _buffer;
+  private final Buffer _buffer;
+  /**
+   * The description of how to access the buffer to retrieve the vertex data.
+   */
+  @Nonnull
+  private final Accessor _accessor;
   /**
    * The location/index of attribute in the program. This can either be specified in
    * the shader definition or looked up at runtime. Specifying the value in the shader source
@@ -19,19 +24,20 @@ public final class Attribute
    */
   private int _location;
 
-  public Attribute( @Nonnull final AttributeBuffer buffer )
+  public Attribute( @Nonnull final Buffer buffer,@Nonnull final Accessor accessor )
   {
-    this( buffer, WebGL2RenderingContext.INVALID_INDEX );
+    this( buffer, accessor, WebGL2RenderingContext.INVALID_INDEX );
   }
 
-  public Attribute( @Nonnull final AttributeBuffer buffer, final int location )
+  public Attribute( @Nonnull final Buffer buffer, @Nonnull final Accessor accessor, final int location )
   {
     _buffer = Objects.requireNonNull( buffer );
+    _accessor = Objects.requireNonNull( accessor );
     _location = location;
   }
 
   @Nonnull
-  public AttributeBuffer getBuffer()
+  public Buffer getBuffer()
   {
     return _buffer;
   }
@@ -59,23 +65,22 @@ public final class Attribute
     final WebGL2RenderingContext gl = _buffer.gl();
     gl.enableVertexAttribArray( _location );
     _buffer.bind();
-    final Accessor accessor = _buffer.getAccessor();
-    if ( accessor.isInteger() )
+    if ( _accessor.isInteger() )
     {
       gl.vertexAttribIPointer( _location,
-                               accessor.getComponentCount(),
-                               AttributeIntegerDataType.Validator.cast( accessor.getComponentType() ),
-                               accessor.getStride(),
-                               accessor.getOffset() );
+                               _accessor.getComponentCount(),
+                               AttributeIntegerDataType.Validator.cast( _accessor.getComponentType() ),
+                               _accessor.getStride(),
+                               _accessor.getOffset() );
     }
     else
     {
       gl.vertexAttribPointer( _location,
-                              accessor.getComponentCount(),
-                              accessor.getComponentType(),
-                              accessor.shouldNormalize(),
-                              accessor.getStride(),
-                              accessor.getOffset() );
+                              _accessor.getComponentCount(),
+                              _accessor.getComponentType(),
+                              _accessor.shouldNormalize(),
+                              _accessor.getStride(),
+                              _accessor.getOffset() );
     }
   }
 }

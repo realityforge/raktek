@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import org.intellij.lang.annotations.MagicConstant;
 import raktek.util.Accessor;
 import raktek.util.Attribute;
-import raktek.util.AttributeBuffer;
+import raktek.util.Buffer;
 import raktek.util.Geometry2;
 
 public final class CubeGeometryFactory
@@ -67,18 +67,24 @@ public final class CubeGeometryFactory
     buildData( length );
 
     final List<Attribute> attributes = new ArrayList<>();
-    attributes.add( new Attribute( new AttributeBuffer( gl, new Float32Array( _positions ), new Accessor( 3 ) ) ) );
+    attributes.add( new Attribute( new Buffer( gl,
+                                               new Float32Array( _positions ),
+                                               WebGL2RenderingContext.ARRAY_BUFFER ), new Accessor( 3 ) ) );
     if ( null != _colors )
     {
-      attributes.add( new Attribute( new AttributeBuffer( gl, new Float32Array( _colors ), new Accessor( 4 ) ) ) );
+      attributes.add( new Attribute( new Buffer( gl, new Float32Array( _colors ), WebGL2RenderingContext.ARRAY_BUFFER ),
+                                     new Accessor( 4 ) ) );
     }
     if ( null != _uvs )
     {
-      attributes.add( new Attribute( new AttributeBuffer( gl, new Float32Array( _uvs ), new Accessor( 2 ) ) ) );
+      attributes.add( new Attribute( new Buffer( gl, new Float32Array( _uvs ), WebGL2RenderingContext.ARRAY_BUFFER ),
+                                     new Accessor( 2 ) ) );
     }
     if ( null != _normals )
     {
-      attributes.add( new Attribute( new AttributeBuffer( gl, new Float32Array( _normals ), new Accessor( 3 ) ) ) );
+      attributes.add( new Attribute( new Buffer( gl,
+                                                 new Float32Array( _normals ),
+                                                 WebGL2RenderingContext.ARRAY_BUFFER ), new Accessor( 3 ) ) );
     }
     _geometry = new Geometry2( gl, mode, 0, 36, null, attributes.toArray( new Attribute[ 0 ] ) );
   }

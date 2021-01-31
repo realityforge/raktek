@@ -8,7 +8,7 @@ import elemental3.gl.WebGLBuffer;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 
-public abstract class Buffer
+public final class Buffer
   extends Resource<WebGLBuffer>
 {
   @Nonnull
@@ -18,17 +18,17 @@ public abstract class Buffer
   @BufferTargetType
   private final int _bufferTarget;
 
-  protected Buffer( @Nonnull final WebGL2RenderingContext gl,
-                    @Nonnull final ArrayBufferView data,
-                    @BufferTargetType final int bufferTarget )
+  public Buffer( @Nonnull final WebGL2RenderingContext gl,
+                 @Nonnull final ArrayBufferView data,
+                 @BufferTargetType final int bufferTarget )
   {
     this( gl, data, WebGL2RenderingContext.STATIC_DRAW, bufferTarget );
   }
 
-  protected Buffer( @Nonnull final WebGL2RenderingContext gl,
-                    @Nonnull final ArrayBufferView data,
-                    @UsageType final int usage,
-                    @BufferTargetType final int bufferTarget )
+  public Buffer( @Nonnull final WebGL2RenderingContext gl,
+                 @Nonnull final ArrayBufferView data,
+                 @UsageType final int usage,
+                 @BufferTargetType final int bufferTarget )
   {
     super( gl, true );
     UsageType.Validator.assertValid( usage );
