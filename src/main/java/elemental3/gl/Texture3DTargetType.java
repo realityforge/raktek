@@ -17,6 +17,13 @@ public @interface Texture3DTargetType {
     private Validator() {
     }
 
+    @Texture3DTargetType
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@Texture3DTargetType annotated value must be one of [WebGL2RenderingContext.TEXTURE_3D, WebGL2RenderingContext.TEXTURE_2D_ARRAY] but is " + value;
     }

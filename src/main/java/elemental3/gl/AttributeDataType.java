@@ -21,6 +21,13 @@ public @interface AttributeDataType {
     private Validator() {
     }
 
+    @AttributeDataType
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@AttributeDataType annotated value must be one of [WebGL2RenderingContext.BYTE, WebGL2RenderingContext.UNSIGNED_BYTE, WebGL2RenderingContext.SHORT, WebGL2RenderingContext.UNSIGNED_SHORT, WebGL2RenderingContext.FLOAT, WebGL2RenderingContext.HALF_FLOAT] but is " + value;
     }

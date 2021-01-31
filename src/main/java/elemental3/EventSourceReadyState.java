@@ -18,6 +18,13 @@ public @interface EventSourceReadyState {
     private Validator() {
     }
 
+    @EventSourceReadyState
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@EventSourceReadyState annotated value must be one of [EventSource.CONNECTING, EventSource.OPEN, EventSource.CLOSED] but is " + value;
     }

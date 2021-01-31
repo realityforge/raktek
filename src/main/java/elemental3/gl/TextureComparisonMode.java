@@ -17,6 +17,13 @@ public @interface TextureComparisonMode {
     private Validator() {
     }
 
+    @TextureComparisonMode
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@TextureComparisonMode annotated value must be one of [WebGL2RenderingContext.NONE, WebGL2RenderingContext.COMPARE_REF_TO_TEXTURE] but is " + value;
     }

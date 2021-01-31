@@ -21,6 +21,13 @@ public @interface ApplicationCacheStatus {
     private Validator() {
     }
 
+    @ApplicationCacheStatus
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@ApplicationCacheStatus annotated value must be one of [ApplicationCache.UNCACHED, ApplicationCache.IDLE, ApplicationCache.CHECKING, ApplicationCache.DOWNLOADING, ApplicationCache.UPDATEREADY, ApplicationCache.OBSOLETE] but is " + value;
     }

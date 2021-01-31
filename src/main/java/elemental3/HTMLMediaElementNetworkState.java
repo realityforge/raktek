@@ -19,6 +19,13 @@ public @interface HTMLMediaElementNetworkState {
     private Validator() {
     }
 
+    @HTMLMediaElementNetworkState
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@HTMLMediaElementNetworkState annotated value must be one of [HTMLMediaElement.NETWORK_EMPTY, HTMLMediaElement.NETWORK_IDLE, HTMLMediaElement.NETWORK_LOADING, HTMLMediaElement.NETWORK_NO_SOURCE] but is " + value;
     }

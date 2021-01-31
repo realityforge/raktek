@@ -18,6 +18,13 @@ public @interface FramebufferTargetType {
     private Validator() {
     }
 
+    @FramebufferTargetType
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@FramebufferTargetType annotated value must be one of [WebGL2RenderingContext.FRAMEBUFFER, WebGL2RenderingContext.DRAW_FRAMEBUFFER, WebGL2RenderingContext.READ_FRAMEBUFFER] but is " + value;
     }

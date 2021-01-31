@@ -21,6 +21,13 @@ public @interface TextureMinificationFilter {
     private Validator() {
     }
 
+    @TextureMinificationFilter
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@TextureMinificationFilter annotated value must be one of [WebGL2RenderingContext.LINEAR, WebGL2RenderingContext.NEAREST, WebGL2RenderingContext.NEAREST_MIPMAP_NEAREST, WebGL2RenderingContext.LINEAR_MIPMAP_NEAREST, WebGL2RenderingContext.NEAREST_MIPMAP_LINEAR, WebGL2RenderingContext.LINEAR_MIPMAP_LINEAR] but is " + value;
     }

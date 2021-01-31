@@ -19,6 +19,13 @@ public @interface WebSocketReadyState {
     private Validator() {
     }
 
+    @WebSocketReadyState
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@WebSocketReadyState annotated value must be one of [WebSocket.CONNECTING, WebSocket.OPEN, WebSocket.CLOSING, WebSocket.CLOSED] but is " + value;
     }

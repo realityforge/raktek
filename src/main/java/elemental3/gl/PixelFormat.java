@@ -23,6 +23,13 @@ public @interface PixelFormat {
     private Validator() {
     }
 
+    @PixelFormat
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@PixelFormat annotated value must be one of [WebGL2RenderingContext.RGB, WebGL2RenderingContext.RGBA, WebGL2RenderingContext.RED, WebGL2RenderingContext.RED_INTEGER, WebGL2RenderingContext.RG, WebGL2RenderingContext.RG_INTEGER, WebGL2RenderingContext.RGB_INTEGER, WebGL2RenderingContext.RGBA_INTEGER] but is " + value;
     }

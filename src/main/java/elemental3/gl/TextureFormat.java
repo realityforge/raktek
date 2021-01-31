@@ -26,6 +26,13 @@ public @interface TextureFormat {
     private Validator() {
     }
 
+    @TextureFormat
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@TextureFormat annotated value must be one of [WebGL2RenderingContext.RGB, WebGL2RenderingContext.RGBA, WebGL2RenderingContext.LUMINANCE_ALPHA, WebGL2RenderingContext.LUMINANCE, WebGL2RenderingContext.ALPHA, WebGL2RenderingContext.RED, WebGL2RenderingContext.RED_INTEGER, WebGL2RenderingContext.RG, WebGL2RenderingContext.RG_INTEGER, WebGL2RenderingContext.RGB_INTEGER, WebGL2RenderingContext.RGBA_INTEGER] but is " + value;
     }

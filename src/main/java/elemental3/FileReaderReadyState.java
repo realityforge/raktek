@@ -18,6 +18,13 @@ public @interface FileReaderReadyState {
     private Validator() {
     }
 
+    @FileReaderReadyState
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@FileReaderReadyState annotated value must be one of [FileReader.EMPTY, FileReader.LOADING, FileReader.DONE] but is " + value;
     }

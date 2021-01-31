@@ -19,6 +19,13 @@ public @interface RangeCompareType {
     private Validator() {
     }
 
+    @RangeCompareType
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@RangeCompareType annotated value must be one of [Range.START_TO_START, Range.START_TO_END, Range.END_TO_END, Range.END_TO_START] but is " + value;
     }

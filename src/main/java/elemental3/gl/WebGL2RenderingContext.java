@@ -6755,8 +6755,8 @@ public class WebGL2RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.8">The definition of 'vertexAttribIPointer' in the 'WebGL 2.0' specification.</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man3/html/glVertexAttribPointer.xhtml">The definition of 'glVertexAttribPointer' in the 'OpenGL ES 3.0' specification.</a>
    */
-  public native void vertexAttribIPointer(int index, @VertexDimensions int size, int type,
-      int stride, int offset);
+  public native void vertexAttribIPointer(int index, @VertexDimensions int size,
+      @AttributeIntegerDataType int type, int stride, int offset);
 
   /**
    * The WebGL2RenderingContext.waitSync() method of the WebGL 2 API returns immediately, but waits on the GL server until the given WebGLSync object is signaled.

@@ -18,6 +18,13 @@ public @interface PositionErrorCode {
     private Validator() {
     }
 
+    @PositionErrorCode
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@PositionErrorCode annotated value must be one of [PositionError.PERMISSION_DENIED, PositionError.POSITION_UNAVAILABLE, PositionError.TIMEOUT] but is " + value;
     }

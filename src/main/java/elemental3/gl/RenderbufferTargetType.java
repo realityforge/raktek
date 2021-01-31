@@ -14,6 +14,13 @@ public @interface RenderbufferTargetType {
     private Validator() {
     }
 
+    @RenderbufferTargetType
+    @SuppressWarnings("MagicConstant")
+    public static int cast(final int value) {
+      assertValid( value );
+      return value;
+    }
+
     public static void assertValid(final int value) {
       assert isValid( value ) : "@RenderbufferTargetType annotated value must be one of [WebGL2RenderingContext.RENDERBUFFER] but is " + value;
     }
