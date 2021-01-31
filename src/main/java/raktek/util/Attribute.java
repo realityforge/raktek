@@ -1,5 +1,6 @@
 package raktek.util;
 
+import elemental3.gl.AttributeIntegerDataType;
 import elemental3.gl.WebGL2RenderingContext;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -59,11 +60,22 @@ public final class Attribute
     gl.enableVertexAttribArray( _location );
     _buffer.bind();
     final Accessor accessor = _buffer.getAccessor();
-    gl.vertexAttribPointer( _location,
-                            accessor.getComponentCount(),
-                            accessor.getComponentType(),
-                            accessor.shouldNormalize(),
-                            accessor.getStride(),
-                            accessor.getOffset() );
+    if ( accessor.isInteger() )
+    {
+      gl.vertexAttribIPointer( _location,
+                               accessor.getComponentCount(),
+                               AttributeIntegerDataType.Validator.cast( accessor.getComponentType() ),
+                               accessor.getStride(),
+                               accessor.getOffset() );
+    }
+    else
+    {
+      gl.vertexAttribPointer( _location,
+                              accessor.getComponentCount(),
+                              accessor.getComponentType(),
+                              accessor.shouldNormalize(),
+                              accessor.getStride(),
+                              accessor.getOffset() );
+    }
   }
 }

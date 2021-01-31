@@ -6,6 +6,7 @@ import elemental3.core.Int8Array;
 import elemental3.core.Uint16Array;
 import elemental3.core.Uint8Array;
 import elemental3.gl.AttributeDataType;
+import elemental3.gl.AttributeIntegerDataType;
 import elemental3.gl.VertexDimensions;
 import elemental3.gl.WebGL2RenderingContext;
 
@@ -21,6 +22,7 @@ public final class Accessor
   @AttributeDataType
   private final int _componentType;
   private final boolean _normalize;
+  private final boolean _integer;
   private final int _stride;
   private final int _offset;
 
@@ -39,25 +41,28 @@ public final class Accessor
                    final int stride,
                    final int offset )
   {
-    this( componentCount, componentType, false, stride, offset );
+    this( componentCount, componentType, false, false, stride, offset );
   }
 
   public Accessor( @VertexDimensions final int componentCount,
                    @AttributeDataType final int componentType,
                    final boolean normalize,
+                   final boolean integer,
                    final int stride,
                    final int offset )
   {
     assert componentCount > 0 && componentCount <= 4;
     assert stride >= 0 && stride <= 255;
     assert offset >= 0;
-    // Normalize should only be set to true for integer data types
-    assert !normalize || ( WebGL2RenderingContext.FLOAT != componentType &&
-                           WebGL2RenderingContext.HALF_FLOAT != componentType );
+    // Normalize and integer flags should only be set to true for integer data types
+    assert !normalize || AttributeIntegerDataType.Validator.isValid( componentType );
+    assert !integer || AttributeIntegerDataType.Validator.isValid( componentType );
+    assert !normalize || !integer;
     AttributeDataType.Validator.assertValid( componentType );
     _componentCount = componentCount;
     _componentType = componentType;
     _normalize = normalize;
+    _integer = integer;
     _stride = stride;
     _offset = offset;
     assert 0 == stride || stride >= getBytesPerVertex() :
@@ -90,6 +95,19 @@ public final class Accessor
   public boolean shouldNormalize()
   {
     return _normalize;
+  }
+
+  /**
+   * Return true if the attribute data is integer data and should not be converted to floating point data.
+   * In practical terms this means using {@link WebGL2RenderingContext#vertexAttribIPointer(int, int, int, int, int)}
+   * rather than {@link WebGL2RenderingContext#vertexAttribPointer(int, int, int, boolean, int, int)} when passing
+   * data to the GPU.
+   *
+   * @return return true to treat the attribute data as integer values, false to convert to floating point data.
+   */
+  public boolean isInteger()
+  {
+    return _integer;
   }
 
   /**
