@@ -19,7 +19,7 @@ public @interface PositionErrorCode {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@PositionErrorCode annotated value must be one of [PositionError.PERMISSION_DENIED, PositionError.POSITION_UNAVAILABLE, PositionError.TIMEOUT] but is " + value;
     }
 
     public static boolean isValid(final int value) {

@@ -26,7 +26,7 @@ public @interface XPathResultResultType {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@XPathResultResultType annotated value must be one of [XPathResult.ANY_TYPE, XPathResult.STRING_TYPE, XPathResult.NUMBER_TYPE, XPathResult.BOOLEAN_TYPE, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, XPathResult.ORDERED_NODE_ITERATOR_TYPE, XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, XPathResult.ANY_UNORDERED_NODE_TYPE, XPathResult.FIRST_ORDERED_NODE_TYPE] but is " + value;
     }
 
     public static boolean isValid(final int value) {

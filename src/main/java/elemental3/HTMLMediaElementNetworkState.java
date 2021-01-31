@@ -20,7 +20,7 @@ public @interface HTMLMediaElementNetworkState {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@HTMLMediaElementNetworkState annotated value must be one of [HTMLMediaElement.NETWORK_EMPTY, HTMLMediaElement.NETWORK_IDLE, HTMLMediaElement.NETWORK_LOADING, HTMLMediaElement.NETWORK_NO_SOURCE] but is " + value;
     }
 
     public static boolean isValid(final int value) {

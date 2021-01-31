@@ -22,7 +22,7 @@ public @interface ApplicationCacheStatus {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@ApplicationCacheStatus annotated value must be one of [ApplicationCache.UNCACHED, ApplicationCache.IDLE, ApplicationCache.CHECKING, ApplicationCache.DOWNLOADING, ApplicationCache.UPDATEREADY, ApplicationCache.OBSOLETE] but is " + value;
     }
 
     public static boolean isValid(final int value) {

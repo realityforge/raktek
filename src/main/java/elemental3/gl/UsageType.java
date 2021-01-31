@@ -25,7 +25,7 @@ public @interface UsageType {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@UsageType annotated value must be one of [WebGL2RenderingContext.STATIC_DRAW, WebGL2RenderingContext.DYNAMIC_DRAW, WebGL2RenderingContext.STREAM_DRAW, WebGL2RenderingContext.STATIC_READ, WebGL2RenderingContext.DYNAMIC_READ, WebGL2RenderingContext.STREAM_READ, WebGL2RenderingContext.STATIC_COPY, WebGL2RenderingContext.DYNAMIC_COPY, WebGL2RenderingContext.STREAM_COPY] but is " + value;
     }
 
     public static boolean isValid(final int value) {

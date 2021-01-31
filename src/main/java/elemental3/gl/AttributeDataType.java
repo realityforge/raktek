@@ -22,7 +22,7 @@ public @interface AttributeDataType {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@AttributeDataType annotated value must be one of [WebGL2RenderingContext.BYTE, WebGL2RenderingContext.UNSIGNED_BYTE, WebGL2RenderingContext.SHORT, WebGL2RenderingContext.UNSIGNED_SHORT, WebGL2RenderingContext.FLOAT, WebGL2RenderingContext.HALF_FLOAT] but is " + value;
     }
 
     public static boolean isValid(final int value) {

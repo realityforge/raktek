@@ -19,7 +19,7 @@ public @interface FramebufferTargetType {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@FramebufferTargetType annotated value must be one of [WebGL2RenderingContext.FRAMEBUFFER, WebGL2RenderingContext.DRAW_FRAMEBUFFER, WebGL2RenderingContext.READ_FRAMEBUFFER] but is " + value;
     }
 
     public static boolean isValid(final int value) {

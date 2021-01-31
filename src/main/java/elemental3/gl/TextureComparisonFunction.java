@@ -24,7 +24,7 @@ public @interface TextureComparisonFunction {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@TextureComparisonFunction annotated value must be one of [WebGL2RenderingContext.LEQUAL, WebGL2RenderingContext.GEQUAL, WebGL2RenderingContext.LESS, WebGL2RenderingContext.GREATER, WebGL2RenderingContext.EQUAL, WebGL2RenderingContext.NOTEQUAL, WebGL2RenderingContext.ALWAYS, WebGL2RenderingContext.NEVER] but is " + value;
     }
 
     public static boolean isValid(final int value) {

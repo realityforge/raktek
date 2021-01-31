@@ -18,7 +18,7 @@ public @interface TextureMagnificationFilter {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@TextureMagnificationFilter annotated value must be one of [WebGL2RenderingContext.LINEAR, WebGL2RenderingContext.NEAREST] but is " + value;
     }
 
     public static boolean isValid(final int value) {

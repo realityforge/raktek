@@ -20,7 +20,7 @@ public @interface WebSocketReadyState {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@WebSocketReadyState annotated value must be one of [WebSocket.CONNECTING, WebSocket.OPEN, WebSocket.CLOSING, WebSocket.CLOSED] but is " + value;
     }
 
     public static boolean isValid(final int value) {

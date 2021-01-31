@@ -15,7 +15,7 @@ public @interface RenderbufferTargetType {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@RenderbufferTargetType annotated value must be one of [WebGL2RenderingContext.RENDERBUFFER] but is " + value;
     }
 
     public static boolean isValid(final int value) {

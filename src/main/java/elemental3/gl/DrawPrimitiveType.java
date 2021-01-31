@@ -23,7 +23,7 @@ public @interface DrawPrimitiveType {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@DrawPrimitiveType annotated value must be one of [WebGL2RenderingContext.POINTS, WebGL2RenderingContext.LINE_STRIP, WebGL2RenderingContext.LINE_LOOP, WebGL2RenderingContext.LINES, WebGL2RenderingContext.TRIANGLE_STRIP, WebGL2RenderingContext.TRIANGLE_FAN, WebGL2RenderingContext.TRIANGLES] but is " + value;
     }
 
     public static boolean isValid(final int value) {

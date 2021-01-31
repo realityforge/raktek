@@ -18,7 +18,7 @@ public @interface ShaderType {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@ShaderType annotated value must be one of [WebGL2RenderingContext.VERTEX_SHADER, WebGL2RenderingContext.FRAGMENT_SHADER] but is " + value;
     }
 
     public static boolean isValid(final int value) {

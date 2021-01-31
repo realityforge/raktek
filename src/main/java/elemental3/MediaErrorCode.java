@@ -20,7 +20,7 @@ public @interface MediaErrorCode {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value );
+      assert isValid( value ) : "@MediaErrorCode annotated value must be one of [MediaError.MEDIA_ERR_ABORTED, MediaError.MEDIA_ERR_NETWORK, MediaError.MEDIA_ERR_DECODE, MediaError.MEDIA_ERR_SRC_NOT_SUPPORTED] but is " + value;
     }
 
     public static boolean isValid(final int value) {
