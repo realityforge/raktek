@@ -19,7 +19,6 @@ public @interface TextureWrapMode {
     }
 
     @TextureWrapMode
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

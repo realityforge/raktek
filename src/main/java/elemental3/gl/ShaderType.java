@@ -18,7 +18,6 @@ public @interface ShaderType {
     }
 
     @ShaderType
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

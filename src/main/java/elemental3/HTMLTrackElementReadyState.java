@@ -20,7 +20,6 @@ public @interface HTMLTrackElementReadyState {
     }
 
     @HTMLTrackElementReadyState
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

@@ -51,7 +51,6 @@ public @interface FramebufferAttachment {
     }
 
     @FramebufferAttachment
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

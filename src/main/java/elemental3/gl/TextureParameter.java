@@ -28,7 +28,6 @@ public @interface TextureParameter {
     }
 
     @TextureParameter
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

@@ -15,7 +15,6 @@ public @interface RenderbufferTargetType {
     }
 
     @RenderbufferTargetType
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

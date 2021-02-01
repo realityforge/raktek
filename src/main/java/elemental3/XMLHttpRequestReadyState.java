@@ -21,7 +21,6 @@ public @interface XMLHttpRequestReadyState {
     }
 
     @XMLHttpRequestReadyState
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

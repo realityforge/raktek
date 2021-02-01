@@ -30,7 +30,6 @@ public @interface BlendFactor {
     }
 
     @BlendFactor
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

@@ -76,7 +76,6 @@ public @interface TextureInternalFormat {
     }
 
     @TextureInternalFormat
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

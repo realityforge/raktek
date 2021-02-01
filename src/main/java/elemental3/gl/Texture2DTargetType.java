@@ -18,7 +18,6 @@ public @interface Texture2DTargetType {
     }
 
     @Texture2DTargetType
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

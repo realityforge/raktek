@@ -20,7 +20,6 @@ public @interface EventPhase {
     }
 
     @EventPhase
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

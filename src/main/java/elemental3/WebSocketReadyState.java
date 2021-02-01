@@ -20,7 +20,6 @@ public @interface WebSocketReadyState {
     }
 
     @WebSocketReadyState
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

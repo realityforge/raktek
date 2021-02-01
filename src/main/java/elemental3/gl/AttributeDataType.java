@@ -22,7 +22,6 @@ public @interface AttributeDataType {
     }
 
     @AttributeDataType
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;

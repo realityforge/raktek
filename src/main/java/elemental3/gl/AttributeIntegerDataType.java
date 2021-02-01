@@ -20,7 +20,6 @@ public @interface AttributeIntegerDataType {
     }
 
     @AttributeIntegerDataType
-    @SuppressWarnings("MagicConstant")
     public static int cast(final int value) {
       assertValid( value );
       return value;
