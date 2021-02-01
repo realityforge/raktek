@@ -2279,6 +2279,8 @@ public class WebGL2RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.3">The definition of 'getError' in the 'WebGL 1.0' specification.</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetError.xml">The definition of 'glGetError' in the 'OpenGL ES 2.0' specification.</a>
    */
+  @WebGLContextError
+  @Nonnull
   public native int getError();
 
   /**
