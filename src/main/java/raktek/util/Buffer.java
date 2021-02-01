@@ -39,38 +39,38 @@ public final class Buffer
   }
 
   @Nonnull
-  public final ArrayBufferView getData()
+  public ArrayBufferView getData()
   {
     return _data;
   }
 
   @UsageType
-  public final int getUsage()
+  public int getUsage()
   {
     return _usage;
   }
 
   @Override
-  public final void bind()
+  public void bind()
   {
     gl().bindBuffer( getBufferTarget(), getHandle() );
   }
 
   @BufferTargetType
-  public final int getBufferTarget()
+  public int getBufferTarget()
   {
     return _bufferTarget;
   }
 
   @Override
-  public final void unbind()
+  public void unbind()
   {
     gl().bindBuffer( getBufferTarget(), null );
   }
 
   @Nonnull
   @Override
-  protected final WebGLBuffer allocateResource()
+  protected WebGLBuffer allocateResource()
   {
     final WebGL2RenderingContext gl = gl();
     final WebGLBuffer buffer = gl.createBuffer();
@@ -81,7 +81,7 @@ public final class Buffer
   }
 
   @Override
-  protected final void releaseResource( @Nonnull final WebGLBuffer handle )
+  protected void releaseResource( @Nonnull final WebGLBuffer handle )
   {
     gl().deleteBuffer( handle );
   }
