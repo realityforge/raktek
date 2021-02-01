@@ -16,7 +16,7 @@ public final class Geometry
   @Nonnull
   private final Attribute[] _attributes;
   @Nullable
-  private final ElementBuffer _elementBuffer;
+  private final ElementArray _elements;
   @Nullable
   private WebGLVertexArrayObject _vertexArrayObject;
 
@@ -28,13 +28,13 @@ public final class Geometry
   public Geometry( @DrawPrimitiveType final int mode,
                    final int offset,
                    final int count,
-                   @Nullable final ElementBuffer elementBuffer,
+                   @Nullable final ElementArray elements,
                    @Nonnull final Attribute... attributes )
   {
     _mode = mode;
     _offset = offset;
     _count = count;
-    _elementBuffer = elementBuffer;
+    _elements = elements;
     _attributes = Objects.requireNonNull( attributes );
   }
 
@@ -54,9 +54,9 @@ public final class Geometry
     assert null != vertexArrayObject;
     appState.bindVertexArrayObject( vertexArrayObject );
 
-    if ( null != _elementBuffer )
+    if ( null != _elements )
     {
-      _elementBuffer.bind();
+      _elements.getBuffer().bind();
     }
 
     for ( final Attribute attribute : _attributes )
@@ -85,9 +85,9 @@ public final class Geometry
 
   private void uploadBuffers()
   {
-    if ( null != _elementBuffer )
+    if ( null != _elements )
     {
-      _elementBuffer.allocate();
+      _elements.getBuffer().allocateIfNecessary();
     }
     for ( final Attribute attribute : _attributes )
     {
@@ -112,13 +112,13 @@ public final class Geometry
     appState.bindVertexArrayObject( _vertexArrayObject );
 
     final WebGL2RenderingContext gl = appState.gl();
-    if ( null == _elementBuffer )
+    if ( null == _elements )
     {
       gl.drawArrays( _mode, _offset, _count );
     }
     else
     {
-      gl.drawElements( _mode, _count, _elementBuffer.getType(), _offset );
+      gl.drawElements( _mode, _count, _elements.getType(), _offset );
     }
     appState.bindVertexArrayObject( null );
   }
