@@ -19,6 +19,9 @@ define 'raktek' do
                :braincheck,
                :gwt_user
 
+  test.using :testng
+  test.compile.with :mockito
+
   gwt(['raktek.Raktek'],
       {
         :java_args => %w(-Xms512M -Xmx1024M -Dgwt.watchFileChanges=false),
