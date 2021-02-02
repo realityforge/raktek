@@ -12,7 +12,7 @@ import org.intellij.lang.annotations.MagicConstant;
 import raktek.util.Accessor;
 import raktek.util.Attribute;
 import raktek.util.Buffer;
-import raktek.util.Geometry2;
+import raktek.util.Geometry;
 
 public final class CubeGeometryFactory
 {
@@ -38,19 +38,19 @@ public final class CubeGeometryFactory
   @Nullable
   private final JsArray<Double> _colors;
   @Nonnull
-  private final Geometry2 _geometry;
+  private final Geometry _geometry;
 
   @Nonnull
-  public static Geometry2 create( @Nonnull final WebGL2RenderingContext gl,
-                                  final double length )
+  public static Geometry create( @Nonnull final WebGL2RenderingContext gl,
+                                 final double length )
   {
     return create( gl, length, UVS | COLORS );
   }
 
   @Nonnull
-  public static Geometry2 create( @Nonnull final WebGL2RenderingContext gl,
-                                  final double length,
-                                  @MagicConstant( flags = { NORMALS, UVS, COLORS } ) final int options )
+  public static Geometry create( @Nonnull final WebGL2RenderingContext gl,
+                                 final double length,
+                                 @MagicConstant( flags = { NORMALS, UVS, COLORS } ) final int options )
   {
     return new CubeGeometryFactory( gl, WebGL2RenderingContext.TRIANGLES, length, options )._geometry;
   }
@@ -86,7 +86,7 @@ public final class CubeGeometryFactory
                                                  new Float32Array( _normals ),
                                                  WebGL2RenderingContext.ARRAY_BUFFER ), new Accessor( 3 ) ) );
     }
-    _geometry = new Geometry2( gl, mode, 0, 36, null, attributes.toArray( new Attribute[ 0 ] ) );
+    _geometry = new Geometry( gl, mode, 0, 36, null, attributes.toArray( new Attribute[ 0 ] ) );
   }
 
   private void buildData( final double length )

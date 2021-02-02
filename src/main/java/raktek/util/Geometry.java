@@ -7,7 +7,7 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public final class Geometry2
+public final class Geometry
   extends Resource<WebGLVertexArrayObject>
 {
   @DrawPrimitiveType
@@ -21,28 +21,28 @@ public final class Geometry2
   @Nullable
   private final ElementArray _elements;
 
-  public Geometry2( @Nonnull final WebGL2RenderingContext gl, final int count, @Nonnull final Attribute... attributes )
+  public Geometry( @Nonnull final WebGL2RenderingContext gl, final int count, @Nonnull final Attribute... attributes )
   {
     this( gl, WebGL2RenderingContext.TRIANGLES, 0, count, null, attributes );
   }
 
-  public Geometry2( @Nonnull final WebGL2RenderingContext gl,
-                    @DrawPrimitiveType final int mode,
-                    final int offset,
-                    final int count,
-                    @Nullable final ElementArray elements,
-                    @Nonnull final Attribute... attributes )
+  public Geometry( @Nonnull final WebGL2RenderingContext gl,
+                   @DrawPrimitiveType final int mode,
+                   final int offset,
+                   final int count,
+                   @Nullable final ElementArray elements,
+                   @Nonnull final Attribute... attributes )
   {
     this( gl, mode, offset, count, 0, elements, attributes );
   }
 
-  public Geometry2( @Nonnull final WebGL2RenderingContext gl,
-                    @DrawPrimitiveType final int mode,
-                    final int offset,
-                    final int count,
-                    final int maxInstances,
-                    @Nullable final ElementArray elements,
-                    @Nonnull final Attribute... attributes )
+  public Geometry( @Nonnull final WebGL2RenderingContext gl,
+                   @DrawPrimitiveType final int mode,
+                   final int offset,
+                   final int count,
+                   final int maxInstances,
+                   @Nullable final ElementArray elements,
+                   @Nonnull final Attribute... attributes )
   {
     super( gl, true );
     DrawPrimitiveType.Validator.assertValid( mode );

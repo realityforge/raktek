@@ -12,13 +12,13 @@ import org.realityforge.vecmath.Vector3d;
 import org.realityforge.vecmath.Vector3f;
 import raktek.util.Camera;
 import raktek.util.GL;
-import raktek.util.Geometry2;
+import raktek.util.Geometry;
 import raktek.util.Uniform;
 
 final class Mesh
 {
   @Nonnull
-  private final Geometry2 _geometry;
+  private final Geometry _geometry;
   private WebGLTexture _texture1;
   private WebGLTexture _texture2;
   @Nonnull
@@ -41,7 +41,7 @@ final class Mesh
   private final Uniform _cameraPosition;
 
   Mesh( @Nonnull final WebGL2RenderingContext gl,
-        @Nonnull final Geometry2 geometry,
+        @Nonnull final Geometry geometry,
         @GLSL @Nonnull final String vertexShaderSource,
         @GLSL @Nonnull final String fragmentShaderSource )
   {
@@ -95,7 +95,7 @@ final class Mesh
   }
 
   @Nonnull
-  Geometry2 getGeometry()
+  Geometry getGeometry()
   {
     return _geometry;
   }

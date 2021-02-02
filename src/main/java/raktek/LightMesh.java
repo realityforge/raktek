@@ -6,7 +6,7 @@ import elemental3.gl.WebGLProgram;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import raktek.util.GL;
-import raktek.util.Geometry2;
+import raktek.util.Geometry;
 import raktek.util.ResourceException;
 import raktek.util.Uniform;
 
@@ -23,10 +23,10 @@ final class LightMesh
   @Nonnull
   private final Uniform _color;
   @Nonnull
-  private final Geometry2 _geometry;
+  private final Geometry _geometry;
 
   LightMesh( @Nonnull final WebGL2RenderingContext gl,
-             @Nonnull final Geometry2 geometry,
+             @Nonnull final Geometry geometry,
              @GLSL @Nonnull final String vertexShaderSource,
              @GLSL @Nonnull final String fragmentShaderSource )
     throws ResourceException
@@ -75,7 +75,7 @@ final class LightMesh
   }
 
   @Nonnull
-  Geometry2 getGeometry()
+  Geometry getGeometry()
   {
     return _geometry;
   }
