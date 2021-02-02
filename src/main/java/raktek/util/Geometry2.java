@@ -73,6 +73,7 @@ public final class Geometry2
   @Nonnull
   @Override
   protected WebGLVertexArrayObject allocateResource()
+    throws ResourceException
   {
     // Upload the buffers ... outside the scope of the VAO
     if ( null != _elements )

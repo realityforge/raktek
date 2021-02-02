@@ -71,10 +71,14 @@ public final class Buffer
   @Nonnull
   @Override
   protected WebGLBuffer allocateResource()
+    throws ResourceException
   {
     final WebGL2RenderingContext gl = gl();
     final WebGLBuffer buffer = gl.createBuffer();
-    assert null != buffer;
+    if ( null == buffer )
+    {
+      throw new ResourceException( ResourceException.BUFFER_CREATE_FAILED, gl.getError() );
+    }
     gl.bindBuffer( getBufferTarget(), buffer );
     gl.bufferData( getBufferTarget(), _data, _usage );
     return buffer;

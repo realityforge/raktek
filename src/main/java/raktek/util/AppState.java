@@ -22,7 +22,8 @@ public final class AppState
 
   public interface Action
   {
-    void run();
+    void run()
+      throws ResourceException;
   }
 
   public static AppState create( @Nonnull final WebGL2RenderingContext context )
@@ -37,6 +38,7 @@ public final class AppState
   }
 
   public void in( @Nonnull final Action action )
+    throws ResourceException
   {
     AppStateHolder.inAppState( this, action );
   }

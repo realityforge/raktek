@@ -4,6 +4,7 @@ import org.intellij.lang.annotations.MagicConstant;
 
 @MagicConstant(
   intValues = {
+    ResourceException.BUFFER_CREATE_FAILED,
     ResourceException.SHADER_CREATE_FAILED
   }
 )

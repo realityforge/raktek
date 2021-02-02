@@ -7,6 +7,7 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import raktek.util.GL;
 import raktek.util.Geometry2;
+import raktek.util.ResourceException;
 import raktek.util.Uniform;
 
 final class LightMesh
@@ -28,6 +29,7 @@ final class LightMesh
              @Nonnull final Geometry2 geometry,
              @GLSL @Nonnull final String vertexShaderSource,
              @GLSL @Nonnull final String fragmentShaderSource )
+    throws ResourceException
   {
     final WebGLProgram program = GL.createProgram( gl, vertexShaderSource, fragmentShaderSource );
     assert null != program;

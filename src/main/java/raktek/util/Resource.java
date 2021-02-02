@@ -53,8 +53,11 @@ public abstract class Resource<T>
    * Allocate the underlying resource on the GPU and transfer data required to
    * initialize the resource. If a resource is already allocated then the existing
    * resource is {@link #release() released} and a new resource is allocated.
+   *
+   * @throws ResourceException if there is an unrecoverable error allocating resource.
    */
   public void allocate()
+    throws ResourceException
   {
     release();
     setHandle( allocateResource() );
@@ -62,8 +65,11 @@ public abstract class Resource<T>
 
   /**
    * Allocate the underlying resource unless it has already been allocated.
+   *
+   * @throws ResourceException if there is an unrecoverable error allocating resource.
    */
   public void allocateIfNecessary()
+    throws ResourceException
   {
     if ( !isAllocated() )
     {
@@ -73,8 +79,11 @@ public abstract class Resource<T>
 
   /**
    * If a resource has been allocated then deallocate the resource.
+   *
+   * @throws ResourceException if there is an unrecoverable error releasing resource.
    */
   public final void release()
+    throws ResourceException
   {
     if ( isAllocated() )
     {
@@ -88,14 +97,18 @@ public abstract class Resource<T>
    * Allocate the underlying resource.
    *
    * @return the resource handle.
+   * @throws ResourceException if there is an unrecoverable error allocating resource.
    */
   @Nonnull
-  protected abstract T allocateResource();
+  protected abstract T allocateResource()
+    throws ResourceException;
 
   /**
    * Actually perform the release of the underlying resource.
    *
    * @param handle the resource handle.
+   * @throws ResourceException if there is an unrecoverable error releasing resource.
    */
-  protected abstract void releaseResource( @Nonnull T handle );
+  protected abstract void releaseResource( @Nonnull T handle )
+    throws ResourceException;
 }

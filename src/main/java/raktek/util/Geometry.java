@@ -39,6 +39,7 @@ public final class Geometry
   }
 
   public void uploadToGpu()
+    throws ResourceException
   {
     final AppState appState = AppState.get();
     appState.in( () -> {
@@ -84,6 +85,7 @@ public final class Geometry
   }
 
   private void uploadBuffers()
+    throws ResourceException
   {
     if ( null != _elements )
     {
@@ -94,7 +96,7 @@ public final class Geometry
       // TODO: Maybe we should assume attribute is valid by here
       if ( attribute.isLocationValid() )
       {
-        attribute.getBuffer().allocate();
+        attribute.getBuffer().allocateIfNecessary();
       }
     }
   }

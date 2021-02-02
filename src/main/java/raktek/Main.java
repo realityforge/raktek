@@ -1,6 +1,7 @@
 package raktek;
 
 import com.google.gwt.core.client.EntryPoint;
+import elemental3.Console;
 import elemental3.Document;
 import elemental3.Global;
 import elemental3.HTMLCanvasElement;
@@ -15,6 +16,7 @@ import raktek.util.CanvasUtil;
 import raktek.util.GL;
 import raktek.util.MathUtil;
 import raktek.util.PerspectiveViewport;
+import raktek.util.ResourceException;
 import raktek.util.controls.FirsPersonControl;
 import raktek.util.geometries.CubeGeometryFactory;
 
@@ -172,18 +174,25 @@ public final class Main
     _viewport.setZNear( 0.1 );
     _viewport.setZFar( 10.0 );
 
-    _mesh = new Mesh( gl,
-                      CubeGeometryFactory.create( gl,
-                                                  0.5,
-                                                  CubeGeometryFactory.NORMALS |
-                                                  CubeGeometryFactory.UVS |
-                                                  CubeGeometryFactory.COLORS ),
-                      VERTEX_SHADER_SOURCE,
-                      FRAGMENT_SHADER_SOURCE );
-    _lightMesh = new LightMesh( gl,
-                                CubeGeometryFactory.create( gl, 0.2, 0 ),
-                                LIGHT_VERTEX_SHADER_SOURCE,
-                                LIGHT_FRAGMENT_SHADER_SOURCE );
+    try
+    {
+      _mesh = new Mesh( gl,
+                        CubeGeometryFactory.create( gl,
+                                                    0.5,
+                                                    CubeGeometryFactory.NORMALS |
+                                                    CubeGeometryFactory.UVS |
+                                                    CubeGeometryFactory.COLORS ),
+                        VERTEX_SHADER_SOURCE,
+                        FRAGMENT_SHADER_SOURCE );
+      _lightMesh = new LightMesh( gl,
+                                  CubeGeometryFactory.create( gl, 0.2, 0 ),
+                                  LIGHT_VERTEX_SHADER_SOURCE,
+                                  LIGHT_FRAGMENT_SHADER_SOURCE );
+    }
+    catch ( ResourceException e )
+    {
+      Console.log( "Error", e );
+    }
 
     final Document document = Global.document();
     _control = new FirsPersonControl( _camera, document );
@@ -207,8 +216,15 @@ public final class Main
     else if ( !_sentToGpu )
     {
       // Have to send to GPU here as otherwise texture data has not loaded
-      _mesh.getGeometry().allocate();
-      _lightMesh.getGeometry().allocate();
+      try
+      {
+        _mesh.getGeometry().allocate();
+        _lightMesh.getGeometry().allocate();
+      }
+      catch ( ResourceException e )
+      {
+        Console.log( "Error", e );
+      }
 
       gl.useProgram( _mesh.getProgram() );
       GL.bindTexture( gl, _mesh.getTextureData0(), _mesh.getTexture1(), 0 );

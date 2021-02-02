@@ -1,39 +1,47 @@
 package raktek.util;
 
+import elemental3.gl.WebGLContextError;
 import javax.annotation.Nullable;
 
 public class ResourceException
   extends Exception
 {
   public static final int SHADER_CREATE_FAILED = 1;
+  public static final int BUFFER_CREATE_FAILED = 2;
   @ErrorCode
   private final int _code;
+  @WebGLContextError
+  private final int _contextError;
 
-  public ResourceException( @ErrorCode final int code )
+  public ResourceException( @ErrorCode final int code, @WebGLContextError final int contextError )
   {
-    ErrorCode.Validator.assertValid( code );
-    _code = code;
+    this( code, contextError, null, null );
   }
 
-  public ResourceException( @Nullable final String message, @ErrorCode final int code )
+  public ResourceException( @ErrorCode final int code,
+                            @WebGLContextError final int contextError,
+                            @Nullable final String message )
   {
-    super( message );
-    ErrorCode.Validator.assertValid( code );
-    _code = code;
+    this( code, contextError, message, null );
   }
 
-  public ResourceException( @Nullable final Throwable cause, @ErrorCode final int code )
+  public ResourceException( @ErrorCode final int code,
+                            @WebGLContextError final int contextError,
+                            @Nullable final Throwable cause )
   {
-    super( cause );
-    ErrorCode.Validator.assertValid( code );
-    _code = code;
+    this( code, contextError, null, cause );
   }
 
-  public ResourceException( @Nullable final String message, @Nullable final Throwable cause, @ErrorCode final int code )
+  public ResourceException( @ErrorCode final int code,
+                            @WebGLContextError final int contextError,
+                            @Nullable final String message,
+                            @Nullable final Throwable cause )
   {
     super( message, cause );
     ErrorCode.Validator.assertValid( code );
+    WebGLContextError.Validator.assertValid( contextError );
     _code = code;
+    _contextError = contextError;
   }
 
   @ErrorCode
@@ -42,4 +50,9 @@ public class ResourceException
     return _code;
   }
 
+  @WebGLContextError
+  public int getContextError()
+  {
+    return _contextError;
+  }
 }

@@ -9,6 +9,7 @@ final class AppStateHolder
   private static AppState c_appState;
 
   static void inAppState( @Nonnull final AppState appState, @Nonnull final AppState.Action action )
+    throws ResourceException
   {
     final AppState current = c_appState;
     try
