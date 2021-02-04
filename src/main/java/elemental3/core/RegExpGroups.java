@@ -9,7 +9,6 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
-import jsinterop.base.JsArrayLike;
 
 @Generated("org.realityforge.webtack")
 @JsType(
@@ -17,40 +16,22 @@ import jsinterop.base.JsArrayLike;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class RegExpResult {
-  protected RegExpResult() {
+public class RegExpGroups {
+  protected RegExpGroups() {
   }
 
   @JsProperty(
-      name = "groups"
+      name = "size"
   )
+  public native int size();
+
+  public native boolean has(@Nonnull String key);
+
   @Nullable
-  public native RegExpGroups groups();
-
-  @JsProperty(
-      name = "index"
-  )
-  public native int index();
-
-  @JsProperty(
-      name = "input"
-  )
-  @Nonnull
-  public native String input();
-
-  @JsProperty(
-      name = "length"
-  )
-  public native int length();
-
-  @JsOverlay
-  @Nonnull
-  public final String getAt(final int index) {
-    return Js.<JsArrayLike<String>>cast( this ).getAt( index );
-  }
+  public native String get(@Nonnull String key);
 
   @Nonnull
-  public native JsIterator<Double> keys();
+  public native JsIterator<String> keys();
 
   @Nonnull
   public native JsIterator<String> values();
@@ -66,19 +47,18 @@ public class RegExpResult {
 
   @JsType(
       isNative = true,
-      namespace = JsPackage.GLOBAL,
-      name = "Array"
+      name = "?",
+      namespace = JsPackage.GLOBAL
   )
-  public static final class Entry extends JsArray<Object> {
+  public interface Entry {
     @JsOverlay
-    public final int index() {
-      return getAtAsAny( 0 ).asInt();
+    default String key() {
+      return Js.asArray( this )[ 0 ].cast();
     }
 
     @JsOverlay
-    @Nonnull
-    public final String value() {
-      return getAtAsAny( 1 ).cast();
+    default String value() {
+      return Js.asArray( this )[ 1 ].cast();
     }
   }
 
@@ -91,12 +71,12 @@ public class RegExpResult {
   @JsFunction
   @FunctionalInterface
   public interface ForEachCallback2 {
-    void item(@Nonnull String value, int index);
+    void item(@Nonnull String value, @Nonnull String key);
   }
 
   @JsFunction
   @FunctionalInterface
   public interface ForEachCallback3 {
-    void item(@Nonnull String value, int index, @Nonnull RegExpResult iterable);
+    void item(@Nonnull String value, @Nonnull String key, @Nonnull RegExpGroups map);
   }
 }
