@@ -4,7 +4,7 @@ import elemental3.gl.WebGLContextError;
 import javax.annotation.Nullable;
 
 public class ResourceException
-  extends Exception
+  extends RuntimeException
 {
   public static final int SHADER_CREATE_FAILED = 1;
   public static final int SHADER_COMPILE_FAILED = 2;
