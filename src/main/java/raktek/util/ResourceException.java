@@ -7,7 +7,8 @@ public class ResourceException
   extends Exception
 {
   public static final int SHADER_CREATE_FAILED = 1;
-  public static final int BUFFER_CREATE_FAILED = 2;
+  public static final int SHADER_COMPILE_FAILED = 2;
+  public static final int BUFFER_CREATE_FAILED = 3;
   @ErrorCode
   private final int _code;
   @WebGLContextError
