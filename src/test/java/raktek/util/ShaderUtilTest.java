@@ -58,4 +58,27 @@ public final class ShaderUtilTest
       assertEquals( ShaderUtil.extractName( shader ), "XXX" );
     }
   }
+
+  // Test disabled as no easy way to run tests in javascript context atm
+  @Test( enabled = false )
+  public void parseShaderErrorLine()
+  {
+    {
+      final ShaderInfoMessage message =
+        ShaderUtil.parseShaderErrorLine( "ERROR: 0:137: 'blend2' : no matching overloaded function found" );
+      assertNotNull( message );
+      assertTrue( message.isError() );
+      assertEquals( message.getLine(), 137 );
+      assertEquals( message.getMessage(), "'blend2' : no matching overloaded function found" );
+    }
+    {
+      final ShaderInfoMessage message = ShaderUtil.parseShaderErrorLine( "WARNING: 0:12: '/' : Zero divided by zero" );
+      assertNotNull( message );
+      assertFalse( message.isError() );
+      assertEquals( message.getLine(), 12 );
+      assertEquals( message.getMessage(), "'/' : Zero divided by zero" );
+    }
+    assertNull( ShaderUtil.parseShaderErrorLine( "INFO: 0:1: '/' : Zero divided by zero" ) );
+    assertNull( ShaderUtil.parseShaderErrorLine( "Some random string" ) );
+  }
 }

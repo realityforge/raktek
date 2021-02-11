@@ -41,4 +41,45 @@ public final class ShaderUtil
       return null != base64 ? Global.atob( name ) : name;
     }
   }
+
+  /**
+   * Errors returned by getShaderInfoLog are browser and opengl implementation dependent.
+   * This method attempts to parse a line returned from getShaderInfoLog with a format that is common
+   * in Chromium based browsers and several OpenGL implementations. These errors are formatted like:
+   * <pre>
+   * ERROR: 0:137: 'blend2' : no matching overloaded function found
+   * ERROR: 0:137: '=' : dimension mismatch
+   * ERROR: 0:137: '=' : cannot convert from 'const mediump float' to 'highp 3-component vector of float'
+   * </pre>
+   *
+   * @param line a line returned from getShaderInfoLog.
+   * @return the parsed line or null if it is not one of the known formats.
+   */
+  @Nullable
+  public static ShaderInfoMessage parseShaderErrorLine( @Nonnull final String line )
+  {
+    //ERROR: 0:137: 'blend2' : no matching overloaded function found
+    final RegExpResult result = new RegExp( "^(ERROR|WARNING):\\s*\\d+:(\\d+): (.+)$" ).exec( line );
+    if ( null == result )
+    {
+      return null;
+    }
+    else
+    {
+      try
+      {
+        final boolean error = "ERROR".equals( result.getAt( 1 ) );
+        final String lineNoText = result.getAt( 2 );
+        assert null != lineNoText;
+        final int lineNumber = Integer.parseInt( lineNoText );
+        final String message = result.getAt( 3 );
+        assert null != message;
+        return new ShaderInfoMessage( error, lineNumber, message );
+      }
+      catch ( final NumberFormatException nfe )
+      {
+        return null;
+      }
+    }
+  }
 }
