@@ -33,9 +33,7 @@ public final class GL
                                             @GLSL @Nonnull final String fragmentShaderSource )
   {
     final WebGLShader vertexShader = createShader( gl, WebGL2RenderingContext.VERTEX_SHADER, vertexShaderSource );
-    assert null != vertexShader;
     final WebGLShader fragmentShader = createShader( gl, WebGL2RenderingContext.FRAGMENT_SHADER, fragmentShaderSource );
-    assert null != fragmentShader;
     return createProgram( gl, vertexShader, fragmentShader );
   }
 
@@ -64,28 +62,14 @@ public final class GL
     }
   }
 
-  @Nullable
+  @Nonnull
   private static WebGLShader createShader( @Nonnull final WebGL2RenderingContext gl,
                                            @ShaderType final int type,
                                            @GLSL @Nonnull final String source )
   {
-    final WebGLShader shader = gl.createShader( type );
-    assert null != shader;
-
-    gl.shaderSource( shader, source );
-    gl.compileShader( shader );
-    final Any parameter = gl.getShaderParameter( shader, WebGL2RenderingContext.COMPILE_STATUS );
-    assert null != parameter;
-    if ( !parameter.asBoolean() )
-    {
-      Console.log( gl.getShaderInfoLog( shader ) );
-      gl.deleteShader( shader );
-      return null;
-    }
-    else
-    {
-      return shader;
-    }
+    final Shader shader = new Shader( gl, null, type, source );
+    shader.allocate();
+    return shader.getHandle();
   }
 
   @Nonnull
