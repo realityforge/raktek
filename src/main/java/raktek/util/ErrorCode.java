@@ -31,7 +31,10 @@ public @interface ErrorCode
 
     public static boolean isValid( final int value )
     {
-      return ResourceException.SHADER_CREATE_FAILED == value;
+      return
+        ResourceException.BUFFER_CREATE_FAILED == value ||
+        ResourceException.SHADER_CREATE_FAILED == value ||
+        ResourceException.SHADER_COMPILE_FAILED == value;
     }
   }
 }
