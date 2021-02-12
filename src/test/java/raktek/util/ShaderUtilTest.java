@@ -1,6 +1,7 @@
 package raktek.util;
 
 import elemental3.gl.GLSL;
+import elemental3.gl.WebGL2RenderingContext;
 import javax.annotation.Nonnull;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
@@ -80,5 +81,53 @@ public final class ShaderUtilTest
     }
     assertNull( ShaderUtil.parseShaderErrorLine( "INFO: 0:1: '/' : Zero divided by zero" ) );
     assertNull( ShaderUtil.parseShaderErrorLine( "Some random string" ) );
+  }
+
+  // Test disabled as no easy way to run tests in javascript context atm
+  @Test( enabled = false )
+  public void formatInfoLog()
+  {
+    final String message =
+      ShaderUtil.formatInfoLog( "ERROR: 0:8: 'finXalColor' : undeclared identifier\n" +
+                                "ERROR: 0:8: 'assign' : l-value required (can't modify a const)\n" +
+                                "ERROR: 0:8: '=' : dimension mismatch\n" +
+                                "ERROR: 0:8: 'assign' : cannot convert from 'lowp 4-component vector of float' to 'const highp float'",
+                                "Test",
+                                WebGL2RenderingContext.FRAGMENT_SHADER,
+                                "#version 300 es\n" +
+                                "#define SHADER_NAME_B64 aGVsbG8gd29ybGQ=\n" +
+                                "precision lowp float;\n" +
+                                "uniform vec3 color;\n" +
+                                "out vec4 finalColor;\n" +
+                                "void main()\n" +
+                                "{\n" +
+                                "  finXalColor = vec4(color,1);" +
+                                "}\n" );
+    assertEquals( message,
+                  "GLSL compilation error in FRAGMENT_SHADER shader Test:\n" +
+                  "\n" +
+                  "    4: out vec4 finalColor;\n" +
+                  "    5: void main()\n" +
+                  "    6: {\n" +
+                  "    7:   finXalColor = vec4(color,1);}\n" +
+                  " ^^^ ERROR 'finXalColor' : undeclared identifier\n" +
+                  "\n" +
+                  "    4: out vec4 finalColor;\n" +
+                  "    5: void main()\n" +
+                  "    6: {\n" +
+                  "    7:   finXalColor = vec4(color,1);}\n" +
+                  " ^^^ ERROR 'assign' : l-value required (can't modify a const)\n" +
+                  "\n" +
+                  "    4: out vec4 finalColor;\n" +
+                  "    5: void main()\n" +
+                  "    6: {\n" +
+                  "    7:   finXalColor = vec4(color,1);}\n" +
+                  " ^^^ ERROR '=' : dimension mismatch\n" +
+                  "\n" +
+                  "    4: out vec4 finalColor;\n" +
+                  "    5: void main()\n" +
+                  "    6: {\n" +
+                  "    7:   finXalColor = vec4(color,1);}\n" +
+                  " ^^^ ERROR 'assign' : cannot convert from 'lowp 4-component vector of float' to 'const highp float'\n" );
   }
 }

@@ -4,6 +4,7 @@ import elemental3.Global;
 import elemental3.core.RegExp;
 import elemental3.core.RegExpResult;
 import elemental3.gl.GLSL;
+import elemental3.gl.ShaderType;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -81,5 +82,70 @@ public final class ShaderUtil
         return null;
       }
     }
+  }
+
+  @Nonnull
+  public static String formatInfoLog( @Nonnull final String log,
+                                      @Nonnull final String name,
+                                      @ShaderType final int type,
+                                      @GLSL @Nonnull final String source )
+  {
+    final String description =
+      "GLSL compilation error in " + ShaderType.Validator.describe( type ) + " shader " + name + ":\n";
+
+    final StringBuilder message = new StringBuilder( description );
+    final String[] sourceLines = source.split( "\r?\n" );
+    final String[] lines = log.split( "\r?\n" );
+    for ( final String line : lines )
+    {
+      if ( !line.trim().isEmpty() )
+      {
+        final ShaderInfoMessage infoMessage = parseShaderErrorLine( line );
+        if ( null == infoMessage )
+        {
+          // Abort formatting as it is an unknown format so just add log emitted by browser/driver to banner
+          return description + log;
+        }
+        else
+        {
+          final int lastLine = infoMessage.getLine() - 1;
+          if ( lastLine >= sourceLines.length )
+          {
+            // Abort formatting as the line detected is outside provided source
+            return description + log;
+          }
+          message.append( '\n' );
+
+          final int firstLine = Math.max( 0, lastLine - 3 );
+          for ( int i = firstLine; i <= lastLine; i++ )
+          {
+            final String lineAsString = String.valueOf( i );
+            message
+              .append( padLeft( lineAsString, 5 - lineAsString.length() ) )
+              .append( ": " )
+              .append( sourceLines[ i ] )
+              .append( '\n' );
+          }
+          message.append( " ^^^ " )
+            .append( infoMessage.isError() ? "ERROR" : "WARNING" )
+            .append( ' ' )
+            .append( infoMessage.getMessage() )
+            .append( '\n' );
+        }
+      }
+    }
+    return message.toString();
+  }
+
+  @Nonnull
+  private static String padLeft( @Nonnull final String string, final int digits )
+  {
+    final StringBuilder sb = new StringBuilder();
+    for ( int i = 0; i < digits; ++i )
+    {
+      sb.append( ' ' );
+    }
+    sb.append( string );
+    return sb.toString();
   }
 }
