@@ -34,6 +34,25 @@ public final class Shader
     _source = Objects.requireNonNull( source );
   }
 
+  @Nonnull
+  public String getName()
+  {
+    return deriveName();
+  }
+
+  @ShaderType
+  public int getType()
+  {
+    return _type;
+  }
+
+  @GLSL
+  @Nonnull
+  public String getSource()
+  {
+    return _source;
+  }
+
   public boolean hasError()
   {
     return null != _error;
