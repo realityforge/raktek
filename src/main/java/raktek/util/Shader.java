@@ -20,6 +20,11 @@ public final class Shader
   @GLSL
   @Nonnull
   private final String _source;
+  /**
+   * A cache of the derived name set the first time it is derived.
+   */
+  @Nullable
+  private String _derivedName;
   @Nullable
   private String _error;
 
@@ -130,10 +135,15 @@ public final class Shader
     {
       return _name;
     }
+    else if ( null != _derivedName )
+    {
+      return _derivedName;
+    }
     else
     {
       final String declaredName = ShaderUtil.extractName( _source );
-      return null != declaredName ? declaredName : "(unnamed)";
+      _derivedName = null != declaredName ? declaredName : "(unnamed)";
+      return _derivedName;
     }
   }
 }
