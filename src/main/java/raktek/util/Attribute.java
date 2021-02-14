@@ -24,7 +24,7 @@ public final class Attribute
    */
   private int _location;
 
-  public Attribute( @Nonnull final Buffer buffer,@Nonnull final Accessor accessor )
+  public Attribute( @Nonnull final Buffer buffer, @Nonnull final Accessor accessor )
   {
     this( buffer, accessor, WebGL2RenderingContext.INVALID_INDEX );
   }
