@@ -171,6 +171,10 @@ public final class Program
       {
         _error = gl.getProgramInfoLog( program );
         gl.deleteProgram( program );
+        // Explicitly check compile status for shaders. Depending on compile time settings the shaders
+        // may not have had their compile status already checked.
+        _vertexShader.checkCompileStatus();
+        _fragmentShader.checkCompileStatus();
         throw new ResourceException( ErrorCode.PROGRAM_LINK_FAILED, gl.getError(), _error );
       }
     }
