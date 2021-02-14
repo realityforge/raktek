@@ -30,4 +30,26 @@ public final class Raktek
   {
     return true;
   }
+
+  /**
+   * Return true if should check whether the program link was successful during allocation phase.
+   *
+   * @return true if should check whether the program link was successful during allocation phase.
+   */
+  @OmitSymbol
+  public static boolean shouldCheckSProgramLinkAtAllocate()
+  {
+    return shouldCheckProgramLink() && true;
+  }
+
+  /**
+   * Return true if should check whether the program link was successful or not.
+   *
+   * @return true if should check whether the program link was successful or not.
+   */
+  @OmitSymbol
+  public static boolean shouldCheckProgramLink()
+  {
+    return true;
+  }
 }

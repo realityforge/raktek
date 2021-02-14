@@ -7,7 +7,9 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import raktek.util.GL;
 import raktek.util.Geometry;
+import raktek.util.Program;
 import raktek.util.ResourceException;
+import raktek.util.Shader;
 import raktek.util.Uniform;
 
 final class LightMesh
@@ -31,16 +33,20 @@ final class LightMesh
              @GLSL @Nonnull final String fragmentShaderSource )
     throws ResourceException
   {
-    final WebGLProgram program = GL.createProgram( gl, vertexShaderSource, fragmentShaderSource );
-    assert null != program;
-    _program = program;
-    _modelMatrix = new Uniform( gl, program, "modelMatrix" );
-    _viewMatrix = new Uniform( gl, program, "viewMatrix" );
-    _projectionMatrix = new Uniform( gl, program, "projectionMatrix" );
-    _color = new Uniform( gl, program, "color" );
+    final Program program =
+      new Program( gl,
+                   "LightMesh",
+                   new Shader( gl, null, WebGL2RenderingContext.VERTEX_SHADER, vertexShaderSource ),
+                   new Shader( gl, null, WebGL2RenderingContext.FRAGMENT_SHADER, fragmentShaderSource ) );
+    program.allocate();
+    _program = program.getWebGLProgram();
+    _modelMatrix = new Uniform( gl, _program, "modelMatrix" );
+    _viewMatrix = new Uniform( gl, _program, "viewMatrix" );
+    _projectionMatrix = new Uniform( gl, _program, "projectionMatrix" );
+    _color = new Uniform( gl, _program, "color" );
 
     _geometry = Objects.requireNonNull( geometry );
-    _geometry.getAttribute( 0 ).setLocation( GL.getAttribLocation( gl, program, "position" ) );
+    _geometry.getAttribute( 0 ).setLocation( GL.getAttribLocation( gl, _program, "position" ) );
     _geometry.allocate();
   }
 

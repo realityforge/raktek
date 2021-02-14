@@ -6,7 +6,9 @@ import org.intellij.lang.annotations.MagicConstant;
   intValues = {
     ResourceException.BUFFER_CREATE_FAILED,
     ResourceException.SHADER_CREATE_FAILED,
-    ResourceException.SHADER_COMPILE_FAILED
+    ResourceException.SHADER_COMPILE_FAILED,
+    ResourceException.PROGRAM_CREATE_FAILED,
+    ResourceException.PROGRAM_LINK_FAILED
   }
 )
 public @interface ErrorCode
@@ -34,7 +36,9 @@ public @interface ErrorCode
       return
         ResourceException.BUFFER_CREATE_FAILED == value ||
         ResourceException.SHADER_CREATE_FAILED == value ||
-        ResourceException.SHADER_COMPILE_FAILED == value;
+        ResourceException.SHADER_COMPILE_FAILED == value ||
+        ResourceException.PROGRAM_CREATE_FAILED == value ||
+        ResourceException.PROGRAM_LINK_FAILED == value;
     }
   }
 }

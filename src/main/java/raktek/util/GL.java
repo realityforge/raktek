@@ -1,22 +1,17 @@
 package raktek.util;
 
-import elemental3.Console;
 import elemental3.HTMLImageElement;
 import elemental3.Image;
 import elemental3.gl.GLSL;
-import elemental3.gl.ShaderType;
 import elemental3.gl.TextureMagnificationFilter;
 import elemental3.gl.TextureMinificationFilter;
 import elemental3.gl.TextureWrapMode;
 import elemental3.gl.WebGL2RenderingContext;
 import elemental3.gl.WebGLProgram;
-import elemental3.gl.WebGLShader;
 import elemental3.gl.WebGLTexture;
 import elemental3.gl.WebGLUniformLocation;
 import elemental3.promise.Promise;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import jsinterop.base.Any;
 
 // TODO: All of these methods should take a onError handler that is invoked when unexpected error
 //  occurs. We should then follow this up with throwing a runtime error to rollback state. Both of
@@ -25,51 +20,6 @@ public final class GL
 {
   private GL()
   {
-  }
-
-  @Nullable
-  public static WebGLProgram createProgram( @Nonnull final WebGL2RenderingContext gl,
-                                            @GLSL @Nonnull final String vertexShaderSource,
-                                            @GLSL @Nonnull final String fragmentShaderSource )
-  {
-    final WebGLShader vertexShader = createShader( gl, WebGL2RenderingContext.VERTEX_SHADER, vertexShaderSource );
-    final WebGLShader fragmentShader = createShader( gl, WebGL2RenderingContext.FRAGMENT_SHADER, fragmentShaderSource );
-    return createProgram( gl, vertexShader, fragmentShader );
-  }
-
-  @Nullable
-  private static WebGLProgram createProgram( @Nonnull final WebGL2RenderingContext gl,
-                                             @Nonnull final WebGLShader vertexShader,
-                                             @Nonnull final WebGLShader fragmentShader )
-  {
-    final WebGLProgram program = gl.createProgram();
-    assert null != program;
-    gl.attachShader( program, vertexShader );
-    gl.attachShader( program, fragmentShader );
-    gl.linkProgram( program );
-
-    final Any parameter = gl.getProgramParameter( program, WebGL2RenderingContext.LINK_STATUS );
-    assert null != parameter;
-    if ( !parameter.asBoolean() )
-    {
-      Console.log( gl.getProgramInfoLog( program ) );
-      gl.deleteProgram( program );
-      return null;
-    }
-    else
-    {
-      return program;
-    }
-  }
-
-  @Nonnull
-  private static WebGLShader createShader( @Nonnull final WebGL2RenderingContext gl,
-                                           @ShaderType final int type,
-                                           @GLSL @Nonnull final String source )
-  {
-    final Shader shader = new Shader( gl, null, type, source );
-    shader.allocate();
-    return shader.getHandle();
   }
 
   @Nonnull

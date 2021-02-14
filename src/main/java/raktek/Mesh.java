@@ -13,6 +13,8 @@ import org.realityforge.vecmath.Vector3f;
 import raktek.util.Camera;
 import raktek.util.GL;
 import raktek.util.Geometry;
+import raktek.util.Program;
+import raktek.util.Shader;
 import raktek.util.Uniform;
 
 final class Mesh
@@ -48,23 +50,27 @@ final class Mesh
     GL.loadTexture( gl, "img/wood.jpg" ).thenAccept( texture -> _texture1 = texture );
     GL.loadTexture( gl, "img/StoreLogo.png" ).thenAccept( texture -> _texture2 = texture );
 
-    final WebGLProgram program = GL.createProgram( gl, vertexShaderSource, fragmentShaderSource );
-    assert null != program;
-    _program = program;
-    _modelMatrix = new Uniform( gl, program, "modelMatrix" );
-    _viewMatrix = new Uniform( gl, program, "viewMatrix" );
-    _projectionMatrix = new Uniform( gl, program, "projectionMatrix" );
-    _textureData0 = new Uniform( gl, program, "textureData0" );
-    _textureData1 = new Uniform( gl, program, "textureData1" );
-    _lightColor = new Uniform( gl, program, "lightColor" );
-    _lightPosition = new Uniform( gl, program, "lightPosition" );
-    _cameraPosition = new Uniform( gl, program, "cameraPosition" );
+    final Program program =
+      new Program( gl,
+                   "Mesh",
+                   new Shader( gl, null, WebGL2RenderingContext.VERTEX_SHADER, vertexShaderSource ),
+                   new Shader( gl, null, WebGL2RenderingContext.FRAGMENT_SHADER, fragmentShaderSource ) );
+    program.allocate();
+    _program = program.getWebGLProgram();
+    _modelMatrix = new Uniform( gl, _program, "modelMatrix" );
+    _viewMatrix = new Uniform( gl, _program, "viewMatrix" );
+    _projectionMatrix = new Uniform( gl, _program, "projectionMatrix" );
+    _textureData0 = new Uniform( gl, _program, "textureData0" );
+    _textureData1 = new Uniform( gl, _program, "textureData1" );
+    _lightColor = new Uniform( gl, _program, "lightColor" );
+    _lightPosition = new Uniform( gl, _program, "lightPosition" );
+    _cameraPosition = new Uniform( gl, _program, "cameraPosition" );
 
     _geometry = Objects.requireNonNull( geometry );
-    _geometry.getAttribute( 0 ).setLocation( GL.getAttribLocation( gl, program, "position" ) );
-    _geometry.getAttribute( 1 ).setLocation( GL.getAttribLocation( gl, program, "color" ) );
-    _geometry.getAttribute( 2 ).setLocation( GL.getAttribLocation( gl, program, "textureCoordinate" ) );
-    _geometry.getAttribute( 3 ).setLocation( GL.getAttribLocation( gl, program, "normal" ) );
+    _geometry.getAttribute( 0 ).setLocation( GL.getAttribLocation( gl, _program, "position" ) );
+    _geometry.getAttribute( 1 ).setLocation( GL.getAttribLocation( gl, _program, "color" ) );
+    _geometry.getAttribute( 2 ).setLocation( GL.getAttribLocation( gl, _program, "textureCoordinate" ) );
+    _geometry.getAttribute( 3 ).setLocation( GL.getAttribLocation( gl, _program, "normal" ) );
   }
 
   @Nonnull

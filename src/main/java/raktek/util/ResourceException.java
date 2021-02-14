@@ -9,6 +9,8 @@ public class ResourceException
   public static final int SHADER_CREATE_FAILED = 1;
   public static final int SHADER_COMPILE_FAILED = 2;
   public static final int BUFFER_CREATE_FAILED = 3;
+  public static final int PROGRAM_CREATE_FAILED = 4;
+  public static final int PROGRAM_LINK_FAILED = 5;
   @ErrorCode
   private final int _code;
   @WebGLContextError
