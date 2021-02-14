@@ -86,12 +86,11 @@ public final class ShaderUtil
 
   @Nonnull
   public static String formatInfoLog( @Nonnull final String log,
-                                      @Nonnull final String name,
-                                      @ShaderType final int type,
+                                      @Nonnull final String label,
                                       @GLSL @Nonnull final String source )
   {
     final String description =
-      "GLSL compilation error in " + ShaderType.Validator.describe( type ) + " shader " + name + ":\n";
+      "GLSL compilation error in " + label + ":\n";
 
     final StringBuilder message = new StringBuilder( description );
     final String[] sourceLines = source.split( "\r?\n" );

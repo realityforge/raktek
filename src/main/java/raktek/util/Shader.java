@@ -47,6 +47,12 @@ public final class Shader
     return deriveName();
   }
 
+  @Nonnull
+  public String getLabel()
+  {
+    return ( WebGL2RenderingContext.FRAGMENT_SHADER == getType() ? "fragment" : "vertex" ) + " shader " + getName();
+  }
+
   @ShaderType
   public int getType()
   {
@@ -123,7 +129,7 @@ public final class Shader
   @Nullable
   public String getFormattedErrorLog()
   {
-    return null == _error ? null : ShaderUtil.formatInfoLog( _error, deriveName(), _type, _source );
+    return null == _error ? null : ShaderUtil.formatInfoLog( _error, getLabel(), _source );
   }
 
   @Nonnull

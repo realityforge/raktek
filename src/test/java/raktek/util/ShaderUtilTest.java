@@ -1,7 +1,6 @@
 package raktek.util;
 
 import elemental3.gl.GLSL;
-import elemental3.gl.WebGL2RenderingContext;
 import javax.annotation.Nonnull;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
@@ -92,8 +91,7 @@ public final class ShaderUtilTest
                                 "ERROR: 0:8: 'assign' : l-value required (can't modify a const)\n" +
                                 "ERROR: 0:8: '=' : dimension mismatch\n" +
                                 "ERROR: 0:8: 'assign' : cannot convert from 'lowp 4-component vector of float' to 'const highp float'",
-                                "Test",
-                                WebGL2RenderingContext.FRAGMENT_SHADER,
+                                "fragment shader Test",
                                 "#version 300 es\n" +
                                 "#define SHADER_NAME_B64 aGVsbG8gd29ybGQ=\n" +
                                 "precision lowp float;\n" +
@@ -104,7 +102,7 @@ public final class ShaderUtilTest
                                 "  finXalColor = vec4(color,1);" +
                                 "}\n" );
     assertEquals( message,
-                  "GLSL compilation error in FRAGMENT_SHADER shader Test:\n" +
+                  "GLSL compilation error in fragment shader Test:\n" +
                   "\n" +
                   "    4: out vec4 finalColor;\n" +
                   "    5: void main()\n" +
