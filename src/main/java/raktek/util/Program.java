@@ -39,6 +39,12 @@ public final class Program
   }
 
   @Nonnull
+  public String getLabel()
+  {
+    return "program " + getName();
+  }
+
+  @Nonnull
   public Shader getVertexShader()
   {
     return _vertexShader;
