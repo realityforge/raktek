@@ -35,6 +35,7 @@ public final class Shader
                  @Nonnull final String source )
   {
     super( gl, false );
+    ShaderType.Validator.assertValid( type );
     _name = name;
     _type = type;
     _source = Objects.requireNonNull( source );
