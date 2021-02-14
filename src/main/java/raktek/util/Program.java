@@ -99,6 +99,19 @@ public final class Program
     }
   }
 
+  /**
+   * Return true if verify should be invoked.
+   * If the KHR_parallel_shader_compile is present then this method will only return true when
+   * accessing the program LINK_STATUS will not block. If the extension is not present then this method
+   * always returns true but verify may block.
+   *
+   * @return true if verify should be invoked.
+   */
+  public boolean shouldVerify()
+  {
+    return CompletionStatus.INCOMPLETE != getCompletionStatus();
+  }
+
   @Nonnull
   @Override
   protected WebGLProgram allocateResource()
