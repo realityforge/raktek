@@ -2,6 +2,7 @@ package raktek.util;
 
 import elemental3.gl.GLSL;
 import elemental3.gl.ShaderType;
+import elemental3.gl.WEBGL_debug_shaders;
 import elemental3.gl.WebGL2RenderingContext;
 import elemental3.gl.WebGLShader;
 import java.util.Objects;
@@ -61,6 +62,38 @@ public final class Shader
   public boolean hasError()
   {
     return null != _error;
+  }
+
+  /**
+   * Get the shader source translated for the platform's API.
+   *
+   * @return the translated shader source.
+   */
+  @Nonnull
+  public String getTranslatedSource()
+  {
+    if ( !isAllocated() )
+    {
+      return "Translated source unavailable: Shader not allocated";
+    }
+    else if ( hasError() )
+    {
+      return "Translated source unavailable: Error compiling shader";
+    }
+    else
+    {
+      //TODO: This extension lookup should be cached
+      final WEBGL_debug_shaders extensions = (WEBGL_debug_shaders) gl().getExtension( "WEBGL_debug_shaders" );
+      if ( null != extensions )
+      {
+        final WebGLShader handle = getHandle();
+        return extensions.getTranslatedShaderSource( handle );
+      }
+      else
+      {
+        return "Translated source unavailable: WEBGL_debug_shaders extension not present";
+      }
+    }
   }
 
   /**
