@@ -56,6 +56,7 @@ final class Mesh
                    new Shader( gl, null, WebGL2RenderingContext.VERTEX_SHADER, vertexShaderSource ),
                    new Shader( gl, null, WebGL2RenderingContext.FRAGMENT_SHADER, fragmentShaderSource ) );
     program.allocate();
+    program.verify();
     _program = program.getWebGLProgram();
     _modelMatrix = new Uniform( gl, _program, "modelMatrix" );
     _viewMatrix = new Uniform( gl, _program, "viewMatrix" );
