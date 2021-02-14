@@ -172,7 +172,8 @@ public final class Program
         _error = gl.getProgramInfoLog( program );
         release();
         // Explicitly check compile status for shaders. Depending on compile time settings the shaders
-        // may not have had their compile status already checked.
+        // may not have had their compile status already checked and thus will have null errors. This
+        // will ensure that if the shaders have errors or warnings then these stings are present on shaders
         _vertexShader.checkCompileStatus();
         _fragmentShader.checkCompileStatus();
         throw new ResourceException( ErrorCode.PROGRAM_LINK_FAILED, gl.getError(), _error );
