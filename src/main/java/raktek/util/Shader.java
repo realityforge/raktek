@@ -203,7 +203,7 @@ public final class Shader
   @Override
   protected void releaseResource( @Nonnull final WebGLShader handle )
   {
-    gl().deleteShader( getHandle() );
+    gl().deleteShader( handle );
     //TODO: Assert context has no errors in debug mode
   }
 

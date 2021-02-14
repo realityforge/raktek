@@ -146,7 +146,7 @@ public final class Program
   @Override
   protected void releaseResource( @Nonnull final WebGLProgram handle )
   {
-    gl().deleteProgram( getHandle() );
+    gl().deleteProgram( handle );
     //TODO: Assert context has no errors in debug mode
   }
 
