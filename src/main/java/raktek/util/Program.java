@@ -1,11 +1,13 @@
 package raktek.util;
 
+import elemental3.gl.KHR_parallel_shader_compile;
 import elemental3.gl.WebGL2RenderingContext;
 import elemental3.gl.WebGLProgram;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Any;
+import jsinterop.base.Js;
 import raktek.Raktek;
 
 public final class Program
@@ -71,6 +73,31 @@ public final class Program
   public String getError()
   {
     return _error;
+  }
+
+  /**
+   * Return the completion status. This relies on the <code>KHR_parallel_shader_compile</code> extension and will return
+   * {@link CompletionStatus#UNKNOWN} if the extension is not present.
+   *
+   * @return the completion status.
+   */
+  @CompletionStatus
+  public int isComplete()
+  {
+    final WebGL2RenderingContext gl = gl();
+    final KHR_parallel_shader_compile extension =
+      (KHR_parallel_shader_compile) gl.getExtension( "KHR_parallel_shader_compile" );
+    if ( null == extension )
+    {
+      return CompletionStatus.UNKNOWN;
+    }
+    else
+    {
+      final Any parameter =
+        gl.getProgramParameter( getHandle(), KHR_parallel_shader_compile.COMPLETION_STATUS_KHR );
+      assert null != parameter;
+      return parameter.asBoolean() ? CompletionStatus.COMPLETE : CompletionStatus.INCOMPLETE;
+    }
   }
 
   @Nonnull
