@@ -166,17 +166,33 @@ public final class Shader
     }
   }
 
+  void checkCompileStatus()
+  {
+    if ( isAllocated() )
+    {
+      doCheckCompileStatus( getHandle(), false );
+    }
+  }
+
   private void checkCompileStatus( @Nonnull final WebGLShader shader )
   {
     if ( Raktek.shouldCheckShaderCompile() )
     {
-      final WebGL2RenderingContext gl = gl();
-      final Any parameter = gl.getShaderParameter( shader, WebGL2RenderingContext.COMPILE_STATUS );
-      assert null != parameter;
-      if ( !parameter.asBoolean() )
+      doCheckCompileStatus( shader, true );
+    }
+  }
+
+  private void doCheckCompileStatus( @Nonnull final WebGLShader shader, final boolean generateExceptionOnError )
+  {
+    final WebGL2RenderingContext gl = gl();
+    final Any parameter = gl.getShaderParameter( shader, WebGL2RenderingContext.COMPILE_STATUS );
+    assert null != parameter;
+    if ( !parameter.asBoolean() )
+    {
+      _error = gl.getShaderInfoLog( shader );
+      gl.deleteShader( shader );
+      if ( generateExceptionOnError )
       {
-        _error = gl.getShaderInfoLog( shader );
-        gl.deleteShader( shader );
         throw new ResourceException( ErrorCode.SHADER_COMPILE_FAILED, gl.getError(), _error );
       }
     }
