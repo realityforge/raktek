@@ -41,6 +41,7 @@ public abstract class Resource<T>
     _verified = false;
   }
 
+  @SuppressWarnings( "BooleanMethodIsAlwaysInverted" )
   public boolean isBindEnabled()
   {
     return _isBindEnabled;
