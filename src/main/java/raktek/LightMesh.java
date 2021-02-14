@@ -44,7 +44,6 @@ final class LightMesh
     _viewMatrix = new Uniform( gl, _program, "viewMatrix" );
     _projectionMatrix = new Uniform( gl, _program, "projectionMatrix" );
     _color = new Uniform( gl, _program, "color" );
-
     _geometry = Objects.requireNonNull( geometry );
     _geometry.getAttribute( 0 ).setLocation( GL.getAttribLocation( gl, _program, "position" ) );
     _geometry.allocate();
