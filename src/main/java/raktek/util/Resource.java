@@ -10,6 +10,7 @@ public abstract class Resource<T>
   @Nullable
   private T _handle;
   private final boolean _isBindEnabled;
+  private boolean _verified;
 
   protected Resource( @Nonnull final WebGL2RenderingContext gl, final boolean isBindEnabled )
   {
@@ -22,6 +23,11 @@ public abstract class Resource<T>
     return null != _handle;
   }
 
+  public boolean isVerified()
+  {
+    return _verified;
+  }
+
   @Nonnull
   protected final T getHandle()
   {
@@ -32,6 +38,7 @@ public abstract class Resource<T>
   protected final void setHandle( @Nullable final T handle )
   {
     _handle = handle;
+    _verified = false;
   }
 
   public boolean isBindEnabled()
@@ -94,7 +101,44 @@ public abstract class Resource<T>
   }
 
   /**
+   * If a resource has been allocated then verify the resource was allocated correctly.
+   * If verification fails then the resource will be released and this method will thow a ResourceException.
+   *
+   * @throws ResourceException if the resource was not successfully allocated.
+   */
+  public final void verify()
+    throws ResourceException
+  {
+    if ( !isVerified() )
+    {
+      final T handle = getHandle();
+      try
+      {
+        verifyResource( handle );
+        markAsVerified();
+      }
+      catch ( final ResourceException re )
+      {
+        try
+        {
+          release();
+        }
+        catch ( final ResourceException ignored )
+        {
+        }
+        throw re;
+      }
+    }
+  }
+
+  private void markAsVerified()
+  {
+    _verified = true;
+  }
+
+  /**
    * Allocate the underlying resource.
+   * The allocation may be asynchronous and may not be completed until verify is invoked.
    *
    * @return the resource handle.
    * @throws ResourceException if there is an unrecoverable error allocating resource.
@@ -111,4 +155,18 @@ public abstract class Resource<T>
    */
   protected abstract void releaseResource( @Nonnull T handle )
     throws ResourceException;
+
+  /**
+   * Verify the underlying resource was allocated successfully.
+   * This method will complete and an asynchronous allocation if allocateResource was asynchronous
+   * and will check the state of any resource that is asynchronously allocated. If this method throws
+   * a ResourceException then the caller will release the udnerlying resource.
+   *
+   * @param  handle the resource handle.
+   * @throws ResourceException if there is an unrecoverable error allocating resource.
+   */
+  protected void verifyResource( @Nonnull T handle )
+    throws ResourceException
+  {
+  }
 }

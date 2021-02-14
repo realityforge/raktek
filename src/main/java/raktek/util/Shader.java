@@ -139,9 +139,31 @@ public final class Shader
     }
 
     gl.shaderSource( shader, _source );
+    // compileShader is a request to start compiling shader but if the checkCompileStatus is invoked
+    // it will request the compile status of the shader and block until compile completes.
     gl.compileShader( shader );
+    if ( Raktek.shouldCheckShaderCompileAtAllocate() )
+    {
+      checkCompileStatus( shader );
+    }
+    return shader;
+  }
+
+  @Override
+  protected void verifyResource( @Nonnull final WebGLShader handle )
+    throws ResourceException
+  {
+    if ( !Raktek.shouldCheckShaderCompileAtAllocate() )
+    {
+      checkCompileStatus( handle );
+    }
+  }
+
+  private void checkCompileStatus( @Nonnull final WebGLShader shader )
+  {
     if ( Raktek.shouldCheckShaderCompile() )
     {
+      final WebGL2RenderingContext gl = gl();
       final Any parameter = gl.getShaderParameter( shader, WebGL2RenderingContext.COMPILE_STATUS );
       assert null != parameter;
       if ( !parameter.asBoolean() )
@@ -151,7 +173,6 @@ public final class Shader
         throw new ResourceException( ResourceException.SHADER_COMPILE_FAILED, gl.getError(), _error );
       }
     }
-    return shader;
   }
 
   @Override
