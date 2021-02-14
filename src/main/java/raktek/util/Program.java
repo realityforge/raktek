@@ -3,6 +3,7 @@ package raktek.util;
 import elemental3.gl.KHR_parallel_shader_compile;
 import elemental3.gl.WebGL2RenderingContext;
 import elemental3.gl.WebGLProgram;
+import java.util.Arrays;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -18,6 +19,8 @@ public final class Program
   private final Shader _vertexShader;
   @Nonnull
   private final Shader _fragmentShader;
+  @Nonnull
+  private final AttributeLocation[] _attributeLocations;
   @Nullable
   private String _error;
 
@@ -26,10 +29,20 @@ public final class Program
                   @Nonnull final Shader vertexShader,
                   @Nonnull final Shader fragmentShader )
   {
+    this(gl, name, vertexShader, fragmentShader, new AttributeLocation[0] );
+  }
+  public Program( @Nonnull final WebGL2RenderingContext gl,
+                  @Nonnull final String name,
+                  @Nonnull final Shader vertexShader,
+                  @Nonnull final Shader fragmentShader,
+                  @Nonnull final AttributeLocation[] attributeLocations )
+  {
     super( gl, false );
     _name = Objects.requireNonNull( name );
     _vertexShader = Objects.requireNonNull( vertexShader );
     _fragmentShader = Objects.requireNonNull( fragmentShader );
+    _attributeLocations = Objects.requireNonNull( attributeLocations );
+    assert Arrays.stream( _attributeLocations ).allMatch( Objects::nonNull );
   }
 
   @Nonnull
@@ -173,6 +186,11 @@ public final class Program
     _fragmentShader.allocateIfNecessary();
     gl.attachShader( program, _vertexShader.getHandle() );
     gl.attachShader( program, _fragmentShader.getHandle() );
+
+    for ( final AttributeLocation attributeLocation : _attributeLocations )
+    {
+      gl.bindAttribLocation( program, attributeLocation.getIndex(), attributeLocation.getName() );
+    }
     gl.linkProgram( program );
 
     if ( Raktek.shouldCheckSProgramLinkAtAllocate() )
