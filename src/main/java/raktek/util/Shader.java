@@ -99,9 +99,9 @@ public final class Shader
 
   /**
    * Return the an error description when the shader could not be allocated.
-   * This is only set after the allocate() call is invoked and only if an error occurred.
-   * This error is the raw form emitted by the underlying API. If you want an error message
-   * formatted in a more developer friendly manner use {@link #getFormattedErrorLog()}.
+   * This is only set after the {@link #allocate()} or {@link #verify()} methods are called and
+   * only if an error occurred. This error is the raw form emitted by the underlying API.
+   * If you want an error message formatted in a more developer friendly manner use {@link #getFormattedErrorLog()}.
    *
    * @return the error message resulting from the last attempt to allocate the shader.
    */
