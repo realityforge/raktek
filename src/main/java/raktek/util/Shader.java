@@ -136,7 +136,7 @@ public final class Shader
     final WebGLShader shader = gl.createShader( _type );
     if ( null == shader )
     {
-      throw new ResourceException( ResourceException.SHADER_CREATE_FAILED, gl.getError() );
+      throw new ResourceException( ErrorCode.SHADER_CREATE_FAILED, gl.getError() );
     }
 
     gl.shaderSource( shader, _source );
@@ -171,7 +171,7 @@ public final class Shader
       {
         _error = gl.getShaderInfoLog( shader );
         gl.deleteShader( shader );
-        throw new ResourceException( ResourceException.SHADER_COMPILE_FAILED, gl.getError(), _error );
+        throw new ResourceException( ErrorCode.SHADER_COMPILE_FAILED, gl.getError(), _error );
       }
     }
   }

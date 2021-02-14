@@ -4,15 +4,21 @@ import org.intellij.lang.annotations.MagicConstant;
 
 @MagicConstant(
   intValues = {
-    ResourceException.BUFFER_CREATE_FAILED,
-    ResourceException.SHADER_CREATE_FAILED,
-    ResourceException.SHADER_COMPILE_FAILED,
-    ResourceException.PROGRAM_CREATE_FAILED,
-    ResourceException.PROGRAM_LINK_FAILED
+    ErrorCode.BUFFER_CREATE_FAILED,
+    ErrorCode.SHADER_CREATE_FAILED,
+    ErrorCode.SHADER_COMPILE_FAILED,
+    ErrorCode.PROGRAM_CREATE_FAILED,
+    ErrorCode.PROGRAM_LINK_FAILED
   }
 )
 public @interface ErrorCode
 {
+  int SHADER_CREATE_FAILED = 1;
+  int SHADER_COMPILE_FAILED = 2;
+  int BUFFER_CREATE_FAILED = 3;
+  int PROGRAM_CREATE_FAILED = 4;
+  int PROGRAM_LINK_FAILED = 5;
+
   final class Validator
   {
     private Validator()
@@ -34,11 +40,11 @@ public @interface ErrorCode
     public static boolean isValid( final int value )
     {
       return
-        ResourceException.BUFFER_CREATE_FAILED == value ||
-        ResourceException.SHADER_CREATE_FAILED == value ||
-        ResourceException.SHADER_COMPILE_FAILED == value ||
-        ResourceException.PROGRAM_CREATE_FAILED == value ||
-        ResourceException.PROGRAM_LINK_FAILED == value;
+        BUFFER_CREATE_FAILED == value ||
+        SHADER_CREATE_FAILED == value ||
+        SHADER_COMPILE_FAILED == value ||
+        PROGRAM_CREATE_FAILED == value ||
+        PROGRAM_LINK_FAILED == value;
     }
   }
 }

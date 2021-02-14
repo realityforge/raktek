@@ -110,7 +110,7 @@ public final class Program
     final WebGLProgram program = gl.createProgram();
     if ( null == program )
     {
-      throw new ResourceException( ResourceException.PROGRAM_CREATE_FAILED, gl.getError() );
+      throw new ResourceException( ErrorCode.PROGRAM_CREATE_FAILED, gl.getError() );
     }
     _vertexShader.allocateIfNecessary();
     _fragmentShader.allocateIfNecessary();
@@ -153,7 +153,7 @@ public final class Program
       {
         _error = gl.getProgramInfoLog( program );
         gl.deleteProgram( program );
-        throw new ResourceException( ResourceException.PROGRAM_LINK_FAILED, gl.getError(), _error );
+        throw new ResourceException( ErrorCode.PROGRAM_LINK_FAILED, gl.getError(), _error );
       }
     }
   }

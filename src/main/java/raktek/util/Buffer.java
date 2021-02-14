@@ -77,7 +77,7 @@ public final class Buffer
     final WebGLBuffer buffer = gl.createBuffer();
     if ( null == buffer )
     {
-      throw new ResourceException( ResourceException.BUFFER_CREATE_FAILED, gl.getError() );
+      throw new ResourceException( ErrorCode.BUFFER_CREATE_FAILED, gl.getError() );
     }
     gl.bindBuffer( getBufferTarget(), buffer );
     gl.bufferData( getBufferTarget(), _data, _usage );
