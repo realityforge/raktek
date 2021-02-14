@@ -2366,7 +2366,7 @@ public class WebGL2RenderingContext {
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetShaderiv.xml">glGetShaderiv - OpenGL ES 2.0</a>
    */
   @Nullable
-  public native Any getShaderParameter(@Nonnull WebGLShader shader, int pname);
+  public native Any getShaderParameter(@Nonnull WebGLShader shader, @ShaderParameterType int pname);
 
   /**
    * The WebGLRenderingContext.getShaderPrecisionFormat() method of the WebGL API returns a new WebGLShaderPrecisionFormat object describing the range and precision for the specified shader numeric format.
