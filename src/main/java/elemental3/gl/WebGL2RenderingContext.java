@@ -2588,7 +2588,8 @@ public class WebGL2RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.5">getRenderbufferParameter - WebGL 2.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man3/html/glRenderbufferStorage.xhtml">glRenderbufferStorage - OpenGL ES 3.0</a>
    */
-  public native void renderbufferStorage(int target, int internalformat, int width, int height);
+  public native void renderbufferStorage(@RenderbufferStorageTarget int target,
+      @RenderbufferStorageInternalFormat int internalformat, int width, int height);
 
   /**
    * The WebGLRenderingContext.sampleCoverage() method of the WebGL API specifies multi-sample coverage parameters for anti-aliasing effects.
