@@ -170,7 +170,7 @@ public final class Program
       if ( !parameter.asBoolean() )
       {
         _error = gl.getProgramInfoLog( program );
-        gl.deleteProgram( program );
+        release();
         // Explicitly check compile status for shaders. Depending on compile time settings the shaders
         // may not have had their compile status already checked.
         _vertexShader.checkCompileStatus();

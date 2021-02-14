@@ -190,7 +190,7 @@ public final class Shader
     if ( !parameter.asBoolean() )
     {
       _error = gl.getShaderInfoLog( shader );
-      gl.deleteShader( shader );
+      release();
       if ( generateExceptionOnError )
       {
         throw new ResourceException( ErrorCode.SHADER_COMPILE_FAILED, gl.getError(), _error );
