@@ -81,7 +81,7 @@ public final class Program
    * @return the completion status.
    */
   @CompletionStatus
-  public int isComplete()
+  public int getCompletionStatus()
   {
     final WebGL2RenderingContext gl = gl();
     final KHR_parallel_shader_compile extension =
