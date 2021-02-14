@@ -9,6 +9,7 @@ import org.intellij.lang.annotations.MagicConstant;
 @Documented
 @MagicConstant(
     intValues = {
+        KHR_parallel_shader_compile.COMPLETION_STATUS_KHR,
         WebGL2RenderingContext.DELETE_STATUS,
         WebGL2RenderingContext.LINK_STATUS,
         WebGL2RenderingContext.VALIDATE_STATUS,
@@ -32,16 +33,16 @@ public @interface ProgramParameterType {
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value ) : "@ProgramParameterType annotated value must be one of [WebGL2RenderingContext.DELETE_STATUS, WebGL2RenderingContext.LINK_STATUS, WebGL2RenderingContext.VALIDATE_STATUS, WebGL2RenderingContext.ATTACHED_SHADERS, WebGL2RenderingContext.ACTIVE_ATTRIBUTES, WebGL2RenderingContext.ACTIVE_UNIFORMS, WebGL2RenderingContext.TRANSFORM_FEEDBACK_BUFFER_MODE, WebGL2RenderingContext.TRANSFORM_FEEDBACK_VARYINGS, WebGL2RenderingContext.ACTIVE_UNIFORM_BLOCKS] but is " + value;
+      assert isValid( value ) : "@ProgramParameterType annotated value must be one of [KHR_parallel_shader_compile.COMPLETION_STATUS_KHR, WebGL2RenderingContext.DELETE_STATUS, WebGL2RenderingContext.LINK_STATUS, WebGL2RenderingContext.VALIDATE_STATUS, WebGL2RenderingContext.ATTACHED_SHADERS, WebGL2RenderingContext.ACTIVE_ATTRIBUTES, WebGL2RenderingContext.ACTIVE_UNIFORMS, WebGL2RenderingContext.TRANSFORM_FEEDBACK_BUFFER_MODE, WebGL2RenderingContext.TRANSFORM_FEEDBACK_VARYINGS, WebGL2RenderingContext.ACTIVE_UNIFORM_BLOCKS] but is " + value;
     }
 
     public static boolean isValid(final int value) {
-      return WebGL2RenderingContext.DELETE_STATUS == value || WebGL2RenderingContext.LINK_STATUS == value || WebGL2RenderingContext.VALIDATE_STATUS == value || WebGL2RenderingContext.ATTACHED_SHADERS == value || WebGL2RenderingContext.ACTIVE_ATTRIBUTES == value || WebGL2RenderingContext.ACTIVE_UNIFORMS == value || WebGL2RenderingContext.TRANSFORM_FEEDBACK_BUFFER_MODE == value || WebGL2RenderingContext.TRANSFORM_FEEDBACK_VARYINGS == value || WebGL2RenderingContext.ACTIVE_UNIFORM_BLOCKS == value;
+      return KHR_parallel_shader_compile.COMPLETION_STATUS_KHR == value || WebGL2RenderingContext.DELETE_STATUS == value || WebGL2RenderingContext.LINK_STATUS == value || WebGL2RenderingContext.VALIDATE_STATUS == value || WebGL2RenderingContext.ATTACHED_SHADERS == value || WebGL2RenderingContext.ACTIVE_ATTRIBUTES == value || WebGL2RenderingContext.ACTIVE_UNIFORMS == value || WebGL2RenderingContext.TRANSFORM_FEEDBACK_BUFFER_MODE == value || WebGL2RenderingContext.TRANSFORM_FEEDBACK_VARYINGS == value || WebGL2RenderingContext.ACTIVE_UNIFORM_BLOCKS == value;
     }
 
     @Nonnull
     public static String describe(final int value) {
-      return WebGL2RenderingContext.DELETE_STATUS == value ? "DELETE_STATUS" : WebGL2RenderingContext.LINK_STATUS == value ? "LINK_STATUS" : WebGL2RenderingContext.VALIDATE_STATUS == value ? "VALIDATE_STATUS" : WebGL2RenderingContext.ATTACHED_SHADERS == value ? "ATTACHED_SHADERS" : WebGL2RenderingContext.ACTIVE_ATTRIBUTES == value ? "ACTIVE_ATTRIBUTES" : WebGL2RenderingContext.ACTIVE_UNIFORMS == value ? "ACTIVE_UNIFORMS" : WebGL2RenderingContext.TRANSFORM_FEEDBACK_BUFFER_MODE == value ? "TRANSFORM_FEEDBACK_BUFFER_MODE" : WebGL2RenderingContext.TRANSFORM_FEEDBACK_VARYINGS == value ? "TRANSFORM_FEEDBACK_VARYINGS" : WebGL2RenderingContext.ACTIVE_UNIFORM_BLOCKS == value ? "ACTIVE_UNIFORM_BLOCKS" : "Unknown value " + value;
+      return KHR_parallel_shader_compile.COMPLETION_STATUS_KHR == value ? "COMPLETION_STATUS_KHR" : WebGL2RenderingContext.DELETE_STATUS == value ? "DELETE_STATUS" : WebGL2RenderingContext.LINK_STATUS == value ? "LINK_STATUS" : WebGL2RenderingContext.VALIDATE_STATUS == value ? "VALIDATE_STATUS" : WebGL2RenderingContext.ATTACHED_SHADERS == value ? "ATTACHED_SHADERS" : WebGL2RenderingContext.ACTIVE_ATTRIBUTES == value ? "ACTIVE_ATTRIBUTES" : WebGL2RenderingContext.ACTIVE_UNIFORMS == value ? "ACTIVE_UNIFORMS" : WebGL2RenderingContext.TRANSFORM_FEEDBACK_BUFFER_MODE == value ? "TRANSFORM_FEEDBACK_BUFFER_MODE" : WebGL2RenderingContext.TRANSFORM_FEEDBACK_VARYINGS == value ? "TRANSFORM_FEEDBACK_VARYINGS" : WebGL2RenderingContext.ACTIVE_UNIFORM_BLOCKS == value ? "ACTIVE_UNIFORM_BLOCKS" : "Unknown value " + value;
     }
   }
 }
