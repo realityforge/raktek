@@ -2334,7 +2334,8 @@ public class WebGL2RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.7">getProgramParameter - WebGL 2.0</a>
    */
   @Nullable
-  public native Any getProgramParameter(@Nonnull WebGLProgram program, int pname);
+  public native Any getProgramParameter(@Nonnull WebGLProgram program,
+      @ProgramParameterType int pname);
 
   /**
    * The WebGLRenderingContext.getRenderbufferParameter() method of the WebGL API returns information about the renderbuffer.
