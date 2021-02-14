@@ -129,7 +129,9 @@ public final class Shader
   @Nullable
   public String getFormattedErrorLog()
   {
-    return null == _error ? null : ShaderUtil.formatInfoLog( _error, getLabel(), _source );
+    return null == _error ?
+           null :
+           ShaderUtil.formatInfoLog( _error, "GLSL compilation error in " + getLabel() + ":\n", _source );
   }
 
   @Nonnull

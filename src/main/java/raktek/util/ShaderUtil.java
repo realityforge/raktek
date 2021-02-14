@@ -89,10 +89,7 @@ public final class ShaderUtil
                                       @Nonnull final String label,
                                       @GLSL @Nonnull final String source )
   {
-    final String description =
-      "GLSL compilation error in " + label + ":\n";
-
-    final StringBuilder message = new StringBuilder( description );
+    final StringBuilder message = new StringBuilder( label );
     final String[] sourceLines = source.split( "\r?\n" );
     final String[] lines = log.split( "\r?\n" );
     for ( final String line : lines )
@@ -103,7 +100,7 @@ public final class ShaderUtil
         if ( null == infoMessage )
         {
           // Abort formatting as it is an unknown format so just add log emitted by browser/driver to banner
-          return description + log;
+          return label + log;
         }
         else
         {
@@ -111,7 +108,7 @@ public final class ShaderUtil
           if ( lastLine >= sourceLines.length )
           {
             // Abort formatting as the line detected is outside provided source
-            return description + log;
+            return label + log;
           }
           message.append( '\n' );
 

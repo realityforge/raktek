@@ -91,7 +91,7 @@ public final class ShaderUtilTest
                                 "ERROR: 0:8: 'assign' : l-value required (can't modify a const)\n" +
                                 "ERROR: 0:8: '=' : dimension mismatch\n" +
                                 "ERROR: 0:8: 'assign' : cannot convert from 'lowp 4-component vector of float' to 'const highp float'",
-                                "fragment shader Test",
+                                "GLSL compilation error in fragment shader Test:\n",
                                 "#version 300 es\n" +
                                 "#define SHADER_NAME_B64 aGVsbG8gd29ybGQ=\n" +
                                 "precision lowp float;\n" +
