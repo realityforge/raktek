@@ -2,7 +2,6 @@ package raktek.util;
 
 import elemental3.HTMLImageElement;
 import elemental3.Image;
-import elemental3.gl.GLSL;
 import elemental3.gl.TextureMagnificationFilter;
 import elemental3.gl.TextureMinificationFilter;
 import elemental3.gl.TextureWrapMode;

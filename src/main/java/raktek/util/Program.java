@@ -7,7 +7,6 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import jsinterop.base.Any;
-import jsinterop.base.Js;
 import raktek.Raktek;
 
 public final class Program
