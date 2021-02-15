@@ -54,5 +54,6 @@ public class WebGLActiveInfo {
   @JsProperty(
       name = "type"
   )
+  @ActiveInfoDataType
   public native int type();
 }
