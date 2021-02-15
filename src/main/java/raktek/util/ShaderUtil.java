@@ -4,7 +4,6 @@ import elemental3.Global;
 import elemental3.core.RegExp;
 import elemental3.core.RegExpResult;
 import elemental3.gl.GLSL;
-import elemental3.gl.ShaderType;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 

@@ -163,7 +163,7 @@ public abstract class Resource<T>
    * and will check the state of any resource that is asynchronously allocated. If this method throws
    * a ResourceException then the caller will release the udnerlying resource.
    *
-   * @param  handle the resource handle.
+   * @param handle the resource handle.
    * @throws ResourceException if there is an unrecoverable error allocating resource.
    */
   protected void verifyResource( @Nonnull T handle )

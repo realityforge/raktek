@@ -29,8 +29,9 @@ public final class Program
                   @Nonnull final Shader vertexShader,
                   @Nonnull final Shader fragmentShader )
   {
-    this(gl, name, vertexShader, fragmentShader, new AttributeLocation[0] );
+    this( gl, name, vertexShader, fragmentShader, new AttributeLocation[ 0 ] );
   }
+
   public Program( @Nonnull final WebGL2RenderingContext gl,
                   @Nonnull final String name,
                   @Nonnull final Shader vertexShader,
