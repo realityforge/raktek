@@ -64,6 +64,7 @@ public class HTMLTextAreaElement extends HTMLElement {
   public String value;
 
   @Nonnull
+  @WrapType
   public String wrap;
 
   protected HTMLTextAreaElement() {
