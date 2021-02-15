@@ -134,6 +134,20 @@ public final class Shader
            ShaderUtil.formatInfoLog( _error, "GLSL compilation error in " + getLabel() + ":\n", _source );
   }
 
+  @Override
+  public String toString()
+  {
+    if ( Raktek.shouldSupportDebugToString() )
+    {
+      return ( WebGL2RenderingContext.FRAGMENT_SHADER == getType() ? "Fragment" : "Vertex" ) +
+             "Shader[" + getName() + "]";
+    }
+    else
+    {
+      return super.toString();
+    }
+  }
+
   @Nonnull
   @Override
   protected WebGLShader allocateResource()

@@ -171,6 +171,19 @@ public final class Program
     return CompletionStatus.INCOMPLETE != getCompletionStatus();
   }
 
+  @Override
+  public String toString()
+  {
+    if ( Raktek.shouldSupportDebugToString() )
+    {
+      return "Program[" + getName() + "]";
+    }
+    else
+    {
+      return super.toString();
+    }
+  }
+
   @Nonnull
   @Override
   protected WebGLProgram allocateResource()

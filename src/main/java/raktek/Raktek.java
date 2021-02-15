@@ -10,6 +10,18 @@ public final class Raktek
   }
 
   /**
+   * Return true if toString() on various resources will emit a human understandable string.
+   * This comes at a cors of increased code-size and is not recommended in production builds.
+   *
+   * @return true if toString() on various resources will emit a human understandable string.
+   */
+  @OmitSymbol
+  public static boolean shouldSupportDebugToString()
+  {
+    return true;
+  }
+
+  /**
    * Return true if should check whether the shader compile was successful during allocation phase.
    *
    * @return true if should check whether the shader compile was successful during allocation phase.
