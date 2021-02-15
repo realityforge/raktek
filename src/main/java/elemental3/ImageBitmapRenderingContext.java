@@ -19,7 +19,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "ImageBitmapRenderingContext"
 )
-public class ImageBitmapRenderingContext {
+public class ImageBitmapRenderingContext implements RenderingContext {
   protected ImageBitmapRenderingContext() {
   }
 

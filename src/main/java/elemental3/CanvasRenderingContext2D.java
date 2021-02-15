@@ -21,7 +21,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "CanvasRenderingContext2D"
 )
-public class CanvasRenderingContext2D {
+public class CanvasRenderingContext2D implements RenderingContext {
   /**
    * The CanvasRenderingContext2D.direction property of the Canvas 2D API specifies the current text direction used to draw text.
    *

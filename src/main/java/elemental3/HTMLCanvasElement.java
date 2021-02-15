@@ -50,6 +50,53 @@ public class HTMLCanvasElement extends HTMLElement implements TexImageSource {
   }
 
   /**
+   * The HTMLCanvasElement.getContext() method returns a drawing context on the canvas, or null if the context identifier is not supported, or the canvas has already been set to a different context mode.
+   *
+   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext">HTMLCanvasElement.getContext - MDN</a>
+   * @see <a href="https://html.spec.whatwg.org/multipage/scripting.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML Living Standard</a>
+   * @see <a href="https://www.w3.org/TR/html51/semantics-scripting.html#dom-htmlcanvaselement-getcontext">HTMLCanvasElement.getContext - HTML 5.1</a>
+   * @see <a href="https://www.w3.org/TR/html52/scripting-1.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML5</a>
+   */
+  @Nullable
+  public native RenderingContext getContext(@RenderContextType @Nonnull String contextId,
+      @Nonnull CanvasRenderingContext2DSettings options);
+
+  /**
+   * The HTMLCanvasElement.getContext() method returns a drawing context on the canvas, or null if the context identifier is not supported, or the canvas has already been set to a different context mode.
+   *
+   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext">HTMLCanvasElement.getContext - MDN</a>
+   * @see <a href="https://html.spec.whatwg.org/multipage/scripting.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML Living Standard</a>
+   * @see <a href="https://www.w3.org/TR/html51/semantics-scripting.html#dom-htmlcanvaselement-getcontext">HTMLCanvasElement.getContext - HTML 5.1</a>
+   * @see <a href="https://www.w3.org/TR/html52/scripting-1.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML5</a>
+   */
+  @Nullable
+  public native RenderingContext getContext(@RenderContextType @Nonnull String contextId,
+      @Nonnull ImageBitmapRenderingContextSettings options);
+
+  /**
+   * The HTMLCanvasElement.getContext() method returns a drawing context on the canvas, or null if the context identifier is not supported, or the canvas has already been set to a different context mode.
+   *
+   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext">HTMLCanvasElement.getContext - MDN</a>
+   * @see <a href="https://html.spec.whatwg.org/multipage/scripting.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML Living Standard</a>
+   * @see <a href="https://www.w3.org/TR/html51/semantics-scripting.html#dom-htmlcanvaselement-getcontext">HTMLCanvasElement.getContext - HTML 5.1</a>
+   * @see <a href="https://www.w3.org/TR/html52/scripting-1.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML5</a>
+   */
+  @Nullable
+  public native RenderingContext getContext(@RenderContextType @Nonnull String contextId,
+      @Nonnull WebGLContextAttributes options);
+
+  /**
+   * The HTMLCanvasElement.getContext() method returns a drawing context on the canvas, or null if the context identifier is not supported, or the canvas has already been set to a different context mode.
+   *
+   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext">HTMLCanvasElement.getContext - MDN</a>
+   * @see <a href="https://html.spec.whatwg.org/multipage/scripting.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML Living Standard</a>
+   * @see <a href="https://www.w3.org/TR/html51/semantics-scripting.html#dom-htmlcanvaselement-getcontext">HTMLCanvasElement.getContext - HTML 5.1</a>
+   * @see <a href="https://www.w3.org/TR/html52/scripting-1.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML5</a>
+   */
+  @Nullable
+  public native RenderingContext getContext(@RenderContextType @Nonnull String contextId);
+
+  /**
    * The HTMLCanvasElement.toBlob() method creates a Blob object representing the image contained in the canvas; this file may be cached on the disk or stored in memory at the discretion of the user agent. If type is not specified, the image type is image/png. The created image is in a resolution of 96dpi.
    *
    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob">HTMLCanvasElement.toBlob - MDN</a>
@@ -121,53 +168,6 @@ public class HTMLCanvasElement extends HTMLElement implements TexImageSource {
    */
   @Nonnull
   public native OffscreenCanvas transferControlToOffscreen();
-
-  /**
-   * The HTMLCanvasElement.getContext() method returns a drawing context on the canvas, or null if the context identifier is not supported, or the canvas has already been set to a different context mode.
-   *
-   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext">HTMLCanvasElement.getContext - MDN</a>
-   * @see <a href="https://html.spec.whatwg.org/multipage/scripting.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML Living Standard</a>
-   * @see <a href="https://www.w3.org/TR/html51/semantics-scripting.html#dom-htmlcanvaselement-getcontext">HTMLCanvasElement.getContext - HTML 5.1</a>
-   * @see <a href="https://www.w3.org/TR/html52/scripting-1.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML5</a>
-   */
-  @Nullable
-  public native RenderingContext getContext(@RenderContextType @Nonnull String contextId,
-      @Nonnull CanvasRenderingContext2DSettings options);
-
-  /**
-   * The HTMLCanvasElement.getContext() method returns a drawing context on the canvas, or null if the context identifier is not supported, or the canvas has already been set to a different context mode.
-   *
-   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext">HTMLCanvasElement.getContext - MDN</a>
-   * @see <a href="https://html.spec.whatwg.org/multipage/scripting.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML Living Standard</a>
-   * @see <a href="https://www.w3.org/TR/html51/semantics-scripting.html#dom-htmlcanvaselement-getcontext">HTMLCanvasElement.getContext - HTML 5.1</a>
-   * @see <a href="https://www.w3.org/TR/html52/scripting-1.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML5</a>
-   */
-  @Nullable
-  public native RenderingContext getContext(@RenderContextType @Nonnull String contextId,
-      @Nonnull ImageBitmapRenderingContextSettings options);
-
-  /**
-   * The HTMLCanvasElement.getContext() method returns a drawing context on the canvas, or null if the context identifier is not supported, or the canvas has already been set to a different context mode.
-   *
-   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext">HTMLCanvasElement.getContext - MDN</a>
-   * @see <a href="https://html.spec.whatwg.org/multipage/scripting.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML Living Standard</a>
-   * @see <a href="https://www.w3.org/TR/html51/semantics-scripting.html#dom-htmlcanvaselement-getcontext">HTMLCanvasElement.getContext - HTML 5.1</a>
-   * @see <a href="https://www.w3.org/TR/html52/scripting-1.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML5</a>
-   */
-  @Nullable
-  public native RenderingContext getContext(@RenderContextType @Nonnull String contextId,
-      @Nonnull WebGLContextAttributes options);
-
-  /**
-   * The HTMLCanvasElement.getContext() method returns a drawing context on the canvas, or null if the context identifier is not supported, or the canvas has already been set to a different context mode.
-   *
-   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext">HTMLCanvasElement.getContext - MDN</a>
-   * @see <a href="https://html.spec.whatwg.org/multipage/scripting.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML Living Standard</a>
-   * @see <a href="https://www.w3.org/TR/html51/semantics-scripting.html#dom-htmlcanvaselement-getcontext">HTMLCanvasElement.getContext - HTML 5.1</a>
-   * @see <a href="https://www.w3.org/TR/html52/scripting-1.html#dom-canvas-getcontext">HTMLCanvasElement.getContext - HTML5</a>
-   */
-  @Nullable
-  public native RenderingContext getContext(@RenderContextType @Nonnull String contextId);
 
   @JsOverlay
   public final void addWebglcontextcreationerrorListener(

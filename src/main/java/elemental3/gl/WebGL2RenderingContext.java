@@ -1,5 +1,6 @@
 package elemental3.gl;
 
+import elemental3.RenderingContext;
 import elemental3.core.ArrayBufferView;
 import elemental3.core.BufferSource;
 import elemental3.core.Float32Array;
@@ -28,7 +29,7 @@ import jsinterop.base.Any;
     namespace = JsPackage.GLOBAL,
     name = "WebGL2RenderingContext"
 )
-public class WebGL2RenderingContext {
+public class WebGL2RenderingContext implements RenderingContext {
   @JsOverlay
   public static final int ACTIVE_ATTRIBUTES = 0x8B89;
 
