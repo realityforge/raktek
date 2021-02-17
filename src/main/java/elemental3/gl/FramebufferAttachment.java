@@ -9,10 +9,8 @@ import org.intellij.lang.annotations.MagicConstant;
 @Documented
 @MagicConstant(
     intValues = {
-        WebGL2RenderingContext.COLOR_ATTACHMENT0,
-        WebGL2RenderingContext.DEPTH_ATTACHMENT,
-        WebGL2RenderingContext.STENCIL_ATTACHMENT,
         WebGL2RenderingContext.DEPTH_STENCIL_ATTACHMENT,
+        WebGL2RenderingContext.COLOR_ATTACHMENT0,
         WebGL2RenderingContext.COLOR_ATTACHMENT1,
         WebGL2RenderingContext.COLOR_ATTACHMENT2,
         WebGL2RenderingContext.COLOR_ATTACHMENT3,
@@ -27,7 +25,9 @@ import org.intellij.lang.annotations.MagicConstant;
         WebGL2RenderingContext.COLOR_ATTACHMENT12,
         WebGL2RenderingContext.COLOR_ATTACHMENT13,
         WebGL2RenderingContext.COLOR_ATTACHMENT14,
-        WebGL2RenderingContext.COLOR_ATTACHMENT15
+        WebGL2RenderingContext.COLOR_ATTACHMENT15,
+        WebGL2RenderingContext.DEPTH_ATTACHMENT,
+        WebGL2RenderingContext.STENCIL_ATTACHMENT
     }
 )
 public @interface FramebufferAttachment {

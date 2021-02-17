@@ -9,16 +9,16 @@ import org.intellij.lang.annotations.MagicConstant;
 @Documented
 @MagicConstant(
     intValues = {
-        KHR_parallel_shader_compile.COMPLETION_STATUS_KHR,
+        WebGL2RenderingContext.ACTIVE_UNIFORM_BLOCKS,
         WebGL2RenderingContext.DELETE_STATUS,
         WebGL2RenderingContext.LINK_STATUS,
         WebGL2RenderingContext.VALIDATE_STATUS,
         WebGL2RenderingContext.ATTACHED_SHADERS,
-        WebGL2RenderingContext.ACTIVE_ATTRIBUTES,
         WebGL2RenderingContext.ACTIVE_UNIFORMS,
+        WebGL2RenderingContext.ACTIVE_ATTRIBUTES,
         WebGL2RenderingContext.TRANSFORM_FEEDBACK_BUFFER_MODE,
         WebGL2RenderingContext.TRANSFORM_FEEDBACK_VARYINGS,
-        WebGL2RenderingContext.ACTIVE_UNIFORM_BLOCKS
+        KHR_parallel_shader_compile.COMPLETION_STATUS_KHR
     }
 )
 public @interface ProgramParameterType {

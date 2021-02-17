@@ -9,12 +9,12 @@ import org.intellij.lang.annotations.MagicConstant;
 @Documented
 @MagicConstant(
     intValues = {
+        WebGL2RenderingContext.RED,
         WebGL2RenderingContext.RGB,
         WebGL2RenderingContext.RGBA,
-        WebGL2RenderingContext.RED,
-        WebGL2RenderingContext.RED_INTEGER,
         WebGL2RenderingContext.RG,
         WebGL2RenderingContext.RG_INTEGER,
+        WebGL2RenderingContext.RED_INTEGER,
         WebGL2RenderingContext.RGB_INTEGER,
         WebGL2RenderingContext.RGBA_INTEGER
     }

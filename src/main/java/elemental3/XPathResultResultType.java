@@ -10,8 +10,8 @@ import org.intellij.lang.annotations.MagicConstant;
 @MagicConstant(
     intValues = {
         XPathResult.ANY_TYPE,
-        XPathResult.STRING_TYPE,
         XPathResult.NUMBER_TYPE,
+        XPathResult.STRING_TYPE,
         XPathResult.BOOLEAN_TYPE,
         XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
         XPathResult.ORDERED_NODE_ITERATOR_TYPE,

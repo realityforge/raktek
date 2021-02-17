@@ -9,8 +9,8 @@ import org.intellij.lang.annotations.MagicConstant;
 @Documented
 @MagicConstant(
     intValues = {
-        WebGL2RenderingContext.VERTEX_SHADER,
-        WebGL2RenderingContext.FRAGMENT_SHADER
+        WebGL2RenderingContext.FRAGMENT_SHADER,
+        WebGL2RenderingContext.VERTEX_SHADER
     }
 )
 public @interface ShaderType {

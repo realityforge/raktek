@@ -9,9 +9,9 @@ import org.intellij.lang.annotations.MagicConstant;
 @Documented
 @MagicConstant(
     intValues = {
-        WebGL2RenderingContext.FRAMEBUFFER,
+        WebGL2RenderingContext.READ_FRAMEBUFFER,
         WebGL2RenderingContext.DRAW_FRAMEBUFFER,
-        WebGL2RenderingContext.READ_FRAMEBUFFER
+        WebGL2RenderingContext.FRAMEBUFFER
     }
 )
 public @interface FramebufferTargetType {

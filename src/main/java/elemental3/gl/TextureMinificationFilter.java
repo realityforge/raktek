@@ -9,8 +9,8 @@ import org.intellij.lang.annotations.MagicConstant;
 @Documented
 @MagicConstant(
     intValues = {
-        WebGL2RenderingContext.LINEAR,
         WebGL2RenderingContext.NEAREST,
+        WebGL2RenderingContext.LINEAR,
         WebGL2RenderingContext.NEAREST_MIPMAP_NEAREST,
         WebGL2RenderingContext.LINEAR_MIPMAP_NEAREST,
         WebGL2RenderingContext.NEAREST_MIPMAP_LINEAR,

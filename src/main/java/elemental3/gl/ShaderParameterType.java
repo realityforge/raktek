@@ -9,9 +9,9 @@ import org.intellij.lang.annotations.MagicConstant;
 @Documented
 @MagicConstant(
     intValues = {
+        WebGL2RenderingContext.SHADER_TYPE,
         WebGL2RenderingContext.DELETE_STATUS,
-        WebGL2RenderingContext.COMPILE_STATUS,
-        WebGL2RenderingContext.SHADER_TYPE
+        WebGL2RenderingContext.COMPILE_STATUS
     }
 )
 public @interface ShaderParameterType {

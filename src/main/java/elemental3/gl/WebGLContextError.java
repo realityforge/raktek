@@ -13,8 +13,8 @@ import org.intellij.lang.annotations.MagicConstant;
         WebGL2RenderingContext.INVALID_ENUM,
         WebGL2RenderingContext.INVALID_VALUE,
         WebGL2RenderingContext.INVALID_OPERATION,
-        WebGL2RenderingContext.INVALID_FRAMEBUFFER_OPERATION,
         WebGL2RenderingContext.OUT_OF_MEMORY,
+        WebGL2RenderingContext.INVALID_FRAMEBUFFER_OPERATION,
         WebGL2RenderingContext.CONTEXT_LOST_WEBGL
     }
 )

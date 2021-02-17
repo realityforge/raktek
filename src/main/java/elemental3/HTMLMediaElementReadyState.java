@@ -10,8 +10,8 @@ import org.intellij.lang.annotations.MagicConstant;
 @MagicConstant(
     intValues = {
         HTMLMediaElement.HAVE_NOTHING,
-        HTMLMediaElement.HAVE_CURRENT_DATA,
         HTMLMediaElement.HAVE_METADATA,
+        HTMLMediaElement.HAVE_CURRENT_DATA,
         HTMLMediaElement.HAVE_FUTURE_DATA,
         HTMLMediaElement.HAVE_ENOUGH_DATA
     }

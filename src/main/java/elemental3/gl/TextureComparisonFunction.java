@@ -9,14 +9,14 @@ import org.intellij.lang.annotations.MagicConstant;
 @Documented
 @MagicConstant(
     intValues = {
-        WebGL2RenderingContext.LEQUAL,
-        WebGL2RenderingContext.GEQUAL,
+        WebGL2RenderingContext.NEVER,
         WebGL2RenderingContext.LESS,
-        WebGL2RenderingContext.GREATER,
         WebGL2RenderingContext.EQUAL,
+        WebGL2RenderingContext.LEQUAL,
+        WebGL2RenderingContext.GREATER,
         WebGL2RenderingContext.NOTEQUAL,
-        WebGL2RenderingContext.ALWAYS,
-        WebGL2RenderingContext.NEVER
+        WebGL2RenderingContext.GEQUAL,
+        WebGL2RenderingContext.ALWAYS
     }
 )
 public @interface TextureComparisonFunction {

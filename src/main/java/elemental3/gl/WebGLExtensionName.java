@@ -9,8 +9,8 @@ import org.intellij.lang.annotations.MagicConstant;
 @Documented
 @MagicConstant(
     stringValues = {
-        EXT_color_buffer_half_float.NAME,
         EXT_color_buffer_float.NAME,
+        EXT_color_buffer_half_float.NAME,
         EXT_disjoint_timer_query_webgl2.NAME,
         EXT_float_blend.NAME,
         EXT_texture_compression_bptc.NAME,
@@ -18,9 +18,9 @@ import org.intellij.lang.annotations.MagicConstant;
         EXT_texture_filter_anisotropic.NAME,
         EXT_texture_norm16.NAME,
         KHR_parallel_shader_compile.NAME,
+        OCULUS_multiview.NAME,
         OES_texture_float_linear.NAME,
         OES_texture_half_float_linear.NAME,
-        OCULUS_multiview.NAME,
         OVR_multiview2.NAME,
         WEBGL_compressed_texture_astc.NAME,
         WEBGL_compressed_texture_etc.NAME,

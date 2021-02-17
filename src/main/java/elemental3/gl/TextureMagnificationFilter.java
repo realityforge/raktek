@@ -9,8 +9,8 @@ import org.intellij.lang.annotations.MagicConstant;
 @Documented
 @MagicConstant(
     intValues = {
-        WebGL2RenderingContext.LINEAR,
-        WebGL2RenderingContext.NEAREST
+        WebGL2RenderingContext.NEAREST,
+        WebGL2RenderingContext.LINEAR
     }
 )
 public @interface TextureMagnificationFilter {

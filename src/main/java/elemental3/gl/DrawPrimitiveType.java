@@ -10,12 +10,12 @@ import org.intellij.lang.annotations.MagicConstant;
 @MagicConstant(
     intValues = {
         WebGL2RenderingContext.POINTS,
-        WebGL2RenderingContext.LINE_STRIP,
-        WebGL2RenderingContext.LINE_LOOP,
         WebGL2RenderingContext.LINES,
+        WebGL2RenderingContext.LINE_LOOP,
+        WebGL2RenderingContext.LINE_STRIP,
+        WebGL2RenderingContext.TRIANGLES,
         WebGL2RenderingContext.TRIANGLE_STRIP,
-        WebGL2RenderingContext.TRIANGLE_FAN,
-        WebGL2RenderingContext.TRIANGLES
+        WebGL2RenderingContext.TRIANGLE_FAN
     }
 )
 public @interface DrawPrimitiveType {

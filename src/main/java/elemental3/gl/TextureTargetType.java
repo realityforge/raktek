@@ -10,8 +10,8 @@ import org.intellij.lang.annotations.MagicConstant;
 @MagicConstant(
     intValues = {
         WebGL2RenderingContext.TEXTURE_2D,
-        WebGL2RenderingContext.TEXTURE_CUBE_MAP,
         WebGL2RenderingContext.TEXTURE_3D,
+        WebGL2RenderingContext.TEXTURE_CUBE_MAP,
         WebGL2RenderingContext.TEXTURE_2D_ARRAY
     }
 )
