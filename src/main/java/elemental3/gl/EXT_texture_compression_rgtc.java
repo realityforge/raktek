@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "EXT_texture_compression_rgtc"
 )
-public class EXT_texture_compression_rgtc {
+public class EXT_texture_compression_rgtc implements WebGL1Extension, WebGLExtension {
   @JsOverlay
   public static final int COMPRESSED_RED_GREEN_RGTC2_EXT = 0x8DBD;
 

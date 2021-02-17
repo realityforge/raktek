@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class ANGLE_instanced_arrays {
+public class ANGLE_instanced_arrays implements WebGL1Extension {
   @JsOverlay
   public static final String NAME = "ANGLE_instanced_arrays";
 

@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class WEBGL_depth_texture {
+public class WEBGL_depth_texture implements WebGL1Extension, WebGLExtension {
   @JsOverlay
   public static final String NAME = "WEBGL_depth_texture";
 

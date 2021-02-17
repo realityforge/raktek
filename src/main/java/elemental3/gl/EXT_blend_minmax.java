@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class EXT_blend_minmax {
+public class EXT_blend_minmax implements WebGL1Extension {
   @JsOverlay
   public static final int MAX_EXT = 0x8008;
 

@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "KHR_parallel_shader_compile"
 )
-public class KHR_parallel_shader_compile {
+public class KHR_parallel_shader_compile implements WebGL1Extension, WebGLExtension {
   @JsOverlay
   public static final int COMPLETION_STATUS_KHR = 0x91B1;
 

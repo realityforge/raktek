@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class WEBGL_color_buffer_float {
+public class WEBGL_color_buffer_float implements WebGL1Extension {
   @JsOverlay
   public static final int FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT = 0x8211;
 

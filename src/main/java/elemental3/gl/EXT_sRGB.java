@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class EXT_sRGB {
+public class EXT_sRGB implements WebGL1Extension {
   @JsOverlay
   public static final int FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT = 0x8210;
 

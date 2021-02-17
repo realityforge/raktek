@@ -19,7 +19,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class WEBGL_compressed_texture_astc {
+public class WEBGL_compressed_texture_astc implements WebGL1Extension, WebGLExtension {
   @JsOverlay
   public static final int COMPRESSED_RGBA_ASTC_10x10_KHR = 0x93BB;
 

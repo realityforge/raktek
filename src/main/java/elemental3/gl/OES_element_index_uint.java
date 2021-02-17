@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class OES_element_index_uint {
+public class OES_element_index_uint implements WebGL1Extension {
   @JsOverlay
   public static final String NAME = "OES_element_index_uint";
 

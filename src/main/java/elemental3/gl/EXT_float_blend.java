@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class EXT_float_blend {
+public class EXT_float_blend implements WebGL1Extension, WebGLExtension {
   @JsOverlay
   public static final String NAME = "EXT_float_blend";
 

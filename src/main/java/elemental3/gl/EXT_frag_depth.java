@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class EXT_frag_depth {
+public class EXT_frag_depth implements WebGL1Extension {
   @JsOverlay
   public static final String NAME = "EXT_frag_depth";
 

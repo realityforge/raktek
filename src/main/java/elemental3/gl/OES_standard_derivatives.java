@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class OES_standard_derivatives {
+public class OES_standard_derivatives implements WebGL1Extension {
   @JsOverlay
   public static final int FRAGMENT_SHADER_DERIVATIVE_HINT_OES = 0x8B8B;
 

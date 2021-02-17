@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class OES_texture_float_linear {
+public class OES_texture_float_linear implements WebGL1Extension, WebGLExtension {
   @JsOverlay
   public static final String NAME = "OES_texture_float_linear";
 

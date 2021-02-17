@@ -19,7 +19,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class WEBGL_draw_buffers {
+public class WEBGL_draw_buffers implements WebGL1Extension {
   @JsOverlay
   public static final int COLOR_ATTACHMENT0_WEBGL = 0x8CE0;
 

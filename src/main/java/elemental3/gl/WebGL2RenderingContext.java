@@ -2290,8 +2290,8 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/getExtension">WebGLRenderingContext.getExtension - MDN</a>
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.14">WebGLRenderingContext.getExtension - WebGL 1.0</a>
    */
-  @Nullable
-  public native Object getExtension(@Nonnull String name);
+  @Nonnull
+  public native WebGLExtension getExtension(@WebGLExtensionName @Nonnull String name);
 
   /**
    * The WebGLRenderingContext.getFramebufferAttachmentParameter() method of the WebGL API returns information about a framebuffer's attachment.
@@ -2314,7 +2314,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGet.xml">glGet - OpenGL ES 2.0</a>
    */
   @Nullable
-  public native Any getParameter(int pname);
+  public native Any getParameter(@WebGLParameterName int pname);
 
   /**
    * The WebGLRenderingContext.getProgramInfoLog returns the information log for the specified WebGLProgram object. It contains errors that occurred during failed linking or validation of WebGLProgram objects.

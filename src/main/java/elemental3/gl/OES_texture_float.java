@@ -16,7 +16,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class OES_texture_float {
+public class OES_texture_float implements WebGL1Extension {
   protected OES_texture_float() {
   }
 }

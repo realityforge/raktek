@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class OES_texture_half_float {
+public class OES_texture_half_float implements WebGL1Extension {
   @JsOverlay
   public static final int HALF_FLOAT_OES = 0x8D61;
 

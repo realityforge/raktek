@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "EXT_texture_norm16"
 )
-public class EXT_texture_norm16 {
+public class EXT_texture_norm16 implements WebGLExtension {
   @JsOverlay
   public static final String NAME = "EXT_texture_norm16";
 

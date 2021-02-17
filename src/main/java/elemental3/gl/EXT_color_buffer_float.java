@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class EXT_color_buffer_float {
+public class EXT_color_buffer_float implements WebGLExtension {
   @JsOverlay
   public static final String NAME = "EXT_color_buffer_float";
 

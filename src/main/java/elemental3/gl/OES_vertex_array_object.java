@@ -18,7 +18,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class OES_vertex_array_object {
+public class OES_vertex_array_object implements WebGL1Extension {
   @JsOverlay
   public static final String NAME = "OES_vertex_array_object";
 

@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class WEBGL_lose_context {
+public class WEBGL_lose_context implements WebGL1Extension, WebGLExtension {
   @JsOverlay
   public static final String NAME = "WEBGL_lose_context";
 

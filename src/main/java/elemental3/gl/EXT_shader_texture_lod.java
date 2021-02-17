@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class EXT_shader_texture_lod {
+public class EXT_shader_texture_lod implements WebGL1Extension {
   @JsOverlay
   public static final String NAME = "EXT_shader_texture_lod";
 
