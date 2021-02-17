@@ -90,7 +90,7 @@ public final class Shader
     else
     {
       //TODO: This extension lookup should be cached
-      final WEBGL_debug_shaders extensions = (WEBGL_debug_shaders) gl().getExtension( "WEBGL_debug_shaders" );
+      final WEBGL_debug_shaders extensions = (WEBGL_debug_shaders) gl().getExtension( WEBGL_debug_shaders.NAME );
       if ( null != extensions )
       {
         final WebGLShader handle = getHandle();

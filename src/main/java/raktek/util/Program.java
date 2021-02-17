@@ -144,7 +144,7 @@ public final class Program
   {
     final WebGL2RenderingContext gl = gl();
     final KHR_parallel_shader_compile extension =
-      (KHR_parallel_shader_compile) gl.getExtension( "KHR_parallel_shader_compile" );
+      (KHR_parallel_shader_compile) gl.getExtension( KHR_parallel_shader_compile.NAME );
     if ( null == extension )
     {
       return CompletionStatus.UNKNOWN;
