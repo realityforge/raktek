@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class EXT_texture_filter_anisotropic implements WebGL1Extension, WebGLExtension {
+public class EXT_texture_filter_anisotropic implements WebGLCommonExtension {
   @JsOverlay
   public static final int MAX_TEXTURE_MAX_ANISOTROPY_EXT = 0x84FF;
 

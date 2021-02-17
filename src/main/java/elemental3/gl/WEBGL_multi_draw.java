@@ -13,7 +13,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "WEBGL_multi_draw"
 )
-public class WEBGL_multi_draw implements WebGL1Extension, WebGLExtension {
+public class WEBGL_multi_draw implements WebGLCommonExtension {
   @JsOverlay
   public static final String NAME = "WEBGL_multi_draw";
 

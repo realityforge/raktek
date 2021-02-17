@@ -17,7 +17,7 @@ import jsinterop.annotations.JsType;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public class WEBGL_debug_renderer_info implements WebGL1Extension, WebGLExtension {
+public class WEBGL_debug_renderer_info implements WebGLCommonExtension {
   @JsOverlay
   public static final String NAME = "WEBGL_debug_renderer_info";
 
