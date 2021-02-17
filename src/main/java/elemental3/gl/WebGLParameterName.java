@@ -149,8 +149,8 @@ import org.intellij.lang.annotations.MagicConstant;
         WebGL2RenderingContext.STENCIL_BACK_REF,
         WebGL2RenderingContext.STENCIL_BACK_VALUE_MASK,
         WebGL2RenderingContext.STENCIL_BACK_WRITEMASK,
-        WebGL2RenderingContext.FRAMEBUFFER_BINDING,
         WebGL2RenderingContext.DRAW_FRAMEBUFFER_BINDING,
+        WebGL2RenderingContext.FRAMEBUFFER_BINDING,
         WebGL2RenderingContext.RENDERBUFFER_BINDING,
         WebGL2RenderingContext.READ_FRAMEBUFFER_BINDING,
         WebGL2RenderingContext.MAX_COLOR_ATTACHMENTS,
@@ -175,8 +175,8 @@ import org.intellij.lang.annotations.MagicConstant;
         WEBGL_debug_renderer_info.UNMASKED_VENDOR_WEBGL,
         WEBGL_debug_renderer_info.UNMASKED_RENDERER_WEBGL,
         WebGL2RenderingContext.MAX_CLIENT_WAIT_TIMEOUT_WEBGL,
-        OVR_multiview2.MAX_VIEWS_OVR,
-        OCULUS_multiview.MAX_VIEWS_OVR
+        OCULUS_multiview.MAX_VIEWS_OVR,
+        OVR_multiview2.MAX_VIEWS_OVR
     }
 )
 public @interface WebGLParameterName {
