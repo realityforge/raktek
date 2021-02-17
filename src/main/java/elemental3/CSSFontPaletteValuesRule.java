@@ -1,6 +1,7 @@
 package elemental3;
 
-import elemental3.core.JsIterator;
+import elemental3.lang.JsArray;
+import elemental3.lang.JsIterator;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -9,7 +10,6 @@ import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Js;
 
 @Generated("org.realityforge.webtack")
 @JsType(
@@ -60,18 +60,19 @@ public class CSSFontPaletteValuesRule extends CSSRule {
 
   @JsType(
       isNative = true,
-      name = "?",
-      namespace = JsPackage.GLOBAL
+      namespace = JsPackage.GLOBAL,
+      name = "Array"
   )
-  public interface Entry {
+  public static final class Entry extends JsArray<Object> {
     @JsOverlay
-    default int key() {
-      return Js.asArray( this )[ 0 ].cast();
+    public int key() {
+      return getAtAsAny( 0 ).asInt();
     }
 
     @JsOverlay
-    default String value() {
-      return Js.asArray( this )[ 1 ].cast();
+    @Nonnull
+    public String value() {
+      return getAtAsAny( 1 ).asString();
     }
   }
 

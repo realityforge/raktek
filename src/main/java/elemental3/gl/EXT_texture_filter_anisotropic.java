@@ -22,6 +22,9 @@ public class EXT_texture_filter_anisotropic {
   public static final int MAX_TEXTURE_MAX_ANISOTROPY_EXT = 0x84FF;
 
   @JsOverlay
+  public static final String NAME = "EXT_texture_filter_anisotropic";
+
+  @JsOverlay
   public static final int TEXTURE_MAX_ANISOTROPY_EXT = 0x84FE;
 
   protected EXT_texture_filter_anisotropic() {

@@ -3,7 +3,7 @@ package elemental3.audio;
 import elemental3.EventHandler;
 import elemental3.EventTarget;
 import elemental3.core.ArrayBuffer;
-import elemental3.core.JsArray;
+import elemental3.lang.JsArray;
 import elemental3.promise.Promise;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;

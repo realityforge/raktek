@@ -1,7 +1,7 @@
 package elemental3.indexeddb;
 
 import elemental3.DOMStringList;
-import elemental3.core.JsArray;
+import elemental3.lang.JsArray;
 import javaemul.internal.annotations.DoNotAutobox;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;

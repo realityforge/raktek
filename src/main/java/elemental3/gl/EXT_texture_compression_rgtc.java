@@ -30,6 +30,9 @@ public class EXT_texture_compression_rgtc {
   @JsOverlay
   public static final int COMPRESSED_SIGNED_RED_RGTC1_EXT = 0x8DBC;
 
+  @JsOverlay
+  public static final String NAME = "EXT_texture_compression_rgtc";
+
   protected EXT_texture_compression_rgtc() {
   }
 }

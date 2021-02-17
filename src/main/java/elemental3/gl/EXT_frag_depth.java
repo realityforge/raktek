@@ -1,6 +1,7 @@
 package elemental3.gl;
 
 import javax.annotation.Generated;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
@@ -17,6 +18,9 @@ import jsinterop.annotations.JsType;
     name = "Object"
 )
 public class EXT_frag_depth {
+  @JsOverlay
+  public static final String NAME = "EXT_frag_depth";
+
   protected EXT_frag_depth() {
   }
 }

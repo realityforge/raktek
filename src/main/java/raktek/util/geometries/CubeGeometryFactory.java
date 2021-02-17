@@ -1,9 +1,9 @@
 package raktek.util.geometries;
 
 import elemental3.core.Float32Array;
-import elemental3.core.JsArray;
 import elemental3.gl.DrawPrimitiveType;
 import elemental3.gl.WebGL2RenderingContext;
+import elemental3.lang.JsArray;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nonnull;

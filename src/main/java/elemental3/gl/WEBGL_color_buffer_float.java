@@ -22,6 +22,9 @@ public class WEBGL_color_buffer_float {
   public static final int FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT = 0x8211;
 
   @JsOverlay
+  public static final String NAME = "WEBGL_color_buffer_float";
+
+  @JsOverlay
   public static final int RGBA32F_EXT = 0x8814;
 
   @JsOverlay

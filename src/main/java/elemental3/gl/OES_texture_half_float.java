@@ -21,6 +21,9 @@ public class OES_texture_half_float {
   @JsOverlay
   public static final int HALF_FLOAT_OES = 0x8D61;
 
+  @JsOverlay
+  public static final String NAME = "OES_texture_half_float";
+
   protected OES_texture_half_float() {
   }
 }

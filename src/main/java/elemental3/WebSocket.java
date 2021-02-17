@@ -2,7 +2,7 @@ package elemental3;
 
 import elemental3.core.ArrayBuffer;
 import elemental3.core.ArrayBufferView;
-import elemental3.core.JsArray;
+import elemental3.lang.JsArray;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

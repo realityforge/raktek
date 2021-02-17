@@ -1,6 +1,7 @@
 package elemental3.gl;
 
 import javax.annotation.Generated;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
@@ -17,6 +18,9 @@ import jsinterop.annotations.JsType;
     name = "Object"
 )
 public class EXT_color_buffer_float {
+  @JsOverlay
+  public static final String NAME = "EXT_color_buffer_float";
+
   protected EXT_color_buffer_float() {
   }
 }

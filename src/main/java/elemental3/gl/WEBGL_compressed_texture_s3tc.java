@@ -30,6 +30,9 @@ public class WEBGL_compressed_texture_s3tc {
   @JsOverlay
   public static final int COMPRESSED_RGB_S3TC_DXT1_EXT = 0x83F0;
 
+  @JsOverlay
+  public static final String NAME = "WEBGL_compressed_texture_s3tc";
+
   protected WEBGL_compressed_texture_s3tc() {
   }
 }

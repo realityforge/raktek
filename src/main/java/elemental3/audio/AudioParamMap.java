@@ -1,6 +1,7 @@
 package elemental3.audio;
 
-import elemental3.core.JsIterator;
+import elemental3.lang.JsArray;
+import elemental3.lang.JsIterator;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -9,7 +10,6 @@ import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Js;
 
 /**
  * The Web Audio API interface AudioParamMap represents a set of multiple audio parameters, each described as a mapping of a DOMString identifying the parameter to the AudioParam object representing its value.
@@ -53,18 +53,20 @@ public class AudioParamMap {
 
   @JsType(
       isNative = true,
-      name = "?",
-      namespace = JsPackage.GLOBAL
+      namespace = JsPackage.GLOBAL,
+      name = "Array"
   )
-  public interface Entry {
+  public static final class Entry extends JsArray<Object> {
     @JsOverlay
-    default String key() {
-      return Js.asArray( this )[ 0 ].cast();
+    @Nonnull
+    public String key() {
+      return getAtAsAny( 0 ).asString();
     }
 
     @JsOverlay
-    default AudioParam value() {
-      return Js.asArray( this )[ 1 ].cast();
+    @Nonnull
+    public AudioParam value() {
+      return getAtAsAny( 1 ).cast();
     }
   }
 

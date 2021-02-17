@@ -24,6 +24,9 @@ public class EXT_blend_minmax {
   @JsOverlay
   public static final int MIN_EXT = 0x8007;
 
+  @JsOverlay
+  public static final String NAME = "EXT_blend_minmax";
+
   protected EXT_blend_minmax() {
   }
 }

@@ -1,6 +1,7 @@
 package elemental3.core;
 
 import elemental3.StringOrLongLongUnion;
+import elemental3.lang.JsArray;
 import javaemul.internal.annotations.DoNotAutobox;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;

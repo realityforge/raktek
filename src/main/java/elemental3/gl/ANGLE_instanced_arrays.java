@@ -19,6 +19,9 @@ import jsinterop.annotations.JsType;
 )
 public class ANGLE_instanced_arrays {
   @JsOverlay
+  public static final String NAME = "ANGLE_instanced_arrays";
+
+  @JsOverlay
   public static final int VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE = 0x88FE;
 
   protected ANGLE_instanced_arrays() {

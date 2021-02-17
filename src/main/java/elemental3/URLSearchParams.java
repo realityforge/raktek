@@ -1,7 +1,7 @@
 package elemental3;
 
-import elemental3.core.JsArray;
-import elemental3.core.JsIterator;
+import elemental3.lang.JsArray;
+import elemental3.lang.JsIterator;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -186,14 +186,14 @@ public class URLSearchParams {
   public static final class Entry extends JsArray<Object> {
     @JsOverlay
     @Nonnull
-    public final String key() {
-      return getAtAsAny( 0 ).cast();
+    public String key() {
+      return getAtAsAny( 0 ).asString();
     }
 
     @JsOverlay
     @Nonnull
-    public final String value() {
-      return getAtAsAny( 0 ).cast();
+    public String value() {
+      return getAtAsAny( 1 ).asString();
     }
   }
 

@@ -22,6 +22,9 @@ public class EXT_sRGB {
   public static final int FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT = 0x8210;
 
   @JsOverlay
+  public static final String NAME = "EXT_sRGB";
+
+  @JsOverlay
   public static final int SRGB8_ALPHA8_EXT = 0x8C43;
 
   @JsOverlay

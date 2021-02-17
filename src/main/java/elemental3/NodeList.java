@@ -1,7 +1,7 @@
 package elemental3;
 
-import elemental3.core.JsArray;
-import elemental3.core.JsIterator;
+import elemental3.lang.JsArray;
+import elemental3.lang.JsIterator;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -105,13 +105,13 @@ public class NodeList {
   )
   public static final class Entry extends JsArray<Object> {
     @JsOverlay
-    public final int index() {
+    public int index() {
       return getAtAsAny( 0 ).asInt();
     }
 
     @JsOverlay
     @Nonnull
-    public final Node value() {
+    public Node value() {
       return getAtAsAny( 1 ).cast();
     }
   }

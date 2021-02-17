@@ -19,6 +19,9 @@ import jsinterop.annotations.JsType;
 )
 public class WEBGL_depth_texture {
   @JsOverlay
+  public static final String NAME = "WEBGL_depth_texture";
+
+  @JsOverlay
   public static final int UNSIGNED_INT_24_8_WEBGL = 0x84FA;
 
   protected WEBGL_depth_texture() {

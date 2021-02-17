@@ -2,6 +2,7 @@ package elemental3.gl;
 
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
@@ -18,6 +19,9 @@ import jsinterop.annotations.JsType;
     name = "Object"
 )
 public class WEBGL_debug_shaders {
+  @JsOverlay
+  public static final String NAME = "WEBGL_debug_shaders";
+
   protected WEBGL_debug_shaders() {
   }
 

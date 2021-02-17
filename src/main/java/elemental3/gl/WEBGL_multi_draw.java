@@ -3,6 +3,7 @@ package elemental3.gl;
 import elemental3.core.Int32Array;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
@@ -13,6 +14,9 @@ import jsinterop.annotations.JsType;
     name = "WEBGL_multi_draw"
 )
 public class WEBGL_multi_draw {
+  @JsOverlay
+  public static final String NAME = "WEBGL_multi_draw";
+
   protected WEBGL_multi_draw() {
   }
 

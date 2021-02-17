@@ -1,6 +1,7 @@
 package elemental3.gl;
 
 import javax.annotation.Generated;
+import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
@@ -17,6 +18,9 @@ import jsinterop.annotations.JsType;
     name = "Object"
 )
 public class EXT_shader_texture_lod {
+  @JsOverlay
+  public static final String NAME = "EXT_shader_texture_lod";
+
   protected EXT_shader_texture_lod() {
   }
 }

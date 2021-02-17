@@ -1,5 +1,6 @@
 package elemental3.core;
 
+import elemental3.lang.JsArray;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import jsinterop.annotations.JsMethod;

@@ -19,6 +19,9 @@ import jsinterop.annotations.JsType;
 )
 public class EXT_texture_norm16 {
   @JsOverlay
+  public static final String NAME = "EXT_texture_norm16";
+
+  @JsOverlay
   public static final int R16_EXT = 0x822A;
 
   @JsOverlay

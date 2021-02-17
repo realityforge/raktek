@@ -20,6 +20,9 @@ import jsinterop.annotations.JsType;
 )
 public class OES_vertex_array_object {
   @JsOverlay
+  public static final String NAME = "OES_vertex_array_object";
+
+  @JsOverlay
   public static final int VERTEX_ARRAY_BINDING_OES = 0x85B5;
 
   protected OES_vertex_array_object() {

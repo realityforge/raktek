@@ -1,8 +1,8 @@
 package elemental3;
 
 import elemental3.core.BufferSource;
-import elemental3.core.JsArray;
-import elemental3.core.JsIterator;
+import elemental3.lang.JsArray;
+import elemental3.lang.JsIterator;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -116,14 +116,14 @@ public class MediaKeyStatusMap {
   public static final class Entry extends JsArray<Object> {
     @JsOverlay
     @Nonnull
-    public final BufferSource key() {
+    public BufferSource key() {
       return getAtAsAny( 0 ).cast();
     }
 
     @JsOverlay
     @Nonnull
-    public final String value() {
-      return getAtAsAny( 0 ).cast();
+    public String value() {
+      return getAtAsAny( 1 ).asString();
     }
   }
 

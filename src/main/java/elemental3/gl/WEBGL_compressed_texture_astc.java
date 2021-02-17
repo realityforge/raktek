@@ -1,6 +1,6 @@
 package elemental3.gl;
 
-import elemental3.core.JsArray;
+import elemental3.lang.JsArray;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import jsinterop.annotations.JsOverlay;
@@ -103,6 +103,9 @@ public class WEBGL_compressed_texture_astc {
 
   @JsOverlay
   public static final int COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR = 0x93D7;
+
+  @JsOverlay
+  public static final String NAME = "WEBGL_compressed_texture_astc";
 
   protected WEBGL_compressed_texture_astc() {
   }

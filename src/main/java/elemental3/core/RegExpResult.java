@@ -1,5 +1,7 @@
 package elemental3.core;
 
+import elemental3.lang.JsArray;
+import elemental3.lang.JsIterator;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -71,14 +73,14 @@ public class RegExpResult {
   )
   public static final class Entry extends JsArray<Object> {
     @JsOverlay
-    public final int index() {
+    public int index() {
       return getAtAsAny( 0 ).asInt();
     }
 
     @JsOverlay
     @Nonnull
-    public final String value() {
-      return getAtAsAny( 1 ).cast();
+    public String value() {
+      return getAtAsAny( 1 ).asString();
     }
   }
 

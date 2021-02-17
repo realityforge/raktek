@@ -21,6 +21,9 @@ public class KHR_parallel_shader_compile {
   @JsOverlay
   public static final int COMPLETION_STATUS_KHR = 0x91B1;
 
+  @JsOverlay
+  public static final String NAME = "KHR_parallel_shader_compile";
+
   protected KHR_parallel_shader_compile() {
   }
 }

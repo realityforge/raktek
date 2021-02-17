@@ -21,6 +21,9 @@ public class OES_standard_derivatives {
   @JsOverlay
   public static final int FRAGMENT_SHADER_DERIVATIVE_HINT_OES = 0x8B8B;
 
+  @JsOverlay
+  public static final String NAME = "OES_standard_derivatives";
+
   protected OES_standard_derivatives() {
   }
 }

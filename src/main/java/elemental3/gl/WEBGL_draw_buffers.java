@@ -1,6 +1,6 @@
 package elemental3.gl;
 
-import elemental3.core.JsArray;
+import elemental3.lang.JsArray;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import jsinterop.annotations.JsOverlay;
@@ -121,6 +121,9 @@ public class WEBGL_draw_buffers {
 
   @JsOverlay
   public static final int MAX_DRAW_BUFFERS_WEBGL = 0x8824;
+
+  @JsOverlay
+  public static final String NAME = "WEBGL_draw_buffers";
 
   protected WEBGL_draw_buffers() {
   }

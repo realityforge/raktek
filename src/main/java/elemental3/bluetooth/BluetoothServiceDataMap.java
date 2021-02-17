@@ -1,7 +1,8 @@
 package elemental3.bluetooth;
 
 import elemental3.core.DataView;
-import elemental3.core.JsIterator;
+import elemental3.lang.JsArray;
+import elemental3.lang.JsIterator;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -10,7 +11,6 @@ import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Js;
 
 @Generated("org.realityforge.webtack")
 @JsType(
@@ -49,18 +49,20 @@ public class BluetoothServiceDataMap {
 
   @JsType(
       isNative = true,
-      name = "?",
-      namespace = JsPackage.GLOBAL
+      namespace = JsPackage.GLOBAL,
+      name = "Array"
   )
-  public interface Entry {
+  public static final class Entry extends JsArray<Object> {
     @JsOverlay
-    default String key() {
-      return Js.asArray( this )[ 0 ].cast();
+    @Nonnull
+    public String key() {
+      return getAtAsAny( 0 ).asString();
     }
 
     @JsOverlay
-    default DataView value() {
-      return Js.asArray( this )[ 1 ].cast();
+    @Nonnull
+    public DataView value() {
+      return getAtAsAny( 1 ).cast();
     }
   }
 
