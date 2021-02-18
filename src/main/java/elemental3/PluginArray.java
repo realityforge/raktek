@@ -28,13 +28,11 @@ public class PluginArray {
   )
   public native int length();
 
-  public native void refresh(boolean reload);
+  @Nullable
+  public native Object namedItem(@Nonnull String name);
 
   public native void refresh();
 
   @Nullable
-  public native Plugin item(int index);
-
-  @Nullable
-  public native Plugin namedItem(@Nonnull String name);
+  public native Object item(int index);
 }

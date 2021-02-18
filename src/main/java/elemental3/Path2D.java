@@ -59,7 +59,7 @@ public class Path2D {
   public native void addPath(@Nonnull Path2D path);
 
   public native void arc(double x, double y, double radius, double startAngle, double endAngle,
-      boolean anticlockwise);
+      boolean counterclockwise);
 
   public native void arc(double x, double y, double radius, double startAngle, double endAngle);
 
@@ -71,7 +71,7 @@ public class Path2D {
   public native void closePath();
 
   public native void ellipse(double x, double y, double radiusX, double radiusY, double rotation,
-      double startAngle, double endAngle, boolean anticlockwise);
+      double startAngle, double endAngle, boolean counterclockwise);
 
   public native void ellipse(double x, double y, double radiusX, double radiusY, double rotation,
       double startAngle, double endAngle);

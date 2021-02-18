@@ -270,7 +270,7 @@ public class CanvasRenderingContext2D implements RenderingContext {
    * @see <a href="https://html.spec.whatwg.org/multipage/scripting.html#dom-context-2d-arc">CanvasRenderingContext2D.arc - HTML Living Standard</a>
    */
   public native void arc(double x, double y, double radius, double startAngle, double endAngle,
-      boolean anticlockwise);
+      boolean counterclockwise);
 
   /**
    * The CanvasRenderingContext2D.arc() method of the Canvas 2D API adds a circular arc to the current sub-path.
@@ -312,7 +312,7 @@ public class CanvasRenderingContext2D implements RenderingContext {
    * @see <a href="https://html.spec.whatwg.org/multipage/scripting.html#dom-context-2d-ellipse">CanvasRenderingContext2D.ellipse - HTML Living Standard</a>
    */
   public native void ellipse(double x, double y, double radiusX, double radiusY, double rotation,
-      double startAngle, double endAngle, boolean anticlockwise);
+      double startAngle, double endAngle, boolean counterclockwise);
 
   /**
    * The CanvasRenderingContext2D.ellipse() method of the Canvas 2D API adds an elliptical arc to the current sub-path.

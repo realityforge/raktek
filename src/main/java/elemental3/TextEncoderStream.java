@@ -6,6 +6,12 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
+/**
+ * The TextEncoderStream interface of the Encoding API converts a stream of strings into bytes in the UTF-8 encoding. It is the streaming equivalent of TextEncoder.
+ *
+ * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/TextEncoderStream">TextEncoderStream - MDN</a>
+ * @see <a href="https://encoding.spec.whatwg.org/#interface-textencoderstream">TextEncoderStream - Encoding</a>
+ */
 @Generated("org.realityforge.webtack")
 @JsType(
     isNative = true,

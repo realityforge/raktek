@@ -29,8 +29,8 @@ public class MimeTypeArray {
   public native int length();
 
   @Nullable
-  public native MimeType item(int index);
+  public native Object namedItem(@Nonnull String name);
 
   @Nullable
-  public native MimeType namedItem(@Nonnull String name);
+  public native Object item(int index);
 }

@@ -2290,7 +2290,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGLRenderingContext/getExtension">WebGLRenderingContext.getExtension - MDN</a>
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.14">WebGLRenderingContext.getExtension - WebGL 1.0</a>
    */
-  @Nonnull
+  @Nullable
   public native WebGLExtension getExtension(@WebGLExtensionName @Nonnull String name);
 
   /**

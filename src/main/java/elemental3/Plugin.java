@@ -2,7 +2,6 @@ package elemental3;
 
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
@@ -27,28 +26,27 @@ public class Plugin {
       name = "description"
   )
   @Nonnull
-  public native String description();
+  public native void description();
 
   @JsProperty(
       name = "filename"
   )
   @Nonnull
-  public native String filename();
+  public native void filename();
 
   @JsProperty(
       name = "length"
   )
-  public native int length();
+  @Nonnull
+  public native void length();
 
   @JsProperty(
       name = "name"
   )
   @Nonnull
-  public native String name();
+  public native void name();
 
-  @Nullable
-  public native MimeType item(int index);
+  public native void namedItem(@Nonnull String name);
 
-  @Nullable
-  public native MimeType namedItem(@Nonnull String name);
+  public native void item(int index);
 }

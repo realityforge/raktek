@@ -190,7 +190,7 @@ public class OffscreenCanvasRenderingContext2D {
   public native void setLineDash(@Nonnull double[] segments);
 
   public native void arc(double x, double y, double radius, double startAngle, double endAngle,
-      boolean anticlockwise);
+      boolean counterclockwise);
 
   public native void arc(double x, double y, double radius, double startAngle, double endAngle);
 
@@ -202,7 +202,7 @@ public class OffscreenCanvasRenderingContext2D {
   public native void closePath();
 
   public native void ellipse(double x, double y, double radiusX, double radiusY, double rotation,
-      double startAngle, double endAngle, boolean anticlockwise);
+      double startAngle, double endAngle, boolean counterclockwise);
 
   public native void ellipse(double x, double y, double radiusX, double radiusY, double rotation,
       double startAngle, double endAngle);

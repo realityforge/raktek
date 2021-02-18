@@ -12,10 +12,10 @@ import org.intellij.lang.annotations.MagicConstant;
 )
 public @interface BitrateMode {
   @Nonnull
-  String cbr = "cbr";
+  String constant = "constant";
 
   @Nonnull
-  String vbr = "vbr";
+  String variable = "variable";
 
   final class Validator {
     private Validator() {
@@ -32,7 +32,7 @@ public @interface BitrateMode {
     }
 
     public static boolean isValid(@Nonnull final String value) {
-      return BitrateMode.cbr.equals( value ) || BitrateMode.vbr.equals( value );
+      return BitrateMode.constant.equals( value ) || BitrateMode.variable.equals( value );
     }
   }
 }

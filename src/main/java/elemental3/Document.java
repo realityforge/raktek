@@ -1911,6 +1911,122 @@ public class Document extends Node {
   @Nullable
   public native Element getElementById(@Nonnull String elementId);
 
+  @Nonnull
+  public native DOMPoint convertPointFromNode(@Nonnull DOMPointInit point,
+      @Nonnull GeometryNode from, @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMPoint convertPointFromNode(@Nonnull DOMPointInit point, @Nonnull Text from,
+      @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMPoint convertPointFromNode(@Nonnull DOMPointInit point, @Nonnull Element from,
+      @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMPoint convertPointFromNode(@Nonnull DOMPointInit point,
+      @Nonnull CSSPseudoElement from, @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMPoint convertPointFromNode(@Nonnull DOMPointInit point, @Nonnull Document from,
+      @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMPoint convertPointFromNode(@Nonnull DOMPointInit point,
+      @Nonnull GeometryNode from);
+
+  @Nonnull
+  public native DOMPoint convertPointFromNode(@Nonnull DOMPointInit point, @Nonnull Text from);
+
+  @Nonnull
+  public native DOMPoint convertPointFromNode(@Nonnull DOMPointInit point, @Nonnull Element from);
+
+  @Nonnull
+  public native DOMPoint convertPointFromNode(@Nonnull DOMPointInit point,
+      @Nonnull CSSPseudoElement from);
+
+  @Nonnull
+  public native DOMPoint convertPointFromNode(@Nonnull DOMPointInit point, @Nonnull Document from);
+
+  @Nonnull
+  public native DOMQuad convertQuadFromNode(@Nonnull DOMQuadInit quad, @Nonnull GeometryNode from,
+      @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMQuad convertQuadFromNode(@Nonnull DOMQuadInit quad, @Nonnull Text from,
+      @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMQuad convertQuadFromNode(@Nonnull DOMQuadInit quad, @Nonnull Element from,
+      @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMQuad convertQuadFromNode(@Nonnull DOMQuadInit quad,
+      @Nonnull CSSPseudoElement from, @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMQuad convertQuadFromNode(@Nonnull DOMQuadInit quad, @Nonnull Document from,
+      @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMQuad convertQuadFromNode(@Nonnull DOMQuadInit quad, @Nonnull GeometryNode from);
+
+  @Nonnull
+  public native DOMQuad convertQuadFromNode(@Nonnull DOMQuadInit quad, @Nonnull Text from);
+
+  @Nonnull
+  public native DOMQuad convertQuadFromNode(@Nonnull DOMQuadInit quad, @Nonnull Element from);
+
+  @Nonnull
+  public native DOMQuad convertQuadFromNode(@Nonnull DOMQuadInit quad,
+      @Nonnull CSSPseudoElement from);
+
+  @Nonnull
+  public native DOMQuad convertQuadFromNode(@Nonnull DOMQuadInit quad, @Nonnull Document from);
+
+  @Nonnull
+  public native DOMQuad convertRectFromNode(@Nonnull DOMRectReadOnly rect,
+      @Nonnull GeometryNode from, @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMQuad convertRectFromNode(@Nonnull DOMRectReadOnly rect, @Nonnull Text from,
+      @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMQuad convertRectFromNode(@Nonnull DOMRectReadOnly rect, @Nonnull Element from,
+      @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMQuad convertRectFromNode(@Nonnull DOMRectReadOnly rect,
+      @Nonnull CSSPseudoElement from, @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMQuad convertRectFromNode(@Nonnull DOMRectReadOnly rect, @Nonnull Document from,
+      @Nonnull ConvertCoordinateOptions options);
+
+  @Nonnull
+  public native DOMQuad convertRectFromNode(@Nonnull DOMRectReadOnly rect,
+      @Nonnull GeometryNode from);
+
+  @Nonnull
+  public native DOMQuad convertRectFromNode(@Nonnull DOMRectReadOnly rect, @Nonnull Text from);
+
+  @Nonnull
+  public native DOMQuad convertRectFromNode(@Nonnull DOMRectReadOnly rect, @Nonnull Element from);
+
+  @Nonnull
+  public native DOMQuad convertRectFromNode(@Nonnull DOMRectReadOnly rect,
+      @Nonnull CSSPseudoElement from);
+
+  @Nonnull
+  public native DOMQuad convertRectFromNode(@Nonnull DOMRectReadOnly rect, @Nonnull Document from);
+
+  @Nonnull
+  public native JsArray<DOMQuad> getBoxQuads(@Nonnull BoxQuadOptions options);
+
+  @Nonnull
+  public native JsArray<DOMQuad> getBoxQuads();
+
   @JsOverlay
   public final void addDOMContentLoadedListener(@Nonnull final EventListener callback,
       @Nonnull final AddEventListenerOptions options) {

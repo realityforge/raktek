@@ -8,7 +8,7 @@ import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
 /**
- * The WaveShaperNode interface represents a non-linear distorter. It is an AudioNode that uses a curve to apply a wave shaping distortion to the signal. Beside obvious distortion effects, it is often used to add a warm feeling to the signal.
+ * The WaveShaperNode interface represents a non-linear distorter.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/WaveShaperNode">WaveShaperNode - MDN</a>
  * @see <a href="https://webaudio.github.io/web-audio-api/#waveshapernode">WaveShaperNode - Web Audio API</a>

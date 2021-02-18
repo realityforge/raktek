@@ -4,7 +4,6 @@ import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsPropertyMap;
@@ -19,7 +18,7 @@ import jsinterop.base.JsPropertyMap;
 @JsType(
     isNative = true,
     namespace = JsPackage.GLOBAL,
-    name = "?"
+    name = "Object"
 )
 public interface RTCRtpSynchronizationSource extends RTCRtpContributingSource {
   @JsOverlay
@@ -27,39 +26,6 @@ public interface RTCRtpSynchronizationSource extends RTCRtpContributingSource {
   static RTCRtpSynchronizationSource create(final int rtpTimestamp, final int source,
       final double timestamp) {
     return Js.<RTCRtpSynchronizationSource>uncheckedCast( JsPropertyMap.of() ).rtpTimestamp( rtpTimestamp ).source( source ).timestamp( timestamp );
-  }
-
-  /**
-   * The read-only voiceActivityFlag property of the RTCRtpSynchronizationSource interface indicates whether or not the most recent RTP packet on the source includes voice activity.
-   *
-   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCRtpSynchronizationSource/voiceActivityFlag">RTCRtpSynchronizationSource.voiceActivityFlag - MDN</a>
-   * @see <a href="https://w3c.github.io/webrtc-pc/#dom-rtcrtpsynchronizationsource-voiceactivityflag">voiceActivityFlag - WebRTC 1.0: Real-time Communication Between Browsers</a>
-   */
-  @JsProperty(
-      name = "voiceActivityFlag"
-  )
-  boolean voiceActivityFlag();
-
-  /**
-   * The read-only voiceActivityFlag property of the RTCRtpSynchronizationSource interface indicates whether or not the most recent RTP packet on the source includes voice activity.
-   *
-   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCRtpSynchronizationSource/voiceActivityFlag">RTCRtpSynchronizationSource.voiceActivityFlag - MDN</a>
-   * @see <a href="https://w3c.github.io/webrtc-pc/#dom-rtcrtpsynchronizationsource-voiceactivityflag">voiceActivityFlag - WebRTC 1.0: Real-time Communication Between Browsers</a>
-   */
-  @JsProperty
-  void setVoiceActivityFlag(boolean voiceActivityFlag);
-
-  /**
-   * The read-only voiceActivityFlag property of the RTCRtpSynchronizationSource interface indicates whether or not the most recent RTP packet on the source includes voice activity.
-   *
-   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCRtpSynchronizationSource/voiceActivityFlag">RTCRtpSynchronizationSource.voiceActivityFlag - MDN</a>
-   * @see <a href="https://w3c.github.io/webrtc-pc/#dom-rtcrtpsynchronizationsource-voiceactivityflag">voiceActivityFlag - WebRTC 1.0: Real-time Communication Between Browsers</a>
-   */
-  @JsOverlay
-  @Nonnull
-  default RTCRtpSynchronizationSource voiceActivityFlag(final boolean voiceActivityFlag) {
-    setVoiceActivityFlag( voiceActivityFlag );
-    return this;
   }
 
   /**

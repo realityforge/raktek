@@ -26,23 +26,23 @@ public class MimeType {
       name = "description"
   )
   @Nonnull
-  public native String description();
+  public native void description();
 
   @JsProperty(
       name = "enabledPlugin"
   )
   @Nonnull
-  public native Plugin enabledPlugin();
+  public native void enabledPlugin();
 
   @JsProperty(
       name = "suffixes"
   )
   @Nonnull
-  public native String suffixes();
+  public native void suffixes();
 
   @JsProperty(
       name = "type"
   )
   @Nonnull
-  public native String type();
+  public native void type();
 }

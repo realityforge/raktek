@@ -473,16 +473,6 @@ public class RTCPeerConnection extends EventTarget {
       @Nonnull RTCPeerConnectionErrorCallback failureCallback);
 
   /**
-   * The RTCPeerConnection method setLocalDescription() changes the local description associated with the connection. This description specifies the properties of the local end of the connection, including the media format.
-   *
-   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/setLocalDescription">RTCPeerConnection.setLocalDescription - MDN</a>
-   * @see <a href="https://w3c.github.io/webrtc-pc/#dom-peerconnection-setlocaldescription">RTCPeerConnection.setLocalDescription() - WebRTC 1.0: Real-time Communication Between Browsers</a>
-   */
-  @Nonnull
-  public native Promise<Void> setLocalDescription(
-      @Nonnull RTCLocalSessionDescriptionInit description, @Nonnull VoidFunction successCallback);
-
-  /**
    * The RTCPeerConnection method setRemoteDescription() sets the specified session description as the remote peer's current offer or answer. The description specifies the properties of the remote end of the connection, including the media format.
    *
    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/setRemoteDescription">RTCPeerConnection.setRemoteDescription - MDN</a>

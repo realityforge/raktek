@@ -39,16 +39,6 @@ public final class Global {
   }
 
   /**
-   * Returns a reference to the application cache object for the window.
-   *
-   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/applicationCache">Window.applicationCache - MDN</a>
-   */
-  @Nonnull
-  public static ApplicationCache applicationCache() {
-    return globalThis().applicationCache();
-  }
-
-  /**
    * The caches read-only property of the WindowOrWorkerGlobalScope interface returns the CacheStorage object associated with the current context. This object enables functionality such as storing assets for offline use, and generating custom responses to requests.
    *
    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/caches">Window.caches - MDN</a>
@@ -128,8 +118,8 @@ public final class Global {
    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/event">Window.event - MDN</a>
    * @see <a href="https://dom.spec.whatwg.org/#dom-window-event">Window.event - DOM</a>
    */
-  @Nullable
-  public static Any event() {
+  @Nonnull
+  public static EventOrUndefinedUnion event() {
     return globalThis().event();
   }
 
@@ -1383,8 +1373,8 @@ public final class Global {
     return globalThis().origin();
   }
 
-  public static boolean originIsolated() {
-    return globalThis().originIsolated();
+  public static boolean originAgentCluster() {
+    return globalThis().originAgentCluster();
   }
 
   /**

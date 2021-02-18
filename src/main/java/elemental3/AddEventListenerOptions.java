@@ -13,7 +13,7 @@ import jsinterop.base.JsPropertyMap;
 @JsType(
     isNative = true,
     namespace = JsPackage.GLOBAL,
-    name = "?"
+    name = "Object"
 )
 public interface AddEventListenerOptions extends EventListenerOptions {
   @JsOverlay
@@ -49,6 +49,21 @@ public interface AddEventListenerOptions extends EventListenerOptions {
   @Nonnull
   default AddEventListenerOptions passive(final boolean passive) {
     setPassive( passive );
+    return this;
+  }
+
+  @JsProperty(
+      name = "signal"
+  )
+  AbortSignal signal();
+
+  @JsProperty
+  void setSignal(@Nonnull AbortSignal signal);
+
+  @JsOverlay
+  @Nonnull
+  default AddEventListenerOptions signal(@Nonnull final AbortSignal signal) {
+    setSignal( signal );
     return this;
   }
 

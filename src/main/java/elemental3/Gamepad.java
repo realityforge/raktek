@@ -144,4 +144,10 @@ public class Gamepad {
       name = "timestamp"
   )
   public native double timestamp();
+
+  @JsProperty(
+      name = "touchEvents"
+  )
+  @Nullable
+  public native JsArray<GamepadTouch> touchEvents();
 }

@@ -2,7 +2,6 @@ package elemental3;
 
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
 
@@ -37,15 +36,6 @@ public class HTMLMarqueeElement extends HTMLElement {
   public int hspace;
 
   public int loop;
-
-  @Nullable
-  public EventHandler onbounce;
-
-  @Nullable
-  public EventHandler onfinish;
-
-  @Nullable
-  public EventHandler onstart;
 
   public int scrollAmount;
 

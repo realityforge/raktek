@@ -15,7 +15,7 @@ import jsinterop.base.JsPropertyMap;
 @JsType(
     isNative = true,
     namespace = JsPackage.GLOBAL,
-    name = "?"
+    name = "Object"
 )
 public interface RTCPeerConnectionIceErrorEventInit extends EventInit {
   @JsOverlay
@@ -56,6 +56,21 @@ public interface RTCPeerConnectionIceErrorEventInit extends EventInit {
   }
 
   @JsProperty(
+      name = "errorText"
+  )
+  String errorText();
+
+  @JsProperty
+  void setErrorText(@Nonnull String errorText);
+
+  @JsOverlay
+  @Nonnull
+  default RTCPeerConnectionIceErrorEventInit errorText(@Nonnull final String errorText) {
+    setErrorText( errorText );
+    return this;
+  }
+
+  @JsProperty(
       name = "port"
   )
   @Nullable
@@ -68,21 +83,6 @@ public interface RTCPeerConnectionIceErrorEventInit extends EventInit {
   @Nonnull
   default RTCPeerConnectionIceErrorEventInit port(@Nullable final Double port) {
     setPort( port );
-    return this;
-  }
-
-  @JsProperty(
-      name = "statusText"
-  )
-  String statusText();
-
-  @JsProperty
-  void setStatusText(@Nonnull String statusText);
-
-  @JsOverlay
-  @Nonnull
-  default RTCPeerConnectionIceErrorEventInit statusText(@Nonnull final String statusText) {
-    setStatusText( statusText );
     return this;
   }
 

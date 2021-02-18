@@ -902,17 +902,6 @@ public class Window extends EventTarget {
   }
 
   /**
-   * Returns a reference to the application cache object for the window.
-   *
-   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/applicationCache">Window.applicationCache - MDN</a>
-   */
-  @JsProperty(
-      name = "applicationCache"
-  )
-  @Nonnull
-  public native ApplicationCache applicationCache();
-
-  /**
    * The caches read-only property of the WindowOrWorkerGlobalScope interface returns the CacheStorage object associated with the current context. This object enables functionality such as storing assets for offline use, and generating custom responses to requests.
    *
    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/caches">Window.caches - MDN</a>
@@ -1002,8 +991,8 @@ public class Window extends EventTarget {
   @JsProperty(
       name = "event"
   )
-  @Nullable
-  public native Any event();
+  @Nonnull
+  public native EventOrUndefinedUnion event();
 
   @JsProperty(
       name = "external"
@@ -1186,9 +1175,9 @@ public class Window extends EventTarget {
   public native String origin();
 
   @JsProperty(
-      name = "originIsolated"
+      name = "originAgentCluster"
   )
-  public native boolean originIsolated();
+  public native boolean originAgentCluster();
 
   /**
    * The Window.outerHeight read-only property returns the height in pixels of the whole browser window, including any sidebar, window chrome, and window-resizing borders/handles.

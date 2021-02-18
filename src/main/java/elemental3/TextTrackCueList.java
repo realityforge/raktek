@@ -10,6 +10,12 @@ import jsinterop.annotations.JsType;
 import jsinterop.base.Js;
 import jsinterop.base.JsArrayLike;
 
+/**
+ * The TextTrackCueList interface represents a dynamically updating list of TextTrackCue objects.
+ *
+ * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/TextTrackCueList">TextTrackCueList - MDN</a>
+ * @see <a href="https://html.spec.whatwg.org/multipage/#texttrackcuelist">TextTrackCueList - HTML Living Standard</a>
+ */
 @Generated("org.realityforge.webtack")
 @JsType(
     isNative = true,
