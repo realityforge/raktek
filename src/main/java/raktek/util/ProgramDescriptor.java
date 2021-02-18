@@ -11,11 +11,18 @@ public final class ProgramDescriptor
   private final String _name;
   @Nonnull
   private final AttributeDescriptor[] _attributes;
+  @Nonnull
+  private final UniformDescriptor[] _uniforms;
 
-  public ProgramDescriptor( @Nonnull final String name, @Nonnull final AttributeDescriptor[] attributes )
+  public ProgramDescriptor( @Nonnull final String name,
+                            @Nonnull final AttributeDescriptor[] attributes,
+                            @Nonnull final UniformDescriptor[] uniforms )
   {
     _name = Objects.requireNonNull( name );
     _attributes = Objects.requireNonNull( attributes );
+    _uniforms = Objects.requireNonNull( uniforms );
+    assert Arrays.stream( _attributes ).allMatch( Objects::nonNull );
+    assert Arrays.stream( _uniforms ).allMatch( Objects::nonNull );
   }
 
   @Nonnull
@@ -35,6 +42,17 @@ public final class ProgramDescriptor
     return _attributes[ index ];
   }
 
+  public int getUniformCount()
+  {
+    return _uniforms.length;
+  }
+
+  @Nonnull
+  public UniformDescriptor getUniform( final int index )
+  {
+    return _uniforms[ index ];
+  }
+
   @Override
   public String toString()
   {
@@ -46,6 +64,7 @@ public final class ProgramDescriptor
   {
     return "Program[" + getName() +
            ",attributes=" + Arrays.asList( _attributes ) +
+           ",uniforms=" + Arrays.asList( _uniforms ) +
            "]";
   }
 }
