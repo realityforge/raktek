@@ -15,19 +15,19 @@ import org.intellij.lang.annotations.MagicConstant;
         WebGL2RenderingContext.UNSIGNED_SHORT
     }
 )
-public @interface AttributeIntegerDataType {
+public @interface AttributeComponentIntegerDataType {
   final class Validator {
     private Validator() {
     }
 
-    @AttributeIntegerDataType
+    @AttributeComponentIntegerDataType
     public static int cast(final int value) {
       assertValid( value );
       return value;
     }
 
     public static void assertValid(final int value) {
-      assert isValid( value ) : "@AttributeIntegerDataType annotated value must be one of [WebGL2RenderingContext.BYTE, WebGL2RenderingContext.UNSIGNED_BYTE, WebGL2RenderingContext.SHORT, WebGL2RenderingContext.UNSIGNED_SHORT] but is " + value;
+      assert isValid( value ) : "@AttributeComponentIntegerDataType annotated value must be one of [WebGL2RenderingContext.BYTE, WebGL2RenderingContext.UNSIGNED_BYTE, WebGL2RenderingContext.SHORT, WebGL2RenderingContext.UNSIGNED_SHORT] but is " + value;
     }
 
     public static boolean isValid(final int value) {

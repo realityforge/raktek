@@ -1,7 +1,7 @@
 package raktek.util;
 
+import elemental3.gl.AttributeComponentIntegerDataType;
 import elemental3.gl.AttributeIndex;
-import elemental3.gl.AttributeIntegerDataType;
 import elemental3.gl.WebGL2RenderingContext;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -72,7 +72,7 @@ public final class Attribute
     {
       gl.vertexAttribIPointer( _location,
                                _accessor.getComponentCount(),
-                               AttributeIntegerDataType.Validator.cast( _accessor.getComponentType() ),
+                               AttributeComponentIntegerDataType.Validator.cast( _accessor.getComponentType() ),
                                _accessor.getStride(),
                                _accessor.getOffset() );
     }

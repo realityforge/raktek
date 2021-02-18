@@ -1,25 +1,26 @@
 package raktek.util;
 
-import elemental3.gl.AttributeDataType;
+import elemental3.gl.AttributeComponentDataType;
 import elemental3.gl.AttributeIndex;
 import elemental3.gl.WebGL2RenderingContext;
 import java.util.Objects;
 import javax.annotation.Nonnull;
+import raktek.Raktek;
 
 public final class AttributeDescriptor
 {
   @Nonnull
   private final String _name;
-  @AttributeDataType
+  @AttributeComponentDataType
   private final int _type;
   @AttributeIndex
   private final int _index;
 
   public AttributeDescriptor( @Nonnull final String name,
-                              @AttributeDataType final int type,
+                              @AttributeComponentDataType final int type,
                               @AttributeIndex final int index )
   {
-    AttributeDataType.Validator.assertValid( type );
+    AttributeComponentDataType.Validator.assertValid( type );
     assert WebGL2RenderingContext.INVALID_INDEX != index;
     _name = Objects.requireNonNull( name );
     _type = type;
@@ -32,7 +33,7 @@ public final class AttributeDescriptor
     return _name;
   }
 
-  @AttributeDataType
+  @AttributeComponentDataType
   public int getType()
   {
     return _type;
@@ -42,5 +43,21 @@ public final class AttributeDescriptor
   public int getIndex()
   {
     return _index;
+  }
+
+  @Override
+  public String toString()
+  {
+    if ( Raktek.shouldSupportDebugToString() )
+    {
+      return "Attribute[" + getName() +
+             ",type=" + AttributeComponentDataType.Validator.describe( getType() ) +
+             ",index=" + getIndex() +
+             "]";
+    }
+    else
+    {
+      return super.toString();
+    }
   }
 }

@@ -2977,7 +2977,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttribPointer.xml">glVertexAttribPointer - OpenGL ES 2.0</a>
    */
   public native void vertexAttribPointer(@AttributeIndex int index, @VertexDimensions int size,
-      @AttributeDataType int type, boolean normalized, int stride, int offset);
+      @AttributeComponentDataType int type, boolean normalized, int stride, int offset);
 
   /**
    * The WebGLRenderingContext.viewport() method of the WebGL API sets the viewport, which specifies the affine transformation of x and y from normalized device coordinates to window coordinates.
@@ -6763,7 +6763,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man3/html/glVertexAttribPointer.xhtml">glVertexAttribPointer - OpenGL ES 3.0</a>
    */
   public native void vertexAttribIPointer(@AttributeIndex int index, @VertexDimensions int size,
-      @AttributeIntegerDataType int type, int stride, int offset);
+      @AttributeComponentIntegerDataType int type, int stride, int offset);
 
   /**
    * The WebGL2RenderingContext.waitSync() method of the WebGL 2 API returns immediately, but waits on the GL server until the given WebGLSync object is signaled.

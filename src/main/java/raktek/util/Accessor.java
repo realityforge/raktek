@@ -5,8 +5,8 @@ import elemental3.core.Int16Array;
 import elemental3.core.Int8Array;
 import elemental3.core.Uint16Array;
 import elemental3.core.Uint8Array;
-import elemental3.gl.AttributeDataType;
-import elemental3.gl.AttributeIntegerDataType;
+import elemental3.gl.AttributeComponentDataType;
+import elemental3.gl.AttributeComponentIntegerDataType;
 import elemental3.gl.VertexDimensions;
 import elemental3.gl.WebGL2RenderingContext;
 
@@ -19,7 +19,7 @@ public final class Accessor
 {
   @VertexDimensions
   private final int _componentCount;
-  @AttributeDataType
+  @AttributeComponentDataType
   private final int _componentType;
   private final boolean _normalize;
   private final boolean _integer;
@@ -31,13 +31,13 @@ public final class Accessor
     this( componentCount, WebGL2RenderingContext.FLOAT );
   }
 
-  public Accessor( @VertexDimensions final int componentCount, @AttributeDataType final int componentType )
+  public Accessor( @VertexDimensions final int componentCount, @AttributeComponentDataType final int componentType )
   {
     this( componentCount, componentType, 0, 0 );
   }
 
   public Accessor( @VertexDimensions final int componentCount,
-                   @AttributeDataType final int componentType,
+                   @AttributeComponentDataType final int componentType,
                    final int stride,
                    final int offset )
   {
@@ -45,7 +45,7 @@ public final class Accessor
   }
 
   public Accessor( @VertexDimensions final int componentCount,
-                   @AttributeDataType final int componentType,
+                   @AttributeComponentDataType final int componentType,
                    final boolean normalize,
                    final boolean integer,
                    final int stride,
@@ -55,10 +55,10 @@ public final class Accessor
     assert stride >= 0 && stride <= 255;
     assert offset >= 0;
     // Normalize and integer flags should only be set to true for integer data types
-    assert !normalize || AttributeIntegerDataType.Validator.isValid( componentType );
-    assert !integer || AttributeIntegerDataType.Validator.isValid( componentType );
+    assert !normalize || AttributeComponentIntegerDataType.Validator.isValid( componentType );
+    assert !integer || AttributeComponentIntegerDataType.Validator.isValid( componentType );
     assert !normalize || !integer;
-    AttributeDataType.Validator.assertValid( componentType );
+    AttributeComponentDataType.Validator.assertValid( componentType );
     _componentCount = componentCount;
     _componentType = componentType;
     _normalize = normalize;
@@ -82,7 +82,7 @@ public final class Accessor
   /**
    * @return the data type of each component in the vertex attribute.
    */
-  @AttributeDataType
+  @AttributeComponentDataType
   public int getComponentType()
   {
     return _componentType;
