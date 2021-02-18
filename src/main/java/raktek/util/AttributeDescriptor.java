@@ -48,16 +48,15 @@ public final class AttributeDescriptor
   @Override
   public String toString()
   {
-    if ( Raktek.shouldSupportDebugToString() )
-    {
-      return "AttributeDescriptor[" + getName() +
-             ",type=" + AttributeDataType.Validator.describe( getType() ) +
-             ",index=" + getIndex() +
-             "]";
-    }
-    else
-    {
-      return super.toString();
-    }
+    return Raktek.shouldSupportDebugToString() ? toDebugString() : super.toString();
+  }
+
+  @Nonnull
+  public String toDebugString()
+  {
+    return "Attribute[" + getName() +
+           ",type=" + AttributeDataType.Validator.describe( getType() ) +
+           ",index=" + getIndex() +
+           "]";
   }
 }

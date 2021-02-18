@@ -38,15 +38,14 @@ public final class ProgramDescriptor
   @Override
   public String toString()
   {
-    if ( Raktek.shouldSupportDebugToString() )
-    {
-      return "ProgramDescriptor[" + getName() +
-             ",attributes=" + Arrays.asList( _attributes ) +
-             "]";
-    }
-    else
-    {
-      return super.toString();
-    }
+    return Raktek.shouldSupportDebugToString() ? toDebugString() : super.toString();
+  }
+
+  @Nonnull
+  public String toDebugString()
+  {
+    return "Program[" + getName() +
+           ",attributes=" + Arrays.asList( _attributes ) +
+           "]";
   }
 }
