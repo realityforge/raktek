@@ -1,5 +1,6 @@
 package raktek.util;
 
+import elemental3.gl.AttributeIndex;
 import elemental3.gl.AttributeIntegerDataType;
 import elemental3.gl.WebGL2RenderingContext;
 import java.util.Objects;
@@ -22,6 +23,7 @@ public final class Attribute
    * the shader definition or looked up at runtime. Specifying the value in the shader source
    * is more efficient but more complex when authoring shaders.
    */
+  @AttributeIndex
   private int _location;
 
   public Attribute( @Nonnull final Buffer buffer, @Nonnull final Accessor accessor )
@@ -29,7 +31,7 @@ public final class Attribute
     this( buffer, accessor, WebGL2RenderingContext.INVALID_INDEX );
   }
 
-  public Attribute( @Nonnull final Buffer buffer, @Nonnull final Accessor accessor, final int location )
+  public Attribute( @Nonnull final Buffer buffer, @Nonnull final Accessor accessor, @AttributeIndex final int location )
   {
     _buffer = Objects.requireNonNull( buffer );
     _accessor = Objects.requireNonNull( accessor );
@@ -47,12 +49,13 @@ public final class Attribute
     return WebGL2RenderingContext.INVALID_INDEX != _location;
   }
 
+  @AttributeIndex
   public int getLocation()
   {
     return _location;
   }
 
-  public void setLocation( final int location )
+  public void setLocation( @AttributeIndex final int location )
   {
     // Location should only be set once
     assert WebGL2RenderingContext.INVALID_INDEX == _location;

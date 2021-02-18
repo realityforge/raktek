@@ -2,6 +2,7 @@ package raktek.util;
 
 import elemental3.HTMLImageElement;
 import elemental3.Image;
+import elemental3.gl.AttributeIndex;
 import elemental3.gl.TextureMagnificationFilter;
 import elemental3.gl.TextureMinificationFilter;
 import elemental3.gl.TextureWrapMode;
@@ -210,6 +211,7 @@ public final class GL
     }
   }
 
+  @AttributeIndex
   public static int getAttribLocation( @Nonnull final WebGL2RenderingContext gl,
                                        @Nonnull final WebGLProgram program,
                                        @Nonnull final String name )

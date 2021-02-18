@@ -1,6 +1,7 @@
 package raktek.util;
 
 import elemental3.gl.AttributeDataType;
+import elemental3.gl.AttributeIndex;
 import elemental3.gl.WebGL2RenderingContext;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -11,9 +12,12 @@ public final class AttributeDescriptor
   private final String _name;
   @AttributeDataType
   private final int _type;
+  @AttributeIndex
   private final int _index;
 
-  public AttributeDescriptor( @Nonnull final String name, @AttributeDataType final int type, final int index )
+  public AttributeDescriptor( @Nonnull final String name,
+                              @AttributeDataType final int type,
+                              @AttributeIndex final int index )
   {
     AttributeDataType.Validator.assertValid( type );
     assert WebGL2RenderingContext.INVALID_INDEX != index;
@@ -34,6 +38,7 @@ public final class AttributeDescriptor
     return _type;
   }
 
+  @AttributeIndex
   public int getIndex()
   {
     return _index;
