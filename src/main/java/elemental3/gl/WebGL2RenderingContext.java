@@ -1757,7 +1757,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.9">bindAttribLocation - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glBindAttribLocation.xml">glBindAttribLocation - OpenGL ES 2.0</a>
    */
-  public native void bindAttribLocation(@Nonnull WebGLProgram program, int index,
+  public native void bindAttribLocation(@Nonnull WebGLProgram program, @AttributeIndex int index,
       @Nonnull String name);
 
   /**
@@ -2112,7 +2112,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">disableVertexAttribArray - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glEnableVertexAttribArray.xml">glDisableVertexAttribArray - OpenGL ES 2.0</a>
    */
-  public native void disableVertexAttribArray(int index);
+  public native void disableVertexAttribArray(@AttributeIndex int index);
 
   /**
    * The WebGLRenderingContext.drawArrays() method of the WebGL API renders primitives from array data.
@@ -2150,7 +2150,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">enableVertexAttribArray - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glEnableVertexAttribArray.xml">glEnableVertexAttribArray - OpenGL ES 2.0</a>
    */
-  public native void enableVertexAttribArray(int index);
+  public native void enableVertexAttribArray(@AttributeIndex int index);
 
   /**
    * The WebGLRenderingContext.finish() method of the WebGL API blocks execution until all previously called commands are finished.
@@ -2221,7 +2221,8 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetActiveAttrib.xml">glGetActiveAttrib - OpenGL ES 2.0</a>
    */
   @Nullable
-  public native WebGLActiveInfo getActiveAttrib(@Nonnull WebGLProgram program, int index);
+  public native WebGLActiveInfo getActiveAttrib(@Nonnull WebGLProgram program,
+      @AttributeIndex int index);
 
   /**
    * The WebGLRenderingContext.getActiveUniform() method of the WebGL API returns a WebGLActiveInfo object containing size, type, and name of a uniform attribute. It is generally used when querying unknown uniforms either for debugging or generic library creation.
@@ -2448,7 +2449,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man3/html/glGetVertexAttrib.xhtml">glGetVertexAttrib - OpenGL ES 3.0</a>
    */
   @Nullable
-  public native Any getVertexAttrib(int index, int pname);
+  public native Any getVertexAttrib(@AttributeIndex int index, int pname);
 
   /**
    * The WebGLRenderingContext.getVertexAttribOffset() method of the WebGL API returns the address of a specified vertex attribute.
@@ -2457,7 +2458,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">getVertexAttribOffset - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetVertexAttribPointerv.xml">glGetVertexAttribPointerv - OpenGL ES 2.0</a>
    */
-  public native int getVertexAttribOffset(int index, int pname);
+  public native int getVertexAttribOffset(@AttributeIndex int index, int pname);
 
   /**
    * The WebGLRenderingContext.hint() method of the WebGL API specifies hints for certain behaviors. The interpretation of these hints depend on the implementation.
@@ -2795,7 +2796,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib1f(int index, float x);
+  public native void vertexAttrib1f(@AttributeIndex int index, float x);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2804,7 +2805,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib1fv(int index, @Nonnull Float32List values);
+  public native void vertexAttrib1fv(@AttributeIndex int index, @Nonnull Float32List values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2813,7 +2814,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib1fv(int index, @Nonnull Float32Array values);
+  public native void vertexAttrib1fv(@AttributeIndex int index, @Nonnull Float32Array values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2822,7 +2823,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib1fv(int index, @Nonnull JsArray<Double> values);
+  public native void vertexAttrib1fv(@AttributeIndex int index, @Nonnull JsArray<Double> values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2831,7 +2832,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib1fv(int index, @Nonnull double[] values);
+  public native void vertexAttrib1fv(@AttributeIndex int index, @Nonnull double[] values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2840,7 +2841,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib2f(int index, float x, float y);
+  public native void vertexAttrib2f(@AttributeIndex int index, float x, float y);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2849,7 +2850,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib2fv(int index, @Nonnull Float32List values);
+  public native void vertexAttrib2fv(@AttributeIndex int index, @Nonnull Float32List values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2858,7 +2859,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib2fv(int index, @Nonnull Float32Array values);
+  public native void vertexAttrib2fv(@AttributeIndex int index, @Nonnull Float32Array values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2867,7 +2868,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib2fv(int index, @Nonnull JsArray<Double> values);
+  public native void vertexAttrib2fv(@AttributeIndex int index, @Nonnull JsArray<Double> values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2876,7 +2877,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib2fv(int index, @Nonnull double[] values);
+  public native void vertexAttrib2fv(@AttributeIndex int index, @Nonnull double[] values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2885,7 +2886,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib3f(int index, float x, float y, float z);
+  public native void vertexAttrib3f(@AttributeIndex int index, float x, float y, float z);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2894,7 +2895,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib3fv(int index, @Nonnull Float32List values);
+  public native void vertexAttrib3fv(@AttributeIndex int index, @Nonnull Float32List values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2903,7 +2904,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib3fv(int index, @Nonnull Float32Array values);
+  public native void vertexAttrib3fv(@AttributeIndex int index, @Nonnull Float32Array values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2912,7 +2913,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib3fv(int index, @Nonnull JsArray<Double> values);
+  public native void vertexAttrib3fv(@AttributeIndex int index, @Nonnull JsArray<Double> values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2921,7 +2922,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib3fv(int index, @Nonnull double[] values);
+  public native void vertexAttrib3fv(@AttributeIndex int index, @Nonnull double[] values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2930,7 +2931,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib4f(int index, float x, float y, float z, float w);
+  public native void vertexAttrib4f(@AttributeIndex int index, float x, float y, float z, float w);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2939,7 +2940,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib4fv(int index, @Nonnull Float32List values);
+  public native void vertexAttrib4fv(@AttributeIndex int index, @Nonnull Float32List values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2948,7 +2949,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib4fv(int index, @Nonnull Float32Array values);
+  public native void vertexAttrib4fv(@AttributeIndex int index, @Nonnull Float32Array values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2957,7 +2958,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib4fv(int index, @Nonnull JsArray<Double> values);
+  public native void vertexAttrib4fv(@AttributeIndex int index, @Nonnull JsArray<Double> values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -2966,7 +2967,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttrib4fv(int index, @Nonnull double[] values);
+  public native void vertexAttrib4fv(@AttributeIndex int index, @Nonnull double[] values);
 
   /**
    * The WebGLRenderingContext.vertexAttribPointer() method of the WebGL API binds the buffer currently bound to gl.ARRAY_BUFFER to a generic vertex attribute of the current vertex buffer object and specifies its layout.
@@ -2975,7 +2976,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttribPointer - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttribPointer.xml">glVertexAttribPointer - OpenGL ES 2.0</a>
    */
-  public native void vertexAttribPointer(int index, @VertexDimensions int size,
+  public native void vertexAttribPointer(@AttributeIndex int index, @VertexDimensions int size,
       @AttributeDataType int type, boolean normalized, int stride, int offset);
 
   /**
@@ -4611,7 +4612,8 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.16">bindBufferBase - WebGL 2.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man3/html/glBindBufferBase.xhtml">glBindBufferBase - OpenGL ES 3.0</a>
    */
-  public native void bindBufferBase(int target, int index, @Nullable WebGLBuffer buffer);
+  public native void bindBufferBase(int target, @AttributeIndex int index,
+      @Nullable WebGLBuffer buffer);
 
   /**
    * The WebGL2RenderingContext.bindBufferRange() method of the WebGL 2 API binds a range of a given WebGLBuffer to a given binding point (target) at a given index.
@@ -4620,8 +4622,8 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.16">bindBufferRange - WebGL 2.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man3/html/glBindBufferRange.xhtml">glBindBufferRange - OpenGL ES 3.0</a>
    */
-  public native void bindBufferRange(int target, int index, @Nullable WebGLBuffer buffer,
-      int offset, int size);
+  public native void bindBufferRange(int target, @AttributeIndex int index,
+      @Nullable WebGLBuffer buffer, int offset, int size);
 
   /**
    * The WebGL2RenderingContext.bindSampler() method of the WebGL 2 API binds a passed WebGLSampler object to the texture unit at the passed index.
@@ -6661,7 +6663,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.9">vertexAttribDivisor - WebGL 2.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man3/html/glVertexAttribDivisor.xhtml">glVertexAttribDivisor - OpenGL ES 3.0</a>
    */
-  public native void vertexAttribDivisor(int index, int divisor);
+  public native void vertexAttribDivisor(@AttributeIndex int index, int divisor);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -6670,7 +6672,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttribI4i(int index, int x, int y, int z, int w);
+  public native void vertexAttribI4i(@AttributeIndex int index, int x, int y, int z, int w);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -6679,7 +6681,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttribI4iv(int index, @Nonnull Int32List values);
+  public native void vertexAttribI4iv(@AttributeIndex int index, @Nonnull Int32List values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -6688,7 +6690,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttribI4iv(int index, @Nonnull Int32Array values);
+  public native void vertexAttribI4iv(@AttributeIndex int index, @Nonnull Int32Array values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -6697,7 +6699,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttribI4iv(int index, @Nonnull JsArray<Double> values);
+  public native void vertexAttribI4iv(@AttributeIndex int index, @Nonnull JsArray<Double> values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -6706,7 +6708,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttribI4iv(int index, @Nonnull double[] values);
+  public native void vertexAttribI4iv(@AttributeIndex int index, @Nonnull double[] values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -6715,7 +6717,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttribI4ui(int index, int x, int y, int z, int w);
+  public native void vertexAttribI4ui(@AttributeIndex int index, int x, int y, int z, int w);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -6724,7 +6726,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttribI4uiv(int index, @Nonnull Uint32List values);
+  public native void vertexAttribI4uiv(@AttributeIndex int index, @Nonnull Uint32List values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -6733,7 +6735,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttribI4uiv(int index, @Nonnull Uint32Array values);
+  public native void vertexAttribI4uiv(@AttributeIndex int index, @Nonnull Uint32Array values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -6742,7 +6744,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttribI4uiv(int index, @Nonnull JsArray<Double> values);
+  public native void vertexAttribI4uiv(@AttributeIndex int index, @Nonnull JsArray<Double> values);
 
   /**
    * The WebGLRenderingContext.vertexAttrib[1234]f[v]() methods of the WebGL API specify constant values for generic vertex attributes.
@@ -6751,7 +6753,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">vertexAttrib - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glVertexAttrib.xml">glVertexAttrib - OpenGL ES 2.0</a>
    */
-  public native void vertexAttribI4uiv(int index, @Nonnull double[] values);
+  public native void vertexAttribI4uiv(@AttributeIndex int index, @Nonnull double[] values);
 
   /**
    * The WebGL2RenderingContext.vertexAttribIPointer() method of the WebGL 2 API specifies integer data formats and locations of vertex attributes in a vertex attributes array.
@@ -6760,7 +6762,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.8">vertexAttribIPointer - WebGL 2.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man3/html/glVertexAttribPointer.xhtml">glVertexAttribPointer - OpenGL ES 3.0</a>
    */
-  public native void vertexAttribIPointer(int index, @VertexDimensions int size,
+  public native void vertexAttribIPointer(@AttributeIndex int index, @VertexDimensions int size,
       @AttributeIntegerDataType int type, int stride, int offset);
 
   /**
