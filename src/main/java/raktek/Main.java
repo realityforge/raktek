@@ -226,7 +226,7 @@ public final class Main
         Console.log( "Error", e );
       }
 
-      gl.useProgram( _mesh.getProgram() );
+      gl.useProgram( _mesh.getProgram().getWebGLProgram() );
       GL.bindTexture( gl, _mesh.getTextureData0(), _mesh.getTexture1(), 0 );
       GL.bindTexture( gl, _mesh.getTextureData1(), _mesh.getTexture2(), 1 );
       _sentToGpu = true;
@@ -245,7 +245,7 @@ public final class Main
 
     final Matrix4d viewMatrix = _camera.getViewMatrix();
 
-    gl.useProgram( _mesh.getProgram() );
+    gl.useProgram( _mesh.getProgram().getWebGLProgram() );
 
     // ModelMatrix should be calculated in the simulation loop rather than render loop
     // but they are effectively the same in out app so we can just recalculate in render loop
