@@ -70,12 +70,14 @@ public final class Program
     return _fragmentShader;
   }
 
+  //TODO: Remove visibility in the future
   @Nonnull
   public AttributeLocationOverride[] getAttributeLocationOverrides()
   {
     return _attributeLocationOverrides;
   }
 
+  //TODO: Remove visibility in the future
   @Nonnull
   public WebGLProgram getWebGLProgram()
   {
