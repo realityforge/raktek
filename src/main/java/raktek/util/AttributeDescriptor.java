@@ -50,7 +50,7 @@ public final class AttributeDescriptor
   {
     if ( Raktek.shouldSupportDebugToString() )
     {
-      return "Attribute[" + getName() +
+      return "AttributeDescriptor[" + getName() +
              ",type=" + AttributeDataType.Validator.describe( getType() ) +
              ",index=" + getIndex() +
              "]";
