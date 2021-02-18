@@ -71,6 +71,12 @@ public final class Program
   }
 
   @Nonnull
+  public AttributeLocationOverride[] getAttributeLocationOverrides()
+  {
+    return _attributeLocationOverrides;
+  }
+
+  @Nonnull
   public WebGLProgram getWebGLProgram()
   {
     return getHandle();
