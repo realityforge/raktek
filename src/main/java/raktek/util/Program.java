@@ -38,7 +38,7 @@ public final class Program
                   @Nonnull final Shader fragmentShader,
                   @Nonnull final AttributeLocationOverride[] attributeLocationOverrides )
   {
-    super( gl, false );
+    super( gl );
     _name = Objects.requireNonNull( name );
     _vertexShader = Objects.requireNonNull( vertexShader );
     _fragmentShader = Objects.requireNonNull( fragmentShader );

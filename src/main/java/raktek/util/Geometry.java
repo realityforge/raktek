@@ -8,7 +8,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public final class Geometry
-  extends Resource<WebGLVertexArrayObject>
+  extends BindableResource<WebGLVertexArrayObject>
 {
   @DrawPrimitiveType
   private final int _mode;
@@ -44,7 +44,7 @@ public final class Geometry
                    @Nullable final ElementArray elements,
                    @Nonnull final Attribute... attributes )
   {
-    super( gl, true );
+    super( gl );
     DrawPrimitiveType.Validator.assertValid( mode );
     assert offset >= 0 : "Offset must not be negative";
     assert count > 0 : "Count must be greater than 0";

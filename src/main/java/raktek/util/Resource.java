@@ -9,13 +9,11 @@ public abstract class Resource<T>
 {
   @Nullable
   private T _handle;
-  private final boolean _isBindEnabled;
   private boolean _verified;
 
-  protected Resource( @Nonnull final WebGL2RenderingContext gl, final boolean isBindEnabled )
+  protected Resource( @Nonnull final WebGL2RenderingContext gl )
   {
     super( gl );
-    _isBindEnabled = isBindEnabled;
   }
 
   public final boolean isAllocated()
@@ -39,22 +37,6 @@ public abstract class Resource<T>
   {
     _handle = handle;
     _verified = false;
-  }
-
-  @SuppressWarnings( "BooleanMethodIsAlwaysInverted" )
-  public boolean isBindEnabled()
-  {
-    return _isBindEnabled;
-  }
-
-  public void bind()
-  {
-    assert !isBindEnabled() : "bind() invoked on a resource that does not return true from isBindEnabled()";
-  }
-
-  public void unbind()
-  {
-    assert !isBindEnabled() : "unbind() invoked on a resource that does not return true from isBindEnabled()";
   }
 
   /**

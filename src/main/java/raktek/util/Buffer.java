@@ -9,7 +9,7 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 
 public final class Buffer
-  extends Resource<WebGLBuffer>
+  extends BindableResource<WebGLBuffer>
 {
   @Nonnull
   private final ArrayBufferView _data;
@@ -30,7 +30,7 @@ public final class Buffer
                  @UsageType final int usage,
                  @BufferTargetType final int bufferTarget )
   {
-    super( gl, true );
+    super( gl );
     UsageType.Validator.assertValid( usage );
     BufferTargetType.Validator.assertValid( bufferTarget );
     _data = Objects.requireNonNull( data );
