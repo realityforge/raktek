@@ -20,7 +20,7 @@ public final class Program
   @Nonnull
   private final Shader _fragmentShader;
   @Nonnull
-  private final AttributeLocation[] _attributeLocations;
+  private final AttributeLocationOverride[] _attributeLocationOverrides;
   @Nullable
   private String _error;
 
@@ -29,21 +29,21 @@ public final class Program
                   @Nonnull final Shader vertexShader,
                   @Nonnull final Shader fragmentShader )
   {
-    this( gl, name, vertexShader, fragmentShader, new AttributeLocation[ 0 ] );
+    this( gl, name, vertexShader, fragmentShader, new AttributeLocationOverride[ 0 ] );
   }
 
   public Program( @Nonnull final WebGL2RenderingContext gl,
                   @Nonnull final String name,
                   @Nonnull final Shader vertexShader,
                   @Nonnull final Shader fragmentShader,
-                  @Nonnull final AttributeLocation[] attributeLocations )
+                  @Nonnull final AttributeLocationOverride[] attributeLocationOverrides )
   {
     super( gl, false );
     _name = Objects.requireNonNull( name );
     _vertexShader = Objects.requireNonNull( vertexShader );
     _fragmentShader = Objects.requireNonNull( fragmentShader );
-    _attributeLocations = Objects.requireNonNull( attributeLocations );
-    assert Arrays.stream( _attributeLocations ).allMatch( Objects::nonNull );
+    _attributeLocationOverrides = Objects.requireNonNull( attributeLocationOverrides );
+    assert Arrays.stream( _attributeLocationOverrides ).allMatch( Objects::nonNull );
   }
 
   @Nonnull
@@ -201,9 +201,9 @@ public final class Program
     gl.attachShader( program, _vertexShader.getHandle() );
     gl.attachShader( program, _fragmentShader.getHandle() );
 
-    for ( final AttributeLocation attributeLocation : _attributeLocations )
+    for ( final AttributeLocationOverride attributeLocationOverride : _attributeLocationOverrides )
     {
-      gl.bindAttribLocation( program, attributeLocation.getIndex(), attributeLocation.getName() );
+      gl.bindAttribLocation( program, attributeLocationOverride.getIndex(), attributeLocationOverride.getName() );
     }
     gl.linkProgram( program );
 
