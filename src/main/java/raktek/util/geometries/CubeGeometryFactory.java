@@ -69,7 +69,8 @@ public final class CubeGeometryFactory
     final List<Attribute> attributes = new ArrayList<>();
     attributes.add( new Attribute( new Buffer( gl,
                                                new Float32Array( _positions ),
-                                               WebGL2RenderingContext.ARRAY_BUFFER ), new Accessor( 3 ) ) );
+                                               WebGL2RenderingContext.ARRAY_BUFFER ),
+                                   new Accessor( 3 ) ) );
     if ( null != _colors )
     {
       attributes.add( new Attribute( new Buffer( gl, new Float32Array( _colors ), WebGL2RenderingContext.ARRAY_BUFFER ),
@@ -84,7 +85,8 @@ public final class CubeGeometryFactory
     {
       attributes.add( new Attribute( new Buffer( gl,
                                                  new Float32Array( _normals ),
-                                                 WebGL2RenderingContext.ARRAY_BUFFER ), new Accessor( 3 ) ) );
+                                                 WebGL2RenderingContext.ARRAY_BUFFER ),
+                                     new Accessor( 3 ) ) );
     }
     _geometry = new Geometry( gl, mode, 0, 36, null, attributes.toArray( new Attribute[ 0 ] ) );
   }
