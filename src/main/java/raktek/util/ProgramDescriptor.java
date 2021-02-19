@@ -99,10 +99,42 @@ public final class ProgramDescriptor
   @Nonnull
   public String toDebugString()
   {
-    return "Program[" + getName() +
-           ",attributes=" + Arrays.asList( _attributes ) +
-           ",uniforms=" + Arrays.asList( _uniforms ) +
-           "]";
+    final StringBuilder sb = new StringBuilder();
+    sb.append( "Program " );
+    sb.append( getName() );
+    sb.append( "\n" );
+    sb.append( "  Attributes:\n" );
+    for ( final AttributeDescriptor attribute : _attributes )
+    {
+      sb.append( "    " );
+      final String index = String.valueOf( attribute.getIndex() );
+      StringUtil.padRight( sb, index, 3 - index.length() );
+      sb.append( ": " );
+      sb.append( AttributeDataType.Validator.describe( attribute.getType() ) );
+      sb.append( " " );
+      sb.append( attribute.getName() );
+      sb.append( "\n" );
+    }
+    if ( _uniforms.length > 0 )
+    {
+      sb.append( "  Uniforms:\n" );
+      for ( final UniformDescriptor uniform : _uniforms )
+      {
+        sb.append( "      " );
+        sb.append( UniformDataType.Validator.describe( uniform.getType() ) );
+        final int elementCount = uniform.getElementCount();
+        if ( elementCount > 1 )
+        {
+          sb.append( "[" );
+          sb.append( elementCount );
+          sb.append( "]" );
+        }
+        sb.append( " " );
+        sb.append( uniform.getName() );
+        sb.append( "\n" );
+      }
+    }
+    return sb.toString();
   }
 
   @Nonnull
