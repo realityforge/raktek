@@ -122,7 +122,10 @@ public final class ProgramDescriptor
       final String name = info.name();
       final WebGLUniformLocation location = gl.getUniformLocation( program, name );
       assert null != location;
-      uniforms.add( new UniformDescriptor( name, UniformDataType.Validator.cast( info.type() ), location ) );
+      uniforms.add( new UniformDescriptor( name,
+                                           UniformDataType.Validator.cast( info.type() ),
+                                           info.size(),
+                                           location ) );
     }
     final Any activeAttributes = gl.getProgramParameter( program, WebGL2RenderingContext.ACTIVE_ATTRIBUTES );
     assert null != activeAttributes;

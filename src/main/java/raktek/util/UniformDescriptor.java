@@ -12,16 +12,19 @@ public final class UniformDescriptor
   private final String _name;
   @UniformDataType
   private final int _type;
+  private final int _elementCount;
   @Nonnull
   private final WebGLUniformLocation _location;
 
   public UniformDescriptor( @Nonnull final String name,
                             @UniformDataType final int type,
+                            final int elementCount,
                             @Nonnull final WebGLUniformLocation location )
   {
     UniformDataType.Validator.assertValid( type );
     _name = Objects.requireNonNull( name );
     _type = type;
+    _elementCount = elementCount;
     _location = Objects.requireNonNull( location );
   }
 
@@ -35,6 +38,11 @@ public final class UniformDescriptor
   public int getType()
   {
     return _type;
+  }
+
+  public int getElementCount()
+  {
+    return _elementCount;
   }
 
   @Nonnull
