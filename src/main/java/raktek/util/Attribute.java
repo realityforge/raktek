@@ -62,7 +62,7 @@ public final class Attribute
     assert WebGL2RenderingContext.INVALID_INDEX != _location;
     final WebGL2RenderingContext gl = _buffer.gl();
     gl.enableVertexAttribArray( _location );
-    _buffer.bind();
+    getBuffer().bind();
     if ( _accessor.isInteger() )
     {
       gl.vertexAttribIPointer( _location,
