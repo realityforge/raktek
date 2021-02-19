@@ -72,13 +72,6 @@ public final class Program
     return _fragmentShader;
   }
 
-  //TODO: Remove visibility in the future
-  @Nonnull
-  public WebGLProgram getWebGLProgram()
-  {
-    return getHandle();
-  }
-
   /**
    * Retrieve the descriptor associated with the program.
    * This should only be invoked when the program is allocated.
