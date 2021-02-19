@@ -137,15 +137,14 @@ public final class Shader
   @Override
   public String toString()
   {
-    if ( Raktek.shouldSupportDebugToString() )
-    {
-      return ( WebGL2RenderingContext.FRAGMENT_SHADER == getType() ? "Fragment" : "Vertex" ) +
-             "Shader[" + getName() + "]";
-    }
-    else
-    {
-      return super.toString();
-    }
+    return Raktek.shouldSupportDebugToString() ? toDebugString() : super.toString();
+  }
+
+  @Nonnull
+  public String toDebugString()
+  {
+    final int type = getType();
+    return ( WebGL2RenderingContext.FRAGMENT_SHADER == type ? "Fragment" : "Vertex" ) + "Shader[" + getName() + "]";
   }
 
   @Nonnull
