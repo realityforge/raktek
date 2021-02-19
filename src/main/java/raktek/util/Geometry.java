@@ -64,6 +64,7 @@ public final class Geometry
 
   public void setProgram( @Nonnull final Program program )
   {
+    assert null == _program;
     _program = Objects.requireNonNull( program );
   }
 
