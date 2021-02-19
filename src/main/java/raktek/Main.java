@@ -163,6 +163,7 @@ public final class Main
   private float _time;
   private FirsPersonControl _control;
   private PerspectiveViewport _viewport;
+  private boolean _printed;
 
   @Override
   public void onModuleLoad()
@@ -246,6 +247,12 @@ public final class Main
     final Matrix4d viewMatrix = _camera.getViewMatrix();
 
     _mesh.getProgram().bind();
+
+    if ( !_printed )
+    {
+      Console.log( _mesh.getProgram().getDescriptor().toString() );
+      _printed = true;
+    }
 
     // ModelMatrix should be calculated in the simulation loop rather than render loop
     // but they are effectively the same in out app so we can just recalculate in render loop
