@@ -16,7 +16,9 @@ import raktek.util.CanvasUtil;
 import raktek.util.GL;
 import raktek.util.MathUtil;
 import raktek.util.PerspectiveViewport;
+import raktek.util.Program;
 import raktek.util.ResourceException;
+import raktek.util.Shader;
 import raktek.util.controls.FirsPersonControl;
 import raktek.util.geometries.CubeGeometryFactory;
 
@@ -177,18 +179,33 @@ public final class Main
 
     try
     {
+      final Program program = new Program( gl,
+                                           "Mesh",
+                                           new Shader( gl,
+                                                       null,
+                                                       WebGL2RenderingContext.VERTEX_SHADER,
+                                                       VERTEX_SHADER_SOURCE ),
+                                           new Shader( gl,
+                                                       null,
+                                                       WebGL2RenderingContext.FRAGMENT_SHADER,
+                                                       FRAGMENT_SHADER_SOURCE ) );
+
       _mesh = new Mesh( gl,
+                        program,
                         CubeGeometryFactory.create( gl,
+                                                    program,
                                                     0.5,
                                                     CubeGeometryFactory.NORMALS |
                                                     CubeGeometryFactory.UVS |
-                                                    CubeGeometryFactory.COLORS ),
-                        VERTEX_SHADER_SOURCE,
-                        FRAGMENT_SHADER_SOURCE );
-      _lightMesh = new LightMesh( gl,
-                                  CubeGeometryFactory.create( gl, 0.2, 0 ),
-                                  LIGHT_VERTEX_SHADER_SOURCE,
-                                  LIGHT_FRAGMENT_SHADER_SOURCE );
+                                                    CubeGeometryFactory.COLORS ) );
+      final Program lmProgram =
+        new Program( gl,
+                     "LightMesh",
+                     new Shader( gl, null, WebGL2RenderingContext.VERTEX_SHADER, LIGHT_VERTEX_SHADER_SOURCE ),
+                     new Shader( gl, null, WebGL2RenderingContext.FRAGMENT_SHADER, LIGHT_FRAGMENT_SHADER_SOURCE ) );
+
+      _lightMesh = new LightMesh( lmProgram,
+                                  CubeGeometryFactory.create( gl, lmProgram, 0.2, 0 ) );
     }
     catch ( ResourceException e )
     {

@@ -1,7 +1,5 @@
 package raktek;
 
-import elemental3.gl.GLSL;
-import elemental3.gl.WebGL2RenderingContext;
 import elemental3.gl.WebGLUniformLocation;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -9,7 +7,6 @@ import raktek.util.Geometry;
 import raktek.util.Program;
 import raktek.util.ProgramDescriptor;
 import raktek.util.ResourceException;
-import raktek.util.Shader;
 
 final class LightMesh
 {
@@ -26,17 +23,10 @@ final class LightMesh
   @Nonnull
   private final Geometry _geometry;
 
-  LightMesh( @Nonnull final WebGL2RenderingContext gl,
-             @Nonnull final Geometry geometry,
-             @GLSL @Nonnull final String vertexShaderSource,
-             @GLSL @Nonnull final String fragmentShaderSource )
+  LightMesh( @Nonnull final Program program, @Nonnull final Geometry geometry )
     throws ResourceException
   {
-    _program =
-      new Program( gl,
-                   "LightMesh",
-                   new Shader( gl, null, WebGL2RenderingContext.VERTEX_SHADER, vertexShaderSource ),
-                   new Shader( gl, null, WebGL2RenderingContext.FRAGMENT_SHADER, fragmentShaderSource ) );
+    _program = Objects.requireNonNull( program );
     _program.allocate();
     final ProgramDescriptor descriptor = _program.getDescriptor();
     _modelMatrix = descriptor.getUniformByName( "modelMatrix" ).getLocation();
@@ -44,7 +34,6 @@ final class LightMesh
     _projectionMatrix = descriptor.getUniformByName( "projectionMatrix" ).getLocation();
     _color = descriptor.getUniformByName( "color" ).getLocation();
     _geometry = Objects.requireNonNull( geometry );
-    _geometry.setProgram( _program );
     _geometry.allocate();
   }
 

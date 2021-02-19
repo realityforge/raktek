@@ -13,6 +13,7 @@ import raktek.util.Accessor;
 import raktek.util.Attribute;
 import raktek.util.Buffer;
 import raktek.util.Geometry;
+import raktek.util.Program;
 
 public final class CubeGeometryFactory
 {
@@ -42,20 +43,23 @@ public final class CubeGeometryFactory
 
   @Nonnull
   public static Geometry create( @Nonnull final WebGL2RenderingContext gl,
+                                 @Nonnull final Program program,
                                  final double length )
   {
-    return create( gl, length, UVS | COLORS );
+    return create( gl, program, length, UVS | COLORS );
   }
 
   @Nonnull
   public static Geometry create( @Nonnull final WebGL2RenderingContext gl,
+                                 @Nonnull final Program program,
                                  final double length,
                                  @MagicConstant( flags = { NORMALS, UVS, COLORS } ) final int options )
   {
-    return new CubeGeometryFactory( gl, WebGL2RenderingContext.TRIANGLES, length, options )._geometry;
+    return new CubeGeometryFactory( gl, program, WebGL2RenderingContext.TRIANGLES, length, options )._geometry;
   }
 
   private CubeGeometryFactory( @Nonnull final WebGL2RenderingContext gl,
+                               @Nonnull final Program program,
                                @DrawPrimitiveType final int mode,
                                final double length,
                                @MagicConstant( flags = { NORMALS, UVS, COLORS } ) final int options )
@@ -92,7 +96,7 @@ public final class CubeGeometryFactory
                                                  WebGL2RenderingContext.ARRAY_BUFFER ),
                                      new Accessor( 3 ) ) );
     }
-    _geometry = new Geometry( gl, mode, 0, 36, null, attributes.toArray( new Attribute[ 0 ] ) );
+    _geometry = new Geometry( gl, program, mode, 0, 36, null, attributes.toArray( new Attribute[ 0 ] ) );
   }
 
   private void buildData( final double length )

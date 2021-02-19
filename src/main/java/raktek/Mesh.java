@@ -1,7 +1,6 @@
 package raktek;
 
 import elemental3.core.Float32Array;
-import elemental3.gl.GLSL;
 import elemental3.gl.WebGL2RenderingContext;
 import elemental3.gl.WebGLTexture;
 import elemental3.gl.WebGLUniformLocation;
@@ -15,7 +14,6 @@ import raktek.util.GL;
 import raktek.util.Geometry;
 import raktek.util.Program;
 import raktek.util.ProgramDescriptor;
-import raktek.util.Shader;
 
 final class Mesh
 {
@@ -43,17 +41,13 @@ final class Mesh
   private final WebGLUniformLocation _cameraPosition;
 
   Mesh( @Nonnull final WebGL2RenderingContext gl,
-        @Nonnull final Geometry geometry,
-        @GLSL @Nonnull final String vertexShaderSource,
-        @GLSL @Nonnull final String fragmentShaderSource )
+        @Nonnull final Program program,
+        @Nonnull final Geometry geometry )
   {
     GL.loadTexture( gl, "img/wood.jpg" ).thenAccept( texture -> _texture1 = texture );
     GL.loadTexture( gl, "img/StoreLogo.png" ).thenAccept( texture -> _texture2 = texture );
 
-    _program = new Program( gl,
-                            "Mesh",
-                            new Shader( gl, null, WebGL2RenderingContext.VERTEX_SHADER, vertexShaderSource ),
-                            new Shader( gl, null, WebGL2RenderingContext.FRAGMENT_SHADER, fragmentShaderSource ) );
+    _program = Objects.requireNonNull( program );
     _program.allocate();
     _program.verify();
     final ProgramDescriptor descriptor = _program.getDescriptor();
@@ -67,7 +61,6 @@ final class Mesh
     _cameraPosition = descriptor.getUniformByName( "cameraPosition" ).getLocation();
 
     _geometry = Objects.requireNonNull( geometry );
-    _geometry.setProgram( _program );
     _geometry.allocate();
   }
 

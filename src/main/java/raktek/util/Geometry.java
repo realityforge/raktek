@@ -21,26 +21,30 @@ public final class Geometry
   private final Attribute[] _attributes;
   @Nullable
   private final ElementArray _elements;
-  private Program _program;
+  @Nonnull
+  private final Program _program;
 
   public Geometry( @Nonnull final WebGL2RenderingContext gl,
+                   @Nonnull final Program program,
                    final int count,
                    @Nonnull final Attribute... attributes )
   {
-    this( gl, WebGL2RenderingContext.TRIANGLES, 0, count, null, attributes );
+    this( gl, program, WebGL2RenderingContext.TRIANGLES, 0, count, null, attributes );
   }
 
   public Geometry( @Nonnull final WebGL2RenderingContext gl,
+                   @Nonnull final Program program,
                    @DrawPrimitiveType final int mode,
                    final int offset,
                    final int count,
                    @Nullable final ElementArray elements,
                    @Nonnull final Attribute... attributes )
   {
-    this( gl, mode, offset, count, 0, elements, attributes );
+    this( gl, program, mode, offset, count, 0, elements, attributes );
   }
 
   public Geometry( @Nonnull final WebGL2RenderingContext gl,
+                   @Nonnull final Program program,
                    @DrawPrimitiveType final int mode,
                    final int offset,
                    final int count,
@@ -54,18 +58,13 @@ public final class Geometry
     assert count > 0 : "Count must be greater than 0";
     assert maxInstances >= 0 : "Max instance count must not be negative";
     assert attributes.length > 0 : "At least one attribute must be supplied";
+    _program = Objects.requireNonNull( program );
     _mode = mode;
     _offset = offset;
     _count = count;
     _maxInstances = maxInstances;
     _elements = elements;
     _attributes = Objects.requireNonNull( attributes );
-  }
-
-  public void setProgram( @Nonnull final Program program )
-  {
-    assert null == _program;
-    _program = Objects.requireNonNull( program );
   }
 
   @Override
@@ -141,12 +140,6 @@ public final class Geometry
   protected void releaseResource( @Nonnull final WebGLVertexArrayObject handle )
   {
     gl().deleteVertexArray( handle );
-  }
-
-  @Nonnull
-  public Attribute getAttribute( final int index )
-  {
-    return _attributes[ index ];
   }
 
   public boolean isInstanced()
