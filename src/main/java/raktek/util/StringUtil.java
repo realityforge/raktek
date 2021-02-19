@@ -9,6 +9,23 @@ public final class StringUtil
   }
 
   @Nonnull
+  public static String padRight( @Nonnull final String string, final int digits )
+  {
+    final StringBuilder sb = new StringBuilder();
+    padRight( sb, string, digits );
+    return sb.toString();
+  }
+
+  public static void padRight( @Nonnull final StringBuilder sb, @Nonnull final String string, final int digits )
+  {
+    sb.append( string );
+    for ( int i = 0; i < digits; ++i )
+    {
+      sb.append( ' ' );
+    }
+  }
+
+  @Nonnull
   public static String padLeft( @Nonnull final String string, final int digits )
   {
     final StringBuilder sb = new StringBuilder();
