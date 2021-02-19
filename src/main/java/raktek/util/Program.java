@@ -11,7 +11,7 @@ import jsinterop.base.Any;
 import raktek.Raktek;
 
 public final class Program
-  extends Resource<WebGLProgram>
+  extends BindableResource<WebGLProgram>
 {
   @Nonnull
   private final String _name;
@@ -190,6 +190,18 @@ public final class Program
     {
       return super.toString();
     }
+  }
+
+  @Override
+  public void bind()
+  {
+    gl().useProgram( getHandle() );
+  }
+
+  @Override
+  public void unbind()
+  {
+    gl().useProgram( null );
   }
 
   @Nonnull
