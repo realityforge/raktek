@@ -1,6 +1,5 @@
 package raktek.util;
 
-import elemental3.Console;
 import elemental3.gl.AttributeDataType;
 import elemental3.gl.UniformDataType;
 import elemental3.gl.WebGL2RenderingContext;
@@ -95,10 +94,7 @@ public final class ProgramDescriptor
       final String name = info.name();
       final WebGLUniformLocation location = gl.getUniformLocation( program, name );
       assert null != location;
-      final UniformDescriptor uniform =
-        new UniformDescriptor( name, UniformDataType.Validator.cast( info.type() ), location );
-      uniforms.add( uniform );
-      Console.log( uniform.toString() );
+      uniforms.add( new UniformDescriptor( name, UniformDataType.Validator.cast( info.type() ), location ) );
     }
     final Any activeAttributes = gl.getProgramParameter( program, WebGL2RenderingContext.ACTIVE_ATTRIBUTES );
     assert null != activeAttributes;
@@ -123,10 +119,7 @@ public final class ProgramDescriptor
         index = gl.getAttribLocation( program, name );
         assert WebGL2RenderingContext.INVALID_INDEX != index;
       }
-      final AttributeDescriptor attribute =
-        new AttributeDescriptor( name, AttributeDataType.Validator.cast( info.type() ), index );
-      attributes.add( attribute );
-      Console.log( attribute.toString() );
+      attributes.add( new AttributeDescriptor( name, AttributeDataType.Validator.cast( info.type() ), index ) );
     }
     return new ProgramDescriptor( programName,
                                   attributes.toArray( new AttributeDescriptor[ 0 ] ),
