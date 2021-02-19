@@ -12,11 +12,16 @@ public final class StringUtil
   public static String padLeft( @Nonnull final String string, final int digits )
   {
     final StringBuilder sb = new StringBuilder();
+    padLeft( sb, string, digits );
+    return sb.toString();
+  }
+
+  public static void padLeft( @Nonnull final StringBuilder sb, @Nonnull final String string, final int digits )
+  {
     for ( int i = 0; i < digits; ++i )
     {
       sb.append( ' ' );
     }
     sb.append( string );
-    return sb.toString();
   }
 }
