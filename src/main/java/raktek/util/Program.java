@@ -23,6 +23,8 @@ public final class Program
   private final AttributeLocation[] _attributeLocations;
   @Nullable
   private String _error;
+  @Nullable
+  private ProgramDescriptor _descriptor;
 
   public Program( @Nonnull final WebGL2RenderingContext gl,
                   @Nonnull final String name,
@@ -75,6 +77,19 @@ public final class Program
   public WebGLProgram getWebGLProgram()
   {
     return getHandle();
+  }
+
+  /**
+   * Retrieve the descriptor associated with the program.
+   * This should only be invoked when the program is allocated.
+   *
+   * @return the associated program descriptor.
+   */
+  @Nonnull
+  public ProgramDescriptor getDescriptor()
+  {
+    assert null != _descriptor;
+    return _descriptor;
   }
 
   public boolean hasError()
@@ -227,6 +242,8 @@ public final class Program
     {
       checkProgramLink( program );
     }
+    _descriptor = ProgramDescriptor.create( gl, _name, _attributeLocations, program );
+
     return program;
   }
 
