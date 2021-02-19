@@ -116,7 +116,7 @@ public final class ShaderUtil
           {
             final String lineAsString = String.valueOf( i );
             message
-              .append( padLeft( lineAsString, 5 - lineAsString.length() ) )
+              .append( StringUtil.padLeft( lineAsString, 5 - lineAsString.length() ) )
               .append( ": " )
               .append( sourceLines[ i ] )
               .append( '\n' );
@@ -130,17 +130,5 @@ public final class ShaderUtil
       }
     }
     return message.toString();
-  }
-
-  @Nonnull
-  private static String padLeft( @Nonnull final String string, final int digits )
-  {
-    final StringBuilder sb = new StringBuilder();
-    for ( int i = 0; i < digits; ++i )
-    {
-      sb.append( ' ' );
-    }
-    sb.append( string );
-    return sb.toString();
   }
 }
