@@ -44,7 +44,7 @@ final class LightMesh
     _projectionMatrix = descriptor.getUniformByName( "projectionMatrix" ).getLocation();
     _color = descriptor.getUniformByName( "color" ).getLocation();
     _geometry = Objects.requireNonNull( geometry );
-    _geometry.getAttribute( 0 ).setLocation( descriptor.getAttributeByName( "position" ).getIndex() );
+    _geometry.setProgram( _program );
     _geometry.allocate();
   }
 

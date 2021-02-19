@@ -67,10 +67,8 @@ final class Mesh
     _cameraPosition = descriptor.getUniformByName( "cameraPosition" ).getLocation();
 
     _geometry = Objects.requireNonNull( geometry );
-    _geometry.getAttribute( 0 ).setLocation( descriptor.getAttributeByName( "position" ).getIndex() );
-    _geometry.getAttribute( 1 ).setLocation( descriptor.getAttributeByName( "color" ).getIndex() );
-    _geometry.getAttribute( 2 ).setLocation( descriptor.getAttributeByName( "textureCoordinate" ).getIndex() );
-    _geometry.getAttribute( 3 ).setLocation( descriptor.getAttributeByName( "normal" ).getIndex() );
+    _geometry.setProgram( _program );
+    _geometry.allocate();
   }
 
   @Nonnull

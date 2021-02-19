@@ -1,5 +1,6 @@
 package raktek.util;
 
+import elemental3.gl.AttributeComponentIntegerDataType;
 import elemental3.gl.DrawPrimitiveType;
 import elemental3.gl.WebGL2RenderingContext;
 import elemental3.gl.WebGLVertexArrayObject;
@@ -20,8 +21,11 @@ public final class Geometry
   private final Attribute[] _attributes;
   @Nullable
   private final ElementArray _elements;
+  private Program _program;
 
-  public Geometry( @Nonnull final WebGL2RenderingContext gl, final int count, @Nonnull final Attribute... attributes )
+  public Geometry( @Nonnull final WebGL2RenderingContext gl,
+                   final int count,
+                   @Nonnull final Attribute... attributes )
   {
     this( gl, WebGL2RenderingContext.TRIANGLES, 0, count, null, attributes );
   }
@@ -56,6 +60,11 @@ public final class Geometry
     _maxInstances = maxInstances;
     _elements = elements;
     _attributes = Objects.requireNonNull( attributes );
+  }
+
+  public void setProgram( @Nonnull final Program program )
+  {
+    _program = Objects.requireNonNull( program );
   }
 
   @Override
@@ -95,7 +104,29 @@ public final class Geometry
     }
     for ( final Attribute attribute : _attributes )
     {
-      attribute.sendToGpu();
+      final AttributeDescriptor descriptor = _program.getDescriptor().getAttributeByName( attribute.getName() );
+      final Buffer buffer = attribute.getBuffer();
+      final Accessor accessor = attribute.getAccessor();
+      final int index = descriptor.getIndex();
+      gl.enableVertexAttribArray( index );
+      buffer.bind();
+      if ( accessor.isInteger() )
+      {
+        gl.vertexAttribIPointer( index,
+                                 accessor.getComponentCount(),
+                                 AttributeComponentIntegerDataType.Validator.cast( accessor.getComponentType() ),
+                                 accessor.getStride(),
+                                 accessor.getOffset() );
+      }
+      else
+      {
+        gl.vertexAttribPointer( index,
+                                accessor.getComponentCount(),
+                                accessor.getComponentType(),
+                                accessor.shouldNormalize(),
+                                accessor.getStride(),
+                                accessor.getOffset() );
+      }
     }
     gl.bindVertexArray( null );
 

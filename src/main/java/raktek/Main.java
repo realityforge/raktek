@@ -34,7 +34,7 @@ public final class Main
     // The incoming vertex color
     "in vec4 color;\n" +
     // The incoming texture coordinate
-    "in vec2 textureCoordinate;\n" +
+    "in vec2 uv;\n" +
     // The incoming normal of vertex
     "in vec3 normal;\n" +
     // The output vertex color that will be fed to the next shader
@@ -58,7 +58,7 @@ public final class Main
     // Copy color from input to output
     "  fcolor = color;" +
     // Copy textureCoordinate from input to output
-    "  fTextureCoordinate = textureCoordinate;" +
+    "  fTextureCoordinate = uv;" +
     // inverse(transpose(MM)) is required when we have a non-uniform scale.
     // In a uniform scale, the transpose of the identity is identity and the
     // inverse of an identity is identity and thus we could just use normal here
