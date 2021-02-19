@@ -44,11 +44,6 @@ public final class Attribute
     return _buffer;
   }
 
-  public boolean isLocationValid()
-  {
-    return WebGL2RenderingContext.INVALID_INDEX != _location;
-  }
-
   @AttributeIndex
   public int getLocation()
   {
@@ -64,7 +59,7 @@ public final class Attribute
 
   public void sendToGpu()
   {
-    assert isLocationValid();
+    assert WebGL2RenderingContext.INVALID_INDEX != _location;
     final WebGL2RenderingContext gl = _buffer.gl();
     gl.enableVertexAttribArray( _location );
     _buffer.bind();
