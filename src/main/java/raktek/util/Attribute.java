@@ -28,14 +28,9 @@ public final class Attribute
 
   public Attribute( @Nonnull final Buffer buffer, @Nonnull final Accessor accessor )
   {
-    this( buffer, accessor, WebGL2RenderingContext.INVALID_INDEX );
-  }
-
-  public Attribute( @Nonnull final Buffer buffer, @Nonnull final Accessor accessor, @AttributeIndex final int location )
-  {
     _buffer = Objects.requireNonNull( buffer );
     _accessor = Objects.requireNonNull( accessor );
-    _location = location;
+    _location = WebGL2RenderingContext.INVALID_INDEX;
   }
 
   @Nonnull
