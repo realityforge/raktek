@@ -2,7 +2,7 @@ package raktek.util;
 
 import elemental3.core.Float32Array;
 import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLProgram;
+import elemental3.gl.WebGLUniformLocation;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 
@@ -11,12 +11,11 @@ public final class VecfUniform
 {
   private final Float32Array _values;
 
-  public VecfUniform( @Nonnull final WebGL2RenderingContext gl,
-                      @Nonnull final WebGLProgram program,
-                      @Nonnull final String name,
+  public VecfUniform( @Nonnull final String name,
+                      @Nonnull final WebGLUniformLocation location,
                       @Nonnull final Float32Array values )
   {
-    super( gl, program, name );
+    super( name, location );
     _values = Objects.requireNonNull( values );
   }
 

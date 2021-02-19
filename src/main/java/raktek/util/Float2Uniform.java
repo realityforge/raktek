@@ -1,7 +1,7 @@
 package raktek.util;
 
 import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLProgram;
+import elemental3.gl.WebGLUniformLocation;
 import javax.annotation.Nonnull;
 
 public final class Float2Uniform
@@ -10,13 +10,12 @@ public final class Float2Uniform
   private float _x;
   private float _y;
 
-  public Float2Uniform( @Nonnull final WebGL2RenderingContext gl,
-                        @Nonnull final WebGLProgram program,
-                        @Nonnull final String name,
+  public Float2Uniform( @Nonnull final String name,
+                        @Nonnull final WebGLUniformLocation location,
                         final float x,
                         final float y )
   {
-    super( gl, program, name );
+    super( name, location );
     _x = x;
     _y = y;
   }

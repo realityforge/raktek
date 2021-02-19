@@ -1,7 +1,5 @@
 package raktek.util;
 
-import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLProgram;
 import elemental3.gl.WebGLUniformLocation;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -16,12 +14,10 @@ public class Uniform
   @Nonnull
   private final WebGLUniformLocation _location;
 
-  public Uniform( @Nonnull final WebGL2RenderingContext gl,
-                  @Nonnull final WebGLProgram program,
-                  @Nonnull final String name )
+  public Uniform( @Nonnull final String name, @Nonnull final WebGLUniformLocation location )
   {
     _name = Objects.requireNonNull( name );
-    _location = GL.getUniformLocation( gl, program, name );
+    _location = Objects.requireNonNull( location );
   }
 
   @Nonnull

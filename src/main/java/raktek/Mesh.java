@@ -3,7 +3,6 @@ package raktek;
 import elemental3.core.Float32Array;
 import elemental3.gl.GLSL;
 import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLProgram;
 import elemental3.gl.WebGLTexture;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -14,6 +13,7 @@ import raktek.util.Camera;
 import raktek.util.GL;
 import raktek.util.Geometry;
 import raktek.util.Program;
+import raktek.util.ProgramDescriptor;
 import raktek.util.Shader;
 import raktek.util.Uniform;
 
@@ -56,21 +56,22 @@ final class Mesh
                             new Shader( gl, null, WebGL2RenderingContext.FRAGMENT_SHADER, fragmentShaderSource ) );
     _program.allocate();
     _program.verify();
-    final WebGLProgram program = _program.getWebGLProgram();
-    _modelMatrix = new Uniform( gl, program, "modelMatrix" );
-    _viewMatrix = new Uniform( gl, program, "viewMatrix" );
-    _projectionMatrix = new Uniform( gl, program, "projectionMatrix" );
-    _textureData0 = new Uniform( gl, program, "textureData0" );
-    _textureData1 = new Uniform( gl, program, "textureData1" );
-    _lightColor = new Uniform( gl, program, "lightColor" );
-    _lightPosition = new Uniform( gl, program, "lightPosition" );
-    _cameraPosition = new Uniform( gl, program, "cameraPosition" );
+    final ProgramDescriptor descriptor = _program.getDescriptor();
+    _modelMatrix = new Uniform( "modelMatrix", descriptor.getUniformByName( "modelMatrix" ).getLocation() );
+    _viewMatrix = new Uniform( "viewMatrix", descriptor.getUniformByName( "viewMatrix" ).getLocation() );
+    _projectionMatrix =
+      new Uniform( "projectionMatrix", descriptor.getUniformByName( "projectionMatrix" ).getLocation() );
+    _textureData0 = new Uniform( "textureData0", descriptor.getUniformByName( "textureData0" ).getLocation() );
+    _textureData1 = new Uniform( "textureData1", descriptor.getUniformByName( "textureData1" ).getLocation() );
+    _lightColor = new Uniform( "lightColor", descriptor.getUniformByName( "lightColor" ).getLocation() );
+    _lightPosition = new Uniform( "lightPosition", descriptor.getUniformByName( "lightPosition" ).getLocation() );
+    _cameraPosition = new Uniform( "cameraPosition", descriptor.getUniformByName( "cameraPosition" ).getLocation() );
 
     _geometry = Objects.requireNonNull( geometry );
-    _geometry.getAttribute( 0 ).setLocation( GL.getAttribLocation( gl, program, "position" ) );
-    _geometry.getAttribute( 1 ).setLocation( GL.getAttribLocation( gl, program, "color" ) );
-    _geometry.getAttribute( 2 ).setLocation( GL.getAttribLocation( gl, program, "textureCoordinate" ) );
-    _geometry.getAttribute( 3 ).setLocation( GL.getAttribLocation( gl, program, "normal" ) );
+    _geometry.getAttribute( 0 ).setLocation( descriptor.getAttributeByName( "position" ).getIndex() );
+    _geometry.getAttribute( 1 ).setLocation( descriptor.getAttributeByName( "color" ).getIndex() );
+    _geometry.getAttribute( 2 ).setLocation( descriptor.getAttributeByName( "textureCoordinate" ).getIndex() );
+    _geometry.getAttribute( 3 ).setLocation( descriptor.getAttributeByName( "normal" ).getIndex() );
   }
 
   @Nonnull
