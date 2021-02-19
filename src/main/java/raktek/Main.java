@@ -272,7 +272,10 @@ public final class Main
     _modelMatrix.setTranslation( position.x, position.y, position.z );
     _modelMatrix.scale( 0.2 );
 
-    gl.useProgram( _lightMesh.getProgram() );
+    // These unbinds are not really necessary but adding until we get an easier to track framework
+    _mesh.getProgram().unbind();
+
+    _lightMesh.getProgram().bind();
     gl.uniformMatrix4fv( _lightMesh.getModelMatrix().getLocation(), false, new Float32Array( _modelMatrix.toArray() ) );
     gl.uniformMatrix4fv( _lightMesh.getViewMatrix().getLocation(), false, new Float32Array( viewMatrix.toArray() ) );
     gl.uniformMatrix4fv( _lightMesh.getProjectionMatrix().getLocation(),
@@ -282,6 +285,7 @@ public final class Main
     gl.uniform3f( _lightMesh.getColor().getLocation(), color.x, color.y, color.z );
 
     _lightMesh.getGeometry().draw();
+    _lightMesh.getProgram().unbind();
 
     _angle += 0.01;
     _time += 0.1;
