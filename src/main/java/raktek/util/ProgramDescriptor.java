@@ -51,6 +51,20 @@ public final class ProgramDescriptor
     return _attributes[ index ];
   }
 
+  @Nonnull
+  public AttributeDescriptor getAttributeByName( @Nonnull final String name )
+    throws NoSuchAttributeException
+  {
+    for ( final AttributeDescriptor attribute : _attributes )
+    {
+      if ( name.equals( attribute.getName() ) )
+      {
+        return attribute;
+      }
+    }
+    throw new NoSuchAttributeException( name );
+  }
+
   public int getUniformCount()
   {
     return _uniforms.length;
@@ -60,6 +74,20 @@ public final class ProgramDescriptor
   public UniformDescriptor getUniform( final int index )
   {
     return _uniforms[ index ];
+  }
+
+  @Nonnull
+  public UniformDescriptor getUniformByName( @Nonnull final String name )
+    throws NoSuchUniformException
+  {
+    for ( final UniformDescriptor uniform : _uniforms )
+    {
+      if ( name.equals( uniform.getName() ) )
+      {
+        return uniform;
+      }
+    }
+    throw new NoSuchUniformException( name );
   }
 
   @Override
