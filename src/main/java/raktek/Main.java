@@ -283,13 +283,11 @@ public final class Main
     _mesh.getProgram().unbind();
 
     _lightMesh.getProgram().bind();
-    gl.uniformMatrix4fv( _lightMesh.getModelMatrix().getLocation(), false, new Float32Array( _modelMatrix.toArray() ) );
-    gl.uniformMatrix4fv( _lightMesh.getViewMatrix().getLocation(), false, new Float32Array( viewMatrix.toArray() ) );
-    gl.uniformMatrix4fv( _lightMesh.getProjectionMatrix().getLocation(),
-                         false,
-                         new Float32Array( projectionMatrix.toArray() ) );
+    gl.uniformMatrix4fv( _lightMesh.getModelMatrix(), false, new Float32Array( _modelMatrix.toArray() ) );
+    gl.uniformMatrix4fv( _lightMesh.getViewMatrix(), false, new Float32Array( viewMatrix.toArray() ) );
+    gl.uniformMatrix4fv( _lightMesh.getProjectionMatrix(), false, new Float32Array( projectionMatrix.toArray() ) );
     final Vector3f color = _light.getColor();
-    gl.uniform3f( _lightMesh.getColor().getLocation(), color.x, color.y, color.z );
+    gl.uniform3f( _lightMesh.getColor(), color.x, color.y, color.z );
 
     _lightMesh.getGeometry().draw();
     _lightMesh.getProgram().unbind();
