@@ -183,14 +183,13 @@ public final class Program
   @Override
   public String toString()
   {
-    if ( Raktek.shouldSupportDebugToString() )
-    {
-      return "Program[" + getName() + "]";
-    }
-    else
-    {
-      return super.toString();
-    }
+    return Raktek.shouldSupportDebugToString() ? toDebugString() : super.toString();
+  }
+
+  @Nonnull
+  public String toDebugString()
+  {
+    return "Program[" + getName() + "]";
   }
 
   @Override
