@@ -1,0 +1,10 @@
+* Add a Shader Manager that contains a cache of all shader objects by name. The cache should also include the
+  number of references and when it was last used so that old shaders can be deleted
+
+* Add a ProgramManager that contains a cache all programs by name. The cache should indicate whether the number
+  of references and when it was last used.
+
+* Link program attribute names and geometry attribute names via intents/semantics rather
+  than names. Uniforms required for programs should also have an intent/semantic associated
+  with so can bind  based semantics. Consider intents from
+  - https://github.com/jmarshall23/IcedTech/blob/Doom-3-Vanilla-Compatible/code/renderer/RenderProgs_GLSL.cpp
