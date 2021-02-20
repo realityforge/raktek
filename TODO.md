@@ -4,6 +4,9 @@
 * Add a ProgramManager that contains a cache all programs by name. The cache should indicate whether the number
   of references and when it was last used.
 
+* Add support for dynamically loading shaders from urls and determine type from extension.
+  (i.e. `*.vert` => vertex shader, `*.frag` => fragment shader)
+
 * Link program attribute names and geometry attribute names via intents/semantics rather
   than names. Uniforms required for programs should also have an intent/semantic associated
   with so can bind  based semantics. Consider intents from
