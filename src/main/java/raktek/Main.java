@@ -13,12 +13,15 @@ import org.realityforge.vecmath.Matrix4d;
 import org.realityforge.vecmath.Vector3f;
 import raktek.util.Camera;
 import raktek.util.CanvasUtil;
+import raktek.util.FMesh;
 import raktek.util.GL;
 import raktek.util.MathUtil;
+import raktek.util.Matrix4fvUniform;
 import raktek.util.PerspectiveViewport;
 import raktek.util.Program;
 import raktek.util.ResourceException;
 import raktek.util.Shader;
+import raktek.util.Vector3fvUniform;
 import raktek.util.controls.FirsPersonControl;
 import raktek.util.geometries.CubeGeometryFactory;
 
@@ -159,7 +162,7 @@ public final class Main
   @Nonnull
   private final Light _light = new Light();
   private Mesh _mesh;
-  private LightMesh _lightMesh;
+  private FMesh _lightMesh;
   private double _angle;
   private boolean _sentToGpu;
   private float _time;
@@ -204,8 +207,7 @@ public final class Main
                      new Shader( gl, null, WebGL2RenderingContext.VERTEX_SHADER, LIGHT_VERTEX_SHADER_SOURCE ),
                      new Shader( gl, null, WebGL2RenderingContext.FRAGMENT_SHADER, LIGHT_FRAGMENT_SHADER_SOURCE ) );
 
-      _lightMesh = new LightMesh( lmProgram,
-                                  CubeGeometryFactory.create( gl, lmProgram, 0.2, 0 ) );
+      _lightMesh = new FMesh( lmProgram, CubeGeometryFactory.create( gl, lmProgram, 0.2, 0 ) );
     }
     catch ( ResourceException e )
     {
@@ -237,7 +239,6 @@ public final class Main
       try
       {
         _mesh.getGeometry().allocate();
-        _lightMesh.getGeometry().allocate();
       }
       catch ( ResourceException e )
       {
@@ -268,7 +269,6 @@ public final class Main
     if ( !_printed )
     {
       Console.log( _mesh.getProgram().getDescriptor().toString() );
-      Console.log( _lightMesh.getProgram().getDescriptor().toString() );
       _printed = true;
     }
 
@@ -300,15 +300,12 @@ public final class Main
     // These unbinds are not really necessary but adding until we get an easier to track framework
     _mesh.getProgram().unbind();
 
-    _lightMesh.getProgram().bind();
-    gl.uniformMatrix4fv( _lightMesh.getModelMatrix(), false, new Float32Array( _modelMatrix.toArray() ) );
-    gl.uniformMatrix4fv( _lightMesh.getViewMatrix(), false, new Float32Array( viewMatrix.toArray() ) );
-    gl.uniformMatrix4fv( _lightMesh.getProjectionMatrix(), false, new Float32Array( projectionMatrix.toArray() ) );
-    final Vector3f color = _light.getColor();
-    gl.uniform3f( _lightMesh.getColor(), color.x, color.y, color.z );
-
-    _lightMesh.getGeometry().draw();
-    _lightMesh.getProgram().unbind();
+    ( (Matrix4fvUniform) _lightMesh.getUniformByName( "modelMatrix" ) ).setValues( new Float32Array( _modelMatrix.toArray() ) );
+    ( (Matrix4fvUniform) _lightMesh.getUniformByName( "viewMatrix" ) ).setValues( new Float32Array( viewMatrix.toArray() ) );
+    ( (Matrix4fvUniform) _lightMesh.getUniformByName( "projectionMatrix" ) )
+      .setValues( new Float32Array( projectionMatrix.toArray() ) );
+    ( (Vector3fvUniform) _lightMesh.getUniformByName( "color" ) ).setValues( new Float32Array( _light.getColor().toArray() ) );
+    _lightMesh.render( gl );
 
     _angle += 0.01;
     _time += 0.1;
