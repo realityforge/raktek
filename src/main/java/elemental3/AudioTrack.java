@@ -9,7 +9,7 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
- * The AudioTrack interface represents a single audio track from one of the HTML media elements, &lt;audio&gt; or &lt;video&gt;. 
+ * The AudioTrack interface represents a single audio track from one of the HTML media elements, &lt;audio&gt; or &lt;video&gt;.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioTrack">AudioTrack - MDN</a>
  * @see <a href="https://html.spec.whatwg.org/multipage/media.html#audiotrack">AudioTrack - HTML Living Standard</a>

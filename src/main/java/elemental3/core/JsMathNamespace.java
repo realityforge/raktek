@@ -182,7 +182,7 @@ public final class JsMathNamespace {
   public native int clz32(int x);
 
   /**
-   * The Math.cos() static function returns the cosine of the specified angle, which must be specified in radians. This value is 
+   * The Math.cos() static function returns the cosine of the specified angle, which must be specified in radians. This value is
    *
    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/cos">Math.cos - MDN</a>
    * @see <a href="https://tc39.es/ecma262/#sec-math.cos">Math.cos - ECMAScript (ECMA-262)</a>

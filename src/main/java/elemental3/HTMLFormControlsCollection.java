@@ -8,7 +8,7 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
- * The HTMLFormControlsCollection interface represents a collection of HTML form control elements. 
+ * The HTMLFormControlsCollection interface represents a collection of HTML form control elements.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormControlsCollection">HTMLFormControlsCollection - MDN</a>
  * @see <a href="https://html.spec.whatwg.org/multipage/infrastructure.html#htmlformcontrolscollection">HTMLFormControlsCollection - HTML Living Standard</a>

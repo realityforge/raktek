@@ -9,7 +9,7 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
- * The Text interface represents the textual content of Element or Attr. 
+ * The Text interface represents the textual content of Element or Attr.
  *
  * @see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Text">Text - MDN</a>
  * @see <a href="https://dom.spec.whatwg.org/#text">Text - DOM</a>

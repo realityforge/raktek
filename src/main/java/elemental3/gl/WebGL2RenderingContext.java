@@ -2458,7 +2458,8 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10">getVertexAttribOffset - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glGetVertexAttribPointerv.xml">glGetVertexAttribPointerv - OpenGL ES 2.0</a>
    */
-  public native int getVertexAttribOffset(@AttributeIndex int index, int pname);
+  public native int getVertexAttribOffset(@AttributeIndex int index,
+      @VertexAttribOffsetParameterName int pname);
 
   /**
    * The WebGLRenderingContext.hint() method of the WebGL API specifies hints for certain behaviors. The interpretation of these hints depend on the implementation.
