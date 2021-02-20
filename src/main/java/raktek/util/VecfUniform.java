@@ -22,7 +22,8 @@ public final class VecfUniform
   {
     _values = Objects.requireNonNull( values );
   }
-@Override
+
+  @Override
   public void sendToGpu( @Nonnull final WebGL2RenderingContext gl )
   {
     gl.uniform1fv( getUniform().getLocation(), _values );
