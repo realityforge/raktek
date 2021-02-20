@@ -268,6 +268,7 @@ public final class Main
     if ( !_printed )
     {
       Console.log( _mesh.getProgram().getDescriptor().toString() );
+      Console.log( _lightMesh.getProgram().getDescriptor().toString() );
       _printed = true;
     }
 
