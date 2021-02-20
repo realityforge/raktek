@@ -11,3 +11,5 @@
   than names. Uniforms required for programs should also have an intent/semantic associated
   with so can bind  based semantics. Consider intents from
   - https://github.com/jmarshall23/IcedTech/blob/Doom-3-Vanilla-Compatible/code/renderer/RenderProgs_GLSL.cpp
+
+* Add flags to buffer to indicate whether the data has been uploaded or needs to be uploaded before next use.
