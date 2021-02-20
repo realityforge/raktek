@@ -1,7 +1,6 @@
 package raktek.util;
 
 import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLUniformLocation;
 import javax.annotation.Nonnull;
 
 public final class BoolUniform
@@ -9,11 +8,9 @@ public final class BoolUniform
 {
   private boolean _value;
 
-  public BoolUniform( @Nonnull final String name,
-                      @Nonnull final WebGLUniformLocation location,
-                      final boolean value )
+  public BoolUniform( @Nonnull final UniformDescriptor uniform, final boolean value )
   {
-    super( name, location );
+    super( uniform );
     _value = value;
   }
 
@@ -22,8 +19,9 @@ public final class BoolUniform
     _value = value;
   }
 
+  @Override
   public void sendToGpu( @Nonnull final WebGL2RenderingContext gl )
   {
-    gl.uniform1f( getLocation(), _value ? 1 : 0 );
+    gl.uniform1f( getUniform().getLocation(), _value ? 1 : 0 );
   }
 }

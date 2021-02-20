@@ -1,7 +1,6 @@
 package raktek.util;
 
 import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLUniformLocation;
 import javax.annotation.Nonnull;
 
 public final class Float2Uniform
@@ -10,12 +9,11 @@ public final class Float2Uniform
   private float _x;
   private float _y;
 
-  public Float2Uniform( @Nonnull final String name,
-                        @Nonnull final WebGLUniformLocation location,
+  public Float2Uniform( @Nonnull final UniformDescriptor uniform,
                         final float x,
                         final float y )
   {
-    super( name, location );
+    super( uniform );
     _x = x;
     _y = y;
   }
@@ -30,8 +28,9 @@ public final class Float2Uniform
     _y = y;
   }
 
+  @Override
   public void sendToGpu( @Nonnull final WebGL2RenderingContext gl )
   {
-    gl.uniform2f( getLocation(), _x, _y );
+    gl.uniform2f( getUniform().getLocation(), _x, _y );
   }
 }

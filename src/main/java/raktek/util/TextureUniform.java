@@ -2,7 +2,6 @@ package raktek.util;
 
 import elemental3.gl.WebGL2RenderingContext;
 import elemental3.gl.WebGLTexture;
-import elemental3.gl.WebGLUniformLocation;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
@@ -14,12 +13,11 @@ public final class TextureUniform
   private WebGLTexture _texture;
 
   public TextureUniform( @Nonnull final WebGL2RenderingContext gl,
-                         @Nonnull final String name,
-                         @Nonnull final WebGLUniformLocation location,
+                         @Nonnull final UniformDescriptor uniform,
                          @Nonnull final String src,
                          final int textureUnitIndex )
   {
-    super( name, location );
+    super( uniform );
     _textureUnitIndex = textureUnitIndex;
     GL.loadTexture( gl, src ).thenAccept( texture -> _texture = texture );
   }
@@ -37,11 +35,12 @@ public final class TextureUniform
     return _texture;
   }
 
+  @Override
   public void sendToGpu( @Nonnull final WebGL2RenderingContext gl )
   {
     assert null != _texture;
     gl.activeTexture( WebGL2RenderingContext.TEXTURE0 + _textureUnitIndex );
     gl.bindTexture( WebGL2RenderingContext.TEXTURE_2D, _texture );
-    gl.uniform1i( getLocation(), _textureUnitIndex );
+    gl.uniform1i( getUniform().getLocation(), _textureUnitIndex );
   }
 }

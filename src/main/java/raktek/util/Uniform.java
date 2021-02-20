@@ -1,34 +1,24 @@
 package raktek.util;
 
-import elemental3.gl.WebGLUniformLocation;
+import elemental3.gl.WebGL2RenderingContext;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 
-public class Uniform
+public abstract class Uniform
 {
-  /**
-   * The name of the shader variable.
-   */
   @Nonnull
-  private final String _name;
-  @Nonnull
-  private final WebGLUniformLocation _location;
+  private final UniformDescriptor _uniform;
 
-  public Uniform( @Nonnull final String name, @Nonnull final WebGLUniformLocation location )
+  protected Uniform( @Nonnull final UniformDescriptor uniform )
   {
-    _name = Objects.requireNonNull( name );
-    _location = Objects.requireNonNull( location );
+    _uniform = Objects.requireNonNull( uniform );
   }
 
-  @Nonnull
-  public final String getName()
-  {
-    return _name;
-  }
+  public abstract void sendToGpu( @Nonnull WebGL2RenderingContext gl );
 
   @Nonnull
-  public final WebGLUniformLocation getLocation()
+  protected UniformDescriptor getUniform()
   {
-    return _location;
+    return _uniform;
   }
 }
