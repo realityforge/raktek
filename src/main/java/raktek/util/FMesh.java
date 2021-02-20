@@ -52,7 +52,10 @@ public final class FMesh
   public Uniform getUniformByName( @Nonnull final String name )
   {
     final Uniform uniform = _uniforms.get( name );
-    assert null != uniform;
+    if ( null == uniform )
+    {
+      throw new NoSuchUniformException( name );
+    }
     return uniform;
   }
 
