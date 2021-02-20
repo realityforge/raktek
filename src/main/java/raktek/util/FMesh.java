@@ -13,11 +13,11 @@ public final class FMesh
   @Nonnull
   private final Program _program;
   @Nonnull
-  private final Geometry _geometry;
+  private final VertexArrayObject _vertexArrayObject;
   @Nonnull
   private final Map<String, Uniform> _uniforms = new HashMap<>();
 
-  public FMesh( @Nonnull final Program program, @Nonnull final Geometry geometry )
+  public FMesh( @Nonnull final Program program, @Nonnull final VertexArrayObject vertexArrayObject )
   {
     _program = program;
     _program.allocate();
@@ -44,8 +44,8 @@ public final class FMesh
       }
     }
 
-    _geometry = Objects.requireNonNull( geometry );
-    _geometry.allocate();
+    _vertexArrayObject = Objects.requireNonNull( vertexArrayObject );
+    _vertexArrayObject.allocate();
   }
 
   @Nonnull
@@ -66,7 +66,7 @@ public final class FMesh
     {
       uniform.sendToGpu( gl );
     }
-    _geometry.draw();
+    _vertexArrayObject.draw();
     _program.unbind();
   }
 }

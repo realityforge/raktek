@@ -11,14 +11,14 @@ import org.realityforge.vecmath.Vector3d;
 import org.realityforge.vecmath.Vector3f;
 import raktek.util.Camera;
 import raktek.util.GL;
-import raktek.util.Geometry;
 import raktek.util.Program;
 import raktek.util.ProgramDescriptor;
+import raktek.util.VertexArrayObject;
 
 final class Mesh
 {
   @Nonnull
-  private final Geometry _geometry;
+  private final VertexArrayObject _vertexArrayObject;
   private WebGLTexture _texture1;
   private WebGLTexture _texture2;
   @Nonnull
@@ -42,7 +42,7 @@ final class Mesh
 
   Mesh( @Nonnull final WebGL2RenderingContext gl,
         @Nonnull final Program program,
-        @Nonnull final Geometry geometry )
+        @Nonnull final VertexArrayObject vertexArrayObject )
   {
     GL.loadTexture( gl, "img/wood.jpg" ).thenAccept( texture -> _texture1 = texture );
     GL.loadTexture( gl, "img/StoreLogo.png" ).thenAccept( texture -> _texture2 = texture );
@@ -60,8 +60,8 @@ final class Mesh
     _lightPosition = descriptor.getUniformByName( "lightPosition" ).getLocation();
     _cameraPosition = descriptor.getUniformByName( "cameraPosition" ).getLocation();
 
-    _geometry = Objects.requireNonNull( geometry );
-    _geometry.allocate();
+    _vertexArrayObject = Objects.requireNonNull( vertexArrayObject );
+    _vertexArrayObject.allocate();
   }
 
   @Nonnull
@@ -88,13 +88,13 @@ final class Mesh
     final Vector3d eye = camera.getPosition();
     gl.uniform3f( _cameraPosition, (float) eye.x, (float) eye.y, (float) eye.z );
 
-    _geometry.draw();
+    _vertexArrayObject.draw();
   }
 
   @Nonnull
-  Geometry getGeometry()
+  VertexArrayObject getVertexArrayObject()
   {
-    return _geometry;
+    return _vertexArrayObject;
   }
 
   WebGLTexture getTexture1()

@@ -8,7 +8,7 @@ import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public final class Geometry
+public final class VertexArrayObject
   extends BindableResource<WebGLVertexArrayObject>
 {
   @DrawPrimitiveType
@@ -24,33 +24,33 @@ public final class Geometry
   @Nonnull
   private final Program _program;
 
-  public Geometry( @Nonnull final WebGL2RenderingContext gl,
-                   @Nonnull final Program program,
-                   final int count,
-                   @Nonnull final Attribute... attributes )
+  public VertexArrayObject( @Nonnull final WebGL2RenderingContext gl,
+                            @Nonnull final Program program,
+                            final int count,
+                            @Nonnull final Attribute... attributes )
   {
     this( gl, program, WebGL2RenderingContext.TRIANGLES, 0, count, null, attributes );
   }
 
-  public Geometry( @Nonnull final WebGL2RenderingContext gl,
-                   @Nonnull final Program program,
-                   @DrawPrimitiveType final int mode,
-                   final int offset,
-                   final int count,
-                   @Nullable final ElementArray elements,
-                   @Nonnull final Attribute... attributes )
+  public VertexArrayObject( @Nonnull final WebGL2RenderingContext gl,
+                            @Nonnull final Program program,
+                            @DrawPrimitiveType final int mode,
+                            final int offset,
+                            final int count,
+                            @Nullable final ElementArray elements,
+                            @Nonnull final Attribute... attributes )
   {
     this( gl, program, mode, offset, count, 0, elements, attributes );
   }
 
-  public Geometry( @Nonnull final WebGL2RenderingContext gl,
-                   @Nonnull final Program program,
-                   @DrawPrimitiveType final int mode,
-                   final int offset,
-                   final int count,
-                   final int maxInstances,
-                   @Nullable final ElementArray elements,
-                   @Nonnull final Attribute... attributes )
+  public VertexArrayObject( @Nonnull final WebGL2RenderingContext gl,
+                            @Nonnull final Program program,
+                            @DrawPrimitiveType final int mode,
+                            final int offset,
+                            final int count,
+                            final int maxInstances,
+                            @Nullable final ElementArray elements,
+                            @Nonnull final Attribute... attributes )
   {
     super( gl );
     DrawPrimitiveType.Validator.assertValid( mode );

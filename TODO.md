@@ -1,4 +1,4 @@
-* Add FMesh.toDebugString that lists program name, geometry name as well as all uniforms that need to be supplied.
+* Add FMesh.toDebugString that lists program name, vertexArrayObject name as well as all uniforms that need to be supplied.
 
 * Add a Shader Manager that contains a cache of all shader objects by name. The cache should also include the
   number of references and when it was last used so that old shaders can be deleted
@@ -9,8 +9,8 @@
 * Add support for dynamically loading shaders from urls and determine type from extension.
   (i.e. `*.vert` => vertex shader, `*.frag` => fragment shader)
 
-* Link program attribute names and geometry attribute names via intents/semantics rather
-  than names. Uniforms required for programs should also have an intent/semantic associated
+* Link program input names and attribute names via intents/semantics rather than names. Uniforms
+  required for programs should also have an intent/semantic associated
   with so can bind  based semantics. Consider intents from
   - https://github.com/jmarshall23/IcedTech/blob/Doom-3-Vanilla-Compatible/code/renderer/RenderProgs_GLSL.cpp
 

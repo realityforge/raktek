@@ -238,7 +238,7 @@ public final class Main
       // Have to send to GPU here as otherwise texture data has not loaded
       try
       {
-        _mesh.getGeometry().allocate();
+        _mesh.getVertexArrayObject().allocate();
       }
       catch ( ResourceException e )
       {
