@@ -11,8 +11,7 @@ public final class VecfUniform
   @Nonnull
   private Float32Array _values;
 
-  public VecfUniform( @Nonnull final UniformDescriptor uniform,
-                      @Nonnull final Float32Array values )
+  public VecfUniform( @Nonnull final UniformDescriptor uniform, @Nonnull final Float32Array values )
   {
     super( uniform );
     _values = Objects.requireNonNull( values );
