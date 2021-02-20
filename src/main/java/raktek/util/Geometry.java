@@ -67,6 +67,16 @@ public final class Geometry
     _attributes = Objects.requireNonNull( attributes );
   }
 
+  /**
+   * Return true if the attribute data is accessed via an indexed array (a.k.a. elements buffer).
+   *
+   * @return true if the attribute data is accessed via an indexed array (a.k.a. elements buffer).
+   */
+  public boolean isIndexed()
+  {
+    return null != _elements;
+  }
+
   @Override
   public void bind()
   {
