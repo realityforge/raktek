@@ -35,7 +35,7 @@ public final class FMesh
       }
       else if ( WebGL2RenderingContext.FLOAT_MAT4 == type )
       {
-        _uniforms.put( uniform.getName(), new Matrix4fvUniform( uniform, new Float32Array( 16 )) );
+        _uniforms.put( uniform.getName(), new Matrix4fvUniform( uniform, new Float32Array( 16 ) ) );
       }
       else
       {
@@ -49,14 +49,14 @@ public final class FMesh
   }
 
   @Nonnull
-  public Uniform getUniformByName(@Nonnull final String name)
+  public Uniform getUniformByName( @Nonnull final String name )
   {
     final Uniform uniform = _uniforms.get( name );
     assert null != uniform;
     return uniform;
   }
 
-  public  void render( @Nonnull final WebGL2RenderingContext gl )
+  public void render( @Nonnull final WebGL2RenderingContext gl )
   {
     _program.bind();
     for ( final Uniform uniform : _uniforms.values() )
