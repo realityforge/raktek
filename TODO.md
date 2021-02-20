@@ -1,3 +1,5 @@
+* Add FMesh.toDebugString that lists program name, geometry name as well as all uniforms that need to be supplied.
+
 * Add a Shader Manager that contains a cache of all shader objects by name. The cache should also include the
   number of references and when it was last used so that old shaders can be deleted
 
