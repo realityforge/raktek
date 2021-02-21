@@ -66,6 +66,7 @@ public final class FMesh
     {
       uniform.sendToGpu( gl );
     }
+    //TODO: Upload any buffers that have changed here? Or do we do that when we change the buffers
     _vertexArrayObject.draw();
     _program.unbind();
   }
