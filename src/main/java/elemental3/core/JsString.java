@@ -51,7 +51,10 @@ public class JsString {
   public static native String fromCodePoint(int codePoint, int... codePoints);
 
   /**
-   * implements JsIterable<String>
+   * The String object's charAt() method returns a new string consisting of the single UTF-16 code unit located at the specified offset into the string.
+   *
+   * @see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt">String.charAt - MDN</a>
+   * @see <a href="https://tc39.es/ecma262/#sec-string.prototype.charat">String.prototype.charAt - ECMAScript (ECMA-262)</a>
    */
   @Nonnull
   public native String charAt(int index);
