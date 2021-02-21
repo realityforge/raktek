@@ -25,6 +25,7 @@ public final class Accessor
   private final boolean _integer;
   private final int _stride;
   private final int _offset;
+  private final int _divisor;
 
   public Accessor( @VertexDimensions final int componentCount )
   {
@@ -41,7 +42,7 @@ public final class Accessor
                    final int stride,
                    final int offset )
   {
-    this( componentCount, componentType, false, false, stride, offset );
+    this( componentCount, componentType, false, false, stride, offset, 0 );
   }
 
   public Accessor( @VertexDimensions final int componentCount,
@@ -49,7 +50,8 @@ public final class Accessor
                    final boolean normalize,
                    final boolean integer,
                    final int stride,
-                   final int offset )
+                   final int offset,
+                   final int divisor )
   {
     assert componentCount > 0 && componentCount <= 4;
     assert stride >= 0 && stride <= 255;
@@ -58,6 +60,7 @@ public final class Accessor
     assert !normalize || AttributeComponentIntegerDataType.Validator.isValid( componentType );
     assert !integer || AttributeComponentIntegerDataType.Validator.isValid( componentType );
     assert !normalize || !integer;
+    assert divisor >= 0;
     AttributeComponentDataType.Validator.assertValid( componentType );
     _componentCount = componentCount;
     _componentType = componentType;
@@ -65,6 +68,7 @@ public final class Accessor
     _integer = integer;
     _stride = stride;
     _offset = offset;
+    _divisor = divisor;
     assert 0 == stride || stride >= getBytesPerVertex() :
       "Stride must be 0 or be greater the the bytesPerVertex. " +
       "stride=" + stride + " bytesPerVertex=" + getBytesPerVertex();
@@ -130,6 +134,24 @@ public final class Accessor
   public int getOffset()
   {
     return _offset;
+  }
+
+  public int getDivisor()
+  {
+    return _divisor;
+  }
+
+  /**
+   * Return true if the attribute data is "instanced".
+   * Attributes that have divisor N where N is other than zero advance once every N instances
+   * of a draw*Instanced call. Thus in a {@link WebGL2RenderingContext#drawElementsInstanced(int, int, int, int, int)}
+   * call the element transferred from instanced vertex attributes is given by: <code>instance/divisor</code>
+   *
+   * @return true if the attribute data is "instanced" otherwise false.
+   */
+  public boolean isInstanced()
+  {
+    return 0 != _divisor;
   }
 
   /**

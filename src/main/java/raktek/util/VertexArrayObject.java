@@ -137,6 +137,7 @@ public final class VertexArrayObject
                                 accessor.getStride(),
                                 accessor.getOffset() );
       }
+      gl.vertexAttribDivisor( index, accessor.getDivisor() );
     }
     gl.bindVertexArray( null );
 
