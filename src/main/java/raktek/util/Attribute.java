@@ -1,5 +1,6 @@
 package raktek.util;
 
+import elemental3.core.ArrayBufferView;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 
@@ -41,5 +42,17 @@ public final class Attribute
   public Accessor getAccessor()
   {
     return _accessor;
+  }
+
+  /**
+   * Return the number of vertices present in the attribute assuming that the full buffer is used.
+   *
+   * @return the number of vertices present in the attribute assuming that the full buffer is used.
+   */
+  public int getVertexCount()
+  {
+    final ArrayBufferView data = getBuffer().getData();
+    final int dataLength = data.byteLength() - data.byteOffset();
+    return dataLength / getAccessor().getBytesPerVertex();
   }
 }
