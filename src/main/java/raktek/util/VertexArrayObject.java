@@ -26,6 +26,16 @@ public final class VertexArrayObject
 
   public VertexArrayObject( @Nonnull final WebGL2RenderingContext gl,
                             @Nonnull final Program program,
+                            @Nonnull final Attribute... attributes )
+  {
+    this( gl,
+          program,
+          VertexUtil.getPrimitiveCount( WebGL2RenderingContext.TRIANGLES, Attribute.getVertexCount( attributes ) ),
+          attributes );
+  }
+
+  public VertexArrayObject( @Nonnull final WebGL2RenderingContext gl,
+                            @Nonnull final Program program,
                             final int count,
                             @Nonnull final Attribute... attributes )
   {
