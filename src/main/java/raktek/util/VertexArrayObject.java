@@ -1,7 +1,7 @@
 package raktek.util;
 
 import elemental3.gl.AttributeComponentIntegerDataType;
-import elemental3.gl.DrawPrimitiveType;
+import elemental3.gl.DrawMode;
 import elemental3.gl.WebGL2RenderingContext;
 import elemental3.gl.WebGLVertexArrayObject;
 import java.util.Objects;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 public final class VertexArrayObject
   extends BindableResource<WebGLVertexArrayObject>
 {
-  @DrawPrimitiveType
+  @DrawMode
   private final int _mode;
   private final int _offset;
   private final int _count;
@@ -34,7 +34,7 @@ public final class VertexArrayObject
 
   public VertexArrayObject( @Nonnull final WebGL2RenderingContext gl,
                             @Nonnull final Program program,
-                            @DrawPrimitiveType final int mode,
+                            @DrawMode final int mode,
                             final int offset,
                             final int count,
                             @Nullable final ElementArray elements,
@@ -45,7 +45,7 @@ public final class VertexArrayObject
 
   public VertexArrayObject( @Nonnull final WebGL2RenderingContext gl,
                             @Nonnull final Program program,
-                            @DrawPrimitiveType final int mode,
+                            @DrawMode final int mode,
                             final int offset,
                             final int count,
                             final int maxInstances,
@@ -53,7 +53,7 @@ public final class VertexArrayObject
                             @Nonnull final Attribute... attributes )
   {
     super( gl );
-    DrawPrimitiveType.Validator.assertValid( mode );
+    DrawMode.Validator.assertValid( mode );
     assert offset >= 0 : "Offset must not be negative";
     assert count > 0 : "Count must be greater than 0";
     assert maxInstances >= 0 : "Max instance count must not be negative";

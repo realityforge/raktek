@@ -2121,7 +2121,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.11">drawArrays - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawArrays.xml">glDrawArrays - OpenGL ES 2.0</a>
    */
-  public native void drawArrays(@DrawPrimitiveType int mode, int first, int count);
+  public native void drawArrays(@DrawMode int mode, int first, int count);
 
   /**
    * The WebGLRenderingContext.drawElements() method of the WebGL API renders primitives from array data.
@@ -2130,8 +2130,8 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.11">drawElements - WebGL 1.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man/xhtml/glDrawElements.xml">glDrawElements - OpenGL ES 2.0</a>
    */
-  public native void drawElements(@DrawPrimitiveType int mode, int count,
-      @DrawElementsDataType int type, int offset);
+  public native void drawElements(@DrawMode int mode, int count, @DrawElementsDataType int type,
+      int offset);
 
   /**
    * The WebGLRenderingContext.enable() method of the WebGL API enables specific WebGL capabilities for this context.
@@ -4905,7 +4905,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.9">drawArraysInstanced - WebGL 2.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man3/html/glDrawArraysInstanced.xhtml">glDrawArraysInstanced - OpenGL ES 3.0</a>
    */
-  public native void drawArraysInstanced(@DrawPrimitiveType int mode, int first, int count,
+  public native void drawArraysInstanced(@DrawMode int mode, int first, int count,
       int instanceCount);
 
   /**
@@ -4933,7 +4933,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.9">drawElementsInstanced - WebGL 2.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man3/html/glDrawElementsInstanced.xhtml">glDrawElementsInstanced - OpenGL ES 3.0</a>
    */
-  public native void drawElementsInstanced(@DrawPrimitiveType int mode, int count,
+  public native void drawElementsInstanced(@DrawMode int mode, int count,
       @DrawElementsDataType int type, int offset, int instanceCount);
 
   /**
@@ -4943,7 +4943,7 @@ public class WebGL2RenderingContext implements RenderingContext {
    * @see <a href="https://www.khronos.org/registry/webgl/specs/latest/2.0/#3.7.9">drawRangeElements - WebGL 2.0</a>
    * @see <a href="https://www.khronos.org/opengles/sdk/docs/man3/html/glDrawRangeElements.xhtml">glDrawRangeElements - OpenGL ES 3.0</a>
    */
-  public native void drawRangeElements(@DrawPrimitiveType int mode, int start, int end, int count,
+  public native void drawRangeElements(@DrawMode int mode, int start, int end, int count,
       @DrawElementsDataType int type, int offset);
 
   /**
