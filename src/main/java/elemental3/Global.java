@@ -2,6 +2,7 @@ package elemental3;
 
 import elemental3.core.AtomicsNamespace;
 import elemental3.core.JsMathNamespace;
+import elemental3.crypto.Crypto;
 import elemental3.indexeddb.IDBFactory;
 import elemental3.lang.JsArray;
 import elemental3.promise.Promise;
