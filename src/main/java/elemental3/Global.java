@@ -5,6 +5,7 @@ import elemental3.core.JsMathNamespace;
 import elemental3.crypto.Crypto;
 import elemental3.indexeddb.IDBFactory;
 import elemental3.lang.JsArray;
+import elemental3.perf.Performance;
 import elemental3.promise.Promise;
 import elemental3.speech.SpeechSynthesis;
 import elemental3.svg.SVGImageElement;

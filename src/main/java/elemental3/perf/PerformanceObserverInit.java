@@ -1,4 +1,4 @@
-package elemental3;
+package elemental3.perf;
 
 import elemental3.lang.JsArray;
 import javax.annotation.Generated;

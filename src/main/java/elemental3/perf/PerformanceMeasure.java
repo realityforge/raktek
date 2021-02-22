@@ -1,4 +1,4 @@
-package elemental3;
+package elemental3.perf;
 
 import javax.annotation.Generated;
 import jsinterop.annotations.JsPackage;
