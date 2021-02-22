@@ -17,3 +17,6 @@
   - https://github.com/jmarshall23/IcedTech/blob/Doom-3-Vanilla-Compatible/code/renderer/RenderProgs_GLSL.cpp
 
 * Add flags to buffer to indicate whether the data has been uploaded or needs to be uploaded before next use.
+
+* Add restore functionality for when WebGL context loss occurs. This should be possible for every
+  `Resource` that will just retrieve new context and re-allocate?
