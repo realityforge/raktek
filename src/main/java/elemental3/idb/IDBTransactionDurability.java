@@ -1,4 +1,4 @@
-package elemental3.indexeddb;
+package elemental3.idb;
 
 import java.lang.annotation.Documented;
 import javax.annotation.Generated;
@@ -8,20 +8,23 @@ import org.intellij.lang.annotations.MagicConstant;
 @Generated("org.realityforge.webtack")
 @Documented
 @MagicConstant(
-    valuesFromClass = IDBRequestReadyState.class
+    valuesFromClass = IDBTransactionDurability.class
 )
-public @interface IDBRequestReadyState {
+public @interface IDBTransactionDurability {
   @Nonnull
-  String done = "done";
+  String default_ = "default";
 
   @Nonnull
-  String pending = "pending";
+  String relaxed = "relaxed";
+
+  @Nonnull
+  String strict = "strict";
 
   final class Validator {
     private Validator() {
     }
 
-    @IDBRequestReadyState
+    @IDBTransactionDurability
     public static String cast(final String value) {
       assertValid( value );
       return value;
@@ -32,7 +35,7 @@ public @interface IDBRequestReadyState {
     }
 
     public static boolean isValid(@Nonnull final String value) {
-      return IDBRequestReadyState.done.equals( value ) || IDBRequestReadyState.pending.equals( value );
+      return IDBTransactionDurability.default_.equals( value ) || IDBTransactionDurability.relaxed.equals( value ) || IDBTransactionDurability.strict.equals( value );
     }
   }
 }

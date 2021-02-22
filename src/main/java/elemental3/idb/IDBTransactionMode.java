@@ -1,4 +1,4 @@
-package elemental3.indexeddb;
+package elemental3.idb;
 
 import java.lang.annotation.Documented;
 import javax.annotation.Generated;

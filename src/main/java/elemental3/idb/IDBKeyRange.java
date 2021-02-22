@@ -1,4 +1,4 @@
-package elemental3.indexeddb;
+package elemental3.idb;
 
 import javaemul.internal.annotations.DoNotAutobox;
 import javax.annotation.Generated;

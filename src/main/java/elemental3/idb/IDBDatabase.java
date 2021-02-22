@@ -1,4 +1,4 @@
-package elemental3.indexeddb;
+package elemental3.idb;
 
 import elemental3.AddEventListenerOptions;
 import elemental3.DOMStringList;

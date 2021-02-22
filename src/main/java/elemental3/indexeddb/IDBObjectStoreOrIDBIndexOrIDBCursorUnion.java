@@ -1,5 +1,8 @@
 package elemental3.indexeddb;
 
+import elemental3.idb.IDBCursor;
+import elemental3.idb.IDBIndex;
+import elemental3.idb.IDBObjectStore;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import jsinterop.annotations.JsOverlay;

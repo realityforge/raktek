@@ -1,4 +1,4 @@
-package elemental3.indexeddb;
+package elemental3.idb;
 
 import java.lang.annotation.Documented;
 import javax.annotation.Generated;
@@ -8,23 +8,26 @@ import org.intellij.lang.annotations.MagicConstant;
 @Generated("org.realityforge.webtack")
 @Documented
 @MagicConstant(
-    valuesFromClass = IDBTransactionDurability.class
+    valuesFromClass = IDBCursorDirection.class
 )
-public @interface IDBTransactionDurability {
+public @interface IDBCursorDirection {
   @Nonnull
-  String default_ = "default";
+  String next = "next";
 
   @Nonnull
-  String relaxed = "relaxed";
+  String nextunique = "nextunique";
 
   @Nonnull
-  String strict = "strict";
+  String prev = "prev";
+
+  @Nonnull
+  String prevunique = "prevunique";
 
   final class Validator {
     private Validator() {
     }
 
-    @IDBTransactionDurability
+    @IDBCursorDirection
     public static String cast(final String value) {
       assertValid( value );
       return value;
@@ -35,7 +38,7 @@ public @interface IDBTransactionDurability {
     }
 
     public static boolean isValid(@Nonnull final String value) {
-      return IDBTransactionDurability.default_.equals( value ) || IDBTransactionDurability.relaxed.equals( value ) || IDBTransactionDurability.strict.equals( value );
+      return IDBCursorDirection.next.equals( value ) || IDBCursorDirection.nextunique.equals( value ) || IDBCursorDirection.prev.equals( value ) || IDBCursorDirection.prevunique.equals( value );
     }
   }
 }

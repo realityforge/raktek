@@ -1,5 +1,6 @@
-package elemental3.indexeddb;
+package elemental3.idb;
 
+import elemental3.indexeddb.IDBObjectStoreOrIDBIndexUnion;
 import javaemul.internal.annotations.DoNotAutobox;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;

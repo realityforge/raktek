@@ -1,4 +1,4 @@
-package elemental3.indexeddb;
+package elemental3.idb;
 
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
@@ -15,27 +15,40 @@ import jsinterop.base.JsPropertyMap;
     namespace = JsPackage.GLOBAL,
     name = "Object"
 )
-public interface IDBTransactionOptions {
+public interface IDBDatabaseInfo {
   @JsOverlay
   @Nonnull
-  static IDBTransactionOptions create() {
+  static IDBDatabaseInfo create() {
     return Js.uncheckedCast( JsPropertyMap.of() );
   }
 
   @JsProperty(
-      name = "durability"
+      name = "name"
   )
-  @IDBTransactionDurability
-  String durability();
+  String name();
 
   @JsProperty
-  void setDurability(@IDBTransactionDurability @Nonnull String durability);
+  void setName(@Nonnull String name);
 
   @JsOverlay
   @Nonnull
-  default IDBTransactionOptions durability(
-      @IDBTransactionDurability @Nonnull final String durability) {
-    setDurability( durability );
+  default IDBDatabaseInfo name(@Nonnull final String name) {
+    setName( name );
+    return this;
+  }
+
+  @JsProperty(
+      name = "version"
+  )
+  int version();
+
+  @JsProperty
+  void setVersion(int version);
+
+  @JsOverlay
+  @Nonnull
+  default IDBDatabaseInfo version(final int version) {
+    setVersion( version );
     return this;
   }
 }

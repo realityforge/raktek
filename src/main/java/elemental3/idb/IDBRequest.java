@@ -1,4 +1,4 @@
-package elemental3.indexeddb;
+package elemental3.idb;
 
 import elemental3.AddEventListenerOptions;
 import elemental3.DOMException;
@@ -6,6 +6,7 @@ import elemental3.EventHandler;
 import elemental3.EventListener;
 import elemental3.EventListenerOptions;
 import elemental3.EventTarget;
+import elemental3.indexeddb.IDBObjectStoreOrIDBIndexOrIDBCursorUnion;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
