@@ -1,7 +1,6 @@
 package elemental3.svg;
 
 import elemental3.CSSStyleDeclaration;
-import elemental3.ClipboardEventHandler;
 import elemental3.DOMStringMap;
 import elemental3.Element;
 import elemental3.EventHandler;
@@ -11,6 +10,7 @@ import elemental3.MouseEventHandler;
 import elemental3.OnErrorEventHandler;
 import elemental3.TouchEventHandler;
 import elemental3.WheelEventHandler;
+import elemental3.clipboard.ClipboardEventHandler;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

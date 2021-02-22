@@ -1,5 +1,7 @@
-package elemental3;
+package elemental3.clipboard;
 
+import elemental3.DataTransfer;
+import elemental3.Event;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

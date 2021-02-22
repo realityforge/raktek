@@ -1,5 +1,6 @@
 package elemental3;
 
+import elemental3.clipboard.ClipboardEventListener;
 import elemental3.crypto.Crypto;
 import elemental3.idb.IDBFactory;
 import elemental3.lang.JsArray;

@@ -1,5 +1,7 @@
 package elemental3;
 
+import elemental3.clipboard.ClipboardEventHandler;
+import elemental3.clipboard.ClipboardEventListener;
 import elemental3.lang.JsArray;
 import elemental3.promise.Promise;
 import elemental3.svg.SVGSVGElement;

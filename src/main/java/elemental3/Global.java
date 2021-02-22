@@ -1,5 +1,6 @@
 package elemental3;
 
+import elemental3.clipboard.ClipboardEventListener;
 import elemental3.core.AtomicsNamespace;
 import elemental3.core.JsMathNamespace;
 import elemental3.crypto.Crypto;

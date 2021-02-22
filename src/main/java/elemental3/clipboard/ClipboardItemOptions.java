@@ -1,4 +1,4 @@
-package elemental3;
+package elemental3.clipboard;
 
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;

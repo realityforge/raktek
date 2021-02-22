@@ -1,4 +1,4 @@
-package elemental3;
+package elemental3.clipboard;
 
 import elemental3.promise.Promise;
 import javax.annotation.Generated;

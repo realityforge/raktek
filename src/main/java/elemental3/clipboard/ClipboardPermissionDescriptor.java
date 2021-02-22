@@ -1,5 +1,7 @@
-package elemental3;
+package elemental3.clipboard;
 
+import elemental3.PermissionDescriptor;
+import elemental3.PermissionName;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import jsinterop.annotations.JsOverlay;

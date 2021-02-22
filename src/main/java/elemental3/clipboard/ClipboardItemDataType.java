@@ -1,5 +1,6 @@
-package elemental3;
+package elemental3.clipboard;
 
+import elemental3.Blob;
 import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import jsinterop.annotations.JsOverlay;

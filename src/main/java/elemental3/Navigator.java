@@ -1,6 +1,7 @@
 package elemental3;
 
 import elemental3.bluetooth.Bluetooth;
+import elemental3.clipboard.Clipboard;
 import elemental3.core.BufferSource;
 import elemental3.lang.JsArray;
 import elemental3.media.MediaDevices;

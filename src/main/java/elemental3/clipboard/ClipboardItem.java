@@ -1,5 +1,6 @@
-package elemental3;
+package elemental3.clipboard;
 
+import elemental3.Blob;
 import elemental3.lang.JsArray;
 import elemental3.promise.Promise;
 import javax.annotation.Generated;
