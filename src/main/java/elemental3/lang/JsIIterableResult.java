@@ -1,23 +1,14 @@
 package elemental3.lang;
 
-import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Js;
-import jsinterop.base.JsPropertyMap;
 
-@JsType( isNative = true, name = "IIterableResult", namespace = JsPackage.GLOBAL )
-public interface JsIIterableResult<VALUE>
+@JsType( isNative = true, name = "Object", namespace = JsPackage.GLOBAL )
+public interface JsIIterableResult<T>
 {
-  @JsOverlay
-  static <T> JsIIterableResult<T> create()
-  {
-    return Js.uncheckedCast( JsPropertyMap.of() );
-  }
-
   @JsProperty
-  VALUE getValue();
+  T getValue();
 
   @JsProperty
   boolean isDone();
@@ -26,5 +17,5 @@ public interface JsIIterableResult<VALUE>
   void setDone( boolean done );
 
   @JsProperty
-  void setValue( VALUE value );
+  void setValue( T value );
 }
