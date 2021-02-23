@@ -57,7 +57,7 @@ public class Symbol {
       name = "isConcatSpreadable"
   )
   @Nonnull
-  public static native Symbol isConcatSpreadable();
+  public static native Symbol _isConcatSpreadable();
 
   /**
    * The well-known Symbol.iterator symbol specifies the default iterator for an object. Used by for...of.
