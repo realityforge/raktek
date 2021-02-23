@@ -209,7 +209,7 @@ public final class Main
 
       _lightMesh = new FMesh( lmProgram, CubeGeometryFactory.create( gl, lmProgram, 0.2, 0 ) );
     }
-    catch ( ResourceException e )
+    catch ( final ResourceException e )
     {
       Console.log( "Error", e );
     }
@@ -240,7 +240,7 @@ public final class Main
       {
         _mesh.getVertexArrayObject().allocate();
       }
-      catch ( ResourceException e )
+      catch ( final ResourceException e )
       {
         Console.log( "Error", e );
       }
