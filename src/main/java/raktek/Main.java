@@ -304,7 +304,8 @@ public final class Main
     ( (Matrix4fvUniform) _lightMesh.getUniformByName( "viewMatrix" ) ).setValues( new Float32Array( viewMatrix.toArray() ) );
     ( (Matrix4fvUniform) _lightMesh.getUniformByName( "projectionMatrix" ) )
       .setValues( new Float32Array( projectionMatrix.toArray() ) );
-    ( (Vector3fvUniform) _lightMesh.getUniformByName( "color" ) ).setValues( new Float32Array( _light.getColor().toArray() ) );
+    ( (Vector3fvUniform) _lightMesh.getUniformByName( "color" ) )
+      .setValues( new Float32Array( _light.getColor().toArray() ) );
     _lightMesh.render( gl );
 
     _angle += 0.01;
