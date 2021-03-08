@@ -27,7 +27,7 @@ define 'raktek' do
         :java_args => %w(-Xms512M -Xmx1024M -Dgwt.watchFileChanges=false),
         :dependencies => project.compile.dependencies + [project.compile.target] + [Buildr.artifact(:gwt_user)],
         :gwtc_args => %w(-optimize 9 -checkAssertions -XmethodNameDisplayMode FULL -noincremental)
-      })
+      }) unless ENV['GWT'] == 'no'
   ipr.add_gwt_configuration(project,
                             :name => 'Run Raktek',
                             :gwt_module => 'raktek.Raktek',
