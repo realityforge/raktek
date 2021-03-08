@@ -5,7 +5,6 @@
   <inherits name='org.realityforge.vecmath.VecmathDev'/>
 
   <source path=''/>
-  <source path='util'/>
   <public path='public'/>
 
   <entry-point class='raktek.Main'/>
