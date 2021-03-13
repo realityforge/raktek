@@ -27,7 +27,7 @@ public final class ErrorUtil
   @Nonnull
   public static String describeContextError( @WebGLContextError final int value )
   {
-    WebGLContextError.Validator.assertValid( value );
+    WebGLContextError.Util.assertValid( value );
 
     if ( WebGL2RenderingContext.NO_ERROR == value )
     {

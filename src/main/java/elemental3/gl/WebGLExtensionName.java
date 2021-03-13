@@ -37,13 +37,13 @@ import org.intellij.lang.annotations.MagicConstant;
     }
 )
 public @interface WebGLExtensionName {
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @WebGLExtensionName
     @Nonnull
-    public static String cast(@Nonnull final String value) {
+    public static String requireValid(@Nonnull final String value) {
       assertValid( value );
       return value;
     }

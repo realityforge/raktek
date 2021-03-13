@@ -23,12 +23,12 @@ public @interface CompositeOperationOrAuto {
   @Nonnull
   String replace = "replace";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @CompositeOperationOrAuto
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

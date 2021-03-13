@@ -63,13 +63,12 @@ public final class VertexArrayObject
                             @Nonnull final Attribute... attributes )
   {
     super( gl );
-    DrawMode.Validator.assertValid( mode );
     assert offset >= 0 : "Offset must not be negative";
     assert count > 0 : "Count must be greater than 0";
     assert maxInstances >= 0 : "Max instance count must not be negative";
     assert attributes.length > 0 : "At least one attribute must be supplied";
     _program = Objects.requireNonNull( program );
-    _mode = mode;
+    _mode = DrawMode.Util.requireValid( mode );
     _offset = offset;
     _count = count;
     _maxInstances = maxInstances;
@@ -134,7 +133,7 @@ public final class VertexArrayObject
       {
         gl.vertexAttribIPointer( index,
                                  accessor.getComponentCount(),
-                                 AttributeComponentIntegerDataType.Validator.cast( accessor.getComponentType() ),
+                                 AttributeComponentIntegerDataType.Util.requireValid( accessor.getComponentType() ),
                                  accessor.getStride(),
                                  accessor.getOffset() );
       }

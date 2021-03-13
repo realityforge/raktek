@@ -35,12 +35,12 @@ public @interface RTCErrorDetailTypeIdp {
   @Nonnull
   String idp_token_invalid = "idp-token-invalid";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @RTCErrorDetailTypeIdp
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

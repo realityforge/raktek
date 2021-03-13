@@ -26,12 +26,12 @@ public @interface DOMParserSupportedType {
   @Nonnull
   String text_xml = "text/xml";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @DOMParserSupportedType
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

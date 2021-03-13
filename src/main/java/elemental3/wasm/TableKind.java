@@ -14,12 +14,12 @@ public @interface TableKind {
   @Nonnull
   String anyfunc = "anyfunc";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @TableKind
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

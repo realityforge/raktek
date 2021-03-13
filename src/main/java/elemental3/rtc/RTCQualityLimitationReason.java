@@ -23,12 +23,12 @@ public @interface RTCQualityLimitationReason {
   @Nonnull
   String other = "other";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @RTCQualityLimitationReason
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

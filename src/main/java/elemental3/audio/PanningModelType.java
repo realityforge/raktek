@@ -17,12 +17,12 @@ public @interface PanningModelType {
   @Nonnull
   String equalpower = "equalpower";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @PanningModelType
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

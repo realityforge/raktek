@@ -20,12 +20,12 @@ public @interface RTCIceGatheringState {
   @Nonnull
   String new_ = "new";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @RTCIceGatheringState
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

@@ -39,7 +39,7 @@ public final class FMesh
       }
       else
       {
-        throw new IllegalStateException( "Uniform of data type " + UniformDataType.Validator.describe( type ) +
+        throw new IllegalStateException( "Uniform of data type " + UniformDataType.Util.describe( type ) +
                                          " is not yet supported" );
       }
     }

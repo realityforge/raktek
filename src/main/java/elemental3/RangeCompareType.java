@@ -16,12 +16,12 @@ import org.intellij.lang.annotations.MagicConstant;
     }
 )
 public @interface RangeCompareType {
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @RangeCompareType
-    public static int cast(final int value) {
+    public static int requireValid(final int value) {
       assertValid( value );
       return value;
     }

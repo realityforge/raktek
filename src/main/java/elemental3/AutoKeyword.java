@@ -14,12 +14,12 @@ public @interface AutoKeyword {
   @Nonnull
   String auto = "auto";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @AutoKeyword
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

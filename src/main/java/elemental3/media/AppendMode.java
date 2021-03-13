@@ -17,12 +17,12 @@ public @interface AppendMode {
   @Nonnull
   String sequence = "sequence";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @AppendMode
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

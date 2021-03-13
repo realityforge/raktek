@@ -31,11 +31,9 @@ public final class Buffer
                  @BufferTargetType final int bufferTarget )
   {
     super( gl );
-    UsageType.Validator.assertValid( usage );
-    BufferTargetType.Validator.assertValid( bufferTarget );
     _data = Objects.requireNonNull( data );
-    _usage = usage;
-    _bufferTarget = bufferTarget;
+    _usage = UsageType.Util.requireValid( usage );
+    _bufferTarget = BufferTargetType.Util.requireValid( bufferTarget );
   }
 
   @Nonnull

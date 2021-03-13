@@ -34,12 +34,12 @@ public @interface CrossOriginType {
   @Nonnull
   String use_credentials = "use-credentials";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @CrossOriginType
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

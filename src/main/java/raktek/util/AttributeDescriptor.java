@@ -20,10 +20,9 @@ public final class AttributeDescriptor
                               @AttributeDataType final int type,
                               @AttributeIndex final int index )
   {
-    AttributeDataType.Validator.assertValid( type );
     assert WebGL2RenderingContext.INVALID_INDEX != index;
     _name = Objects.requireNonNull( name );
-    _type = type;
+    _type = AttributeDataType.Util.requireValid( type );
     _index = index;
   }
 
@@ -55,7 +54,7 @@ public final class AttributeDescriptor
   public String toDebugString()
   {
     return "Attribute[" + getName() +
-           ",type=" + AttributeDataType.Validator.describe( getType() ) +
+           ",type=" + AttributeDataType.Util.describe( getType() ) +
            ",index=" + getIndex() +
            "]";
   }

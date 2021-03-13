@@ -32,12 +32,12 @@ public @interface RTCErrorDetailType {
   @Nonnull
   String sdp_syntax_error = "sdp-syntax-error";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @RTCErrorDetailType
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

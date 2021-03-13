@@ -26,12 +26,12 @@ import org.intellij.lang.annotations.MagicConstant;
     }
 )
 public @interface ReadableTextureParameter {
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @ReadableTextureParameter
-    public static int cast(final int value) {
+    public static int requireValid(final int value) {
       assertValid( value );
       return value;
     }

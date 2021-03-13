@@ -24,12 +24,12 @@ import org.intellij.lang.annotations.MagicConstant;
     }
 )
 public @interface NodeType {
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @NodeType
-    public static int cast(final int value) {
+    public static int requireValid(final int value) {
       assertValid( value );
       return value;
     }

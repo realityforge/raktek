@@ -23,12 +23,12 @@ public @interface OrientationType {
   @Nonnull
   String portrait_secondary = "portrait-secondary";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @OrientationType
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

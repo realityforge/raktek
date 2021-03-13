@@ -20,12 +20,12 @@ public @interface AudioContextLatencyCategory {
   @Nonnull
   String playback = "playback";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @AudioContextLatencyCategory
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

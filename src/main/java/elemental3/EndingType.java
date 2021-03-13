@@ -17,12 +17,12 @@ public @interface EndingType {
   @Nonnull
   String transparent = "transparent";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @EndingType
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

@@ -20,12 +20,12 @@ public @interface DistanceModelType {
   @Nonnull
   String linear = "linear";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @DistanceModelType
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

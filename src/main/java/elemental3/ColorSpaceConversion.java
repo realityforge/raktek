@@ -17,12 +17,12 @@ public @interface ColorSpaceConversion {
   @Nonnull
   String none = "none";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @ColorSpaceConversion
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

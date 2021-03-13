@@ -19,14 +19,14 @@ public @interface ErrorCode
   int PROGRAM_CREATE_FAILED = 4;
   int PROGRAM_LINK_FAILED = 5;
 
-  final class Validator
+  final class Util
   {
-    private Validator()
+    private Util()
     {
     }
 
     @ErrorCode
-    public static int cast( final int value )
+    public static int requireValid( final int value )
     {
       assertValid( value );
       return value;

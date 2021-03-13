@@ -23,12 +23,12 @@ public @interface AuthenticatorTransport {
   @Nonnull
   String usb = "usb";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @AuthenticatorTransport
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

@@ -110,7 +110,7 @@ public final class ProgramDescriptor
       final String index = String.valueOf( attribute.getIndex() );
       StringUtil.padRight( sb, index, 3 - index.length() );
       sb.append( ": " );
-      sb.append( AttributeDataType.Validator.describe( attribute.getType() ) );
+      sb.append( AttributeDataType.Util.describe( attribute.getType() ) );
       sb.append( " " );
       sb.append( attribute.getName() );
       sb.append( "\n" );
@@ -121,7 +121,7 @@ public final class ProgramDescriptor
       for ( final UniformDescriptor uniform : _uniforms )
       {
         sb.append( "      " );
-        sb.append( UniformDataType.Validator.describe( uniform.getType() ) );
+        sb.append( UniformDataType.Util.describe( uniform.getType() ) );
         final int elementCount = uniform.getElementCount();
         if ( elementCount > 1 )
         {
@@ -155,7 +155,7 @@ public final class ProgramDescriptor
       final WebGLUniformLocation location = gl.getUniformLocation( program, name );
       assert null != location;
       uniforms.add( new UniformDescriptor( name,
-                                           UniformDataType.Validator.cast( info.type() ),
+                                           UniformDataType.Util.requireValid( info.type() ),
                                            info.size(),
                                            location ) );
     }
@@ -182,7 +182,7 @@ public final class ProgramDescriptor
         index = gl.getAttribLocation( program, name );
         assert WebGL2RenderingContext.INVALID_INDEX != index;
       }
-      attributes.add( new AttributeDescriptor( name, AttributeDataType.Validator.cast( info.type() ), index ) );
+      attributes.add( new AttributeDescriptor( name, AttributeDataType.Util.requireValid( info.type() ), index ) );
     }
     return new ProgramDescriptor( programName,
                                   attributes.toArray( new AttributeDescriptor[ 0 ] ),

@@ -32,12 +32,12 @@ public @interface FormEncodingType {
   @Nonnull
   String text_plain = "text/plain";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @FormEncodingType
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

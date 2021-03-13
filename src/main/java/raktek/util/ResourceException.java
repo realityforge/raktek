@@ -36,10 +36,8 @@ public class ResourceException
                             @Nullable final Throwable cause )
   {
     super( message, cause );
-    ErrorCode.Validator.assertValid( code );
-    WebGLContextError.Validator.assertValid( contextError );
-    _code = code;
-    _contextError = contextError;
+    _code = ErrorCode.Util.requireValid( code );
+    _contextError = WebGLContextError.Util.requireValid( contextError );
   }
 
   @ErrorCode

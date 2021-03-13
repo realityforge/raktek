@@ -20,12 +20,12 @@ public @interface RequestRedirect {
   @Nonnull
   String manual = "manual";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @RequestRedirect
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

@@ -32,12 +32,12 @@ public @interface DirType {
   @Nonnull
   String rtl = "rtl";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @DirType
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

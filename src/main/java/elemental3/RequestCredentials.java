@@ -20,12 +20,12 @@ public @interface RequestCredentials {
   @Nonnull
   String same_origin = "same-origin";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @RequestCredentials
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

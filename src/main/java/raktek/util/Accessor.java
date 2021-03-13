@@ -57,13 +57,12 @@ public final class Accessor
     assert stride >= 0 && stride <= 255;
     assert offset >= 0;
     // Normalize and integer flags should only be set to true for integer data types
-    assert !normalize || AttributeComponentIntegerDataType.Validator.isValid( componentType );
-    assert !integer || AttributeComponentIntegerDataType.Validator.isValid( componentType );
+    assert !normalize || AttributeComponentIntegerDataType.Util.isValid( componentType );
+    assert !integer || AttributeComponentIntegerDataType.Util.isValid( componentType );
     assert !normalize || !integer;
     assert divisor >= 0;
-    AttributeComponentDataType.Validator.assertValid( componentType );
     _componentCount = componentCount;
-    _componentType = componentType;
+    _componentType = AttributeComponentDataType.Util.requireValid( componentType );
     _normalize = normalize;
     _integer = integer;
     _stride = stride;

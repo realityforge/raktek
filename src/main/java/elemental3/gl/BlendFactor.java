@@ -26,12 +26,12 @@ import org.intellij.lang.annotations.MagicConstant;
     }
 )
 public @interface BlendFactor {
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @BlendFactor
-    public static int cast(final int value) {
+    public static int requireValid(final int value) {
       assertValid( value );
       return value;
     }

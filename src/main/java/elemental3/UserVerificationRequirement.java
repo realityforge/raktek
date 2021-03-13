@@ -20,12 +20,12 @@ public @interface UserVerificationRequirement {
   @Nonnull
   String required = "required";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @UserVerificationRequirement
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

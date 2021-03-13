@@ -25,9 +25,8 @@ public final class ElementArray
                        @UsageType final int usage,
                        @DrawElementsDataType final int type )
   {
-    DrawElementsDataType.Validator.assertValid( type );
     _buffer = new Buffer( gl, data, usage, WebGL2RenderingContext.ELEMENT_ARRAY_BUFFER );
-    _type = type;
+    _type = DrawElementsDataType.Util.requireValid( type );
   }
 
   @Nonnull

@@ -20,12 +20,12 @@ public @interface TextTrackMode {
   @Nonnull
   String showing = "showing";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @TextTrackMode
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

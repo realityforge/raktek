@@ -35,12 +35,12 @@ public @interface SpeechRecognitionErrorCode {
   @Nonnull
   String service_not_allowed = "service-not-allowed";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @SpeechRecognitionErrorCode
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

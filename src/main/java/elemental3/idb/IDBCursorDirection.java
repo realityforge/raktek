@@ -23,12 +23,12 @@ public @interface IDBCursorDirection {
   @Nonnull
   String prevunique = "prevunique";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @IDBCursorDirection
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

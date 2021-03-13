@@ -23,12 +23,12 @@ public @interface SelectionMode {
   @Nonnull
   String start = "start";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @SelectionMode
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

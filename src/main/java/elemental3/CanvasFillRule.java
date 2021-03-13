@@ -17,12 +17,12 @@ public @interface CanvasFillRule {
   @Nonnull
   String nonzero = "nonzero";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @CanvasFillRule
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }

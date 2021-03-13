@@ -20,12 +20,12 @@ public @interface KeyType {
   @Nonnull
   String secret = "secret";
 
-  final class Validator {
-    private Validator() {
+  final class Util {
+    private Util() {
     }
 
     @KeyType
-    public static String cast(final String value) {
+    public static String requireValid(final String value) {
       assertValid( value );
       return value;
     }
