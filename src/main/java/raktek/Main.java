@@ -25,7 +25,7 @@ import raktek.util.ResourceException;
 import raktek.util.ResourceTypes;
 import raktek.util.Shader;
 import raktek.util.Vector3fvUniform;
-import raktek.util.controls.FirsPersonControl;
+import raktek.util.controls.FirstPersonControl;
 import raktek.util.geometries.CubeGeometryFactory;
 
 public final class Main
@@ -42,7 +42,7 @@ public final class Main
   private double _angle;
   private boolean _sentToGpu;
   private float _time;
-  private FirsPersonControl _control;
+  private FirstPersonControl _control;
   private PerspectiveViewport _viewport;
   private boolean _printed;
   private String _boxVertexShaderSource;
@@ -115,7 +115,7 @@ public final class Main
     }
 
     final Document document = Global.document();
-    _control = new FirsPersonControl( _camera, document );
+    _control = new FirstPersonControl( _camera, document );
 
     renderLoop( gl );
   }
