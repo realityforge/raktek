@@ -1,7 +1,7 @@
 package raktek.util;
 
-import elemental3.Global;
-import elemental3.promise.Promise;
+import akasha.Global;
+import akasha.promise.Promise;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 

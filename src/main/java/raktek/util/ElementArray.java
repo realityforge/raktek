@@ -1,9 +1,9 @@
 package raktek.util;
 
-import elemental3.core.ArrayBufferView;
-import elemental3.gl.DrawElementsDataType;
-import elemental3.gl.UsageType;
-import elemental3.gl.WebGL2RenderingContext;
+import akasha.core.ArrayBufferView;
+import akasha.gl.DrawElementsDataType;
+import akasha.gl.UsageType;
+import akasha.gl.WebGL2RenderingContext;
 import javax.annotation.Nonnull;
 
 public final class ElementArray

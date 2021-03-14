@@ -1,6 +1,6 @@
 package raktek.util;
 
-import elemental3.gl.GLSL;
+import akasha.gl.GLSL;
 import javax.annotation.Nonnull;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;

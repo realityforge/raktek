@@ -1,10 +1,10 @@
 package raktek.util;
 
-import elemental3.gl.GLSL;
-import elemental3.gl.ShaderType;
-import elemental3.gl.WEBGL_debug_shaders;
-import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLShader;
+import akasha.gl.GLSL;
+import akasha.gl.ShaderType;
+import akasha.gl.WEBGL_debug_shaders;
+import akasha.gl.WebGL2RenderingContext;
+import akasha.gl.WebGLShader;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

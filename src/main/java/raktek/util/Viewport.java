@@ -1,9 +1,9 @@
 package raktek.util;
 
-import elemental3.Element;
-import elemental3.Global;
-import elemental3.HTMLCanvasElement;
-import elemental3.gl.WebGL2RenderingContext;
+import akasha.Element;
+import akasha.Global;
+import akasha.HTMLCanvasElement;
+import akasha.gl.WebGL2RenderingContext;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import org.realityforge.vecmath.Matrix4d;

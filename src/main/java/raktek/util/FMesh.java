@@ -1,8 +1,8 @@
 package raktek.util;
 
-import elemental3.core.Float32Array;
-import elemental3.gl.UniformDataType;
-import elemental3.gl.WebGL2RenderingContext;
+import akasha.core.Float32Array;
+import akasha.gl.UniformDataType;
+import akasha.gl.WebGL2RenderingContext;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;

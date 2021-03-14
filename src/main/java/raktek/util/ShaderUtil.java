@@ -1,9 +1,9 @@
 package raktek.util;
 
-import elemental3.Global;
-import elemental3.core.RegExp;
-import elemental3.core.RegExpResult;
-import elemental3.gl.GLSL;
+import akasha.Global;
+import akasha.core.RegExp;
+import akasha.core.RegExpResult;
+import akasha.gl.GLSL;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 

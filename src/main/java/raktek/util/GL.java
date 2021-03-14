@@ -1,16 +1,16 @@
 package raktek.util;
 
-import elemental3.HTMLImageElement;
-import elemental3.Image;
-import elemental3.gl.AttributeIndex;
-import elemental3.gl.TextureMagnificationFilter;
-import elemental3.gl.TextureMinificationFilter;
-import elemental3.gl.TextureWrapMode;
-import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLProgram;
-import elemental3.gl.WebGLTexture;
-import elemental3.gl.WebGLUniformLocation;
-import elemental3.promise.Promise;
+import akasha.HTMLImageElement;
+import akasha.Image;
+import akasha.gl.AttributeIndex;
+import akasha.gl.TextureMagnificationFilter;
+import akasha.gl.TextureMinificationFilter;
+import akasha.gl.TextureWrapMode;
+import akasha.gl.WebGL2RenderingContext;
+import akasha.gl.WebGLProgram;
+import akasha.gl.WebGLTexture;
+import akasha.gl.WebGLUniformLocation;
+import akasha.promise.Promise;
 import javax.annotation.Nonnull;
 
 // TODO: All of these methods should take a onError handler that is invoked when unexpected error

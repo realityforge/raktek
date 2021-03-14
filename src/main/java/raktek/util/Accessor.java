@@ -1,14 +1,14 @@
 package raktek.util;
 
-import elemental3.core.Float32Array;
-import elemental3.core.Int16Array;
-import elemental3.core.Int8Array;
-import elemental3.core.Uint16Array;
-import elemental3.core.Uint8Array;
-import elemental3.gl.AttributeComponentDataType;
-import elemental3.gl.AttributeComponentIntegerDataType;
-import elemental3.gl.VertexDimensions;
-import elemental3.gl.WebGL2RenderingContext;
+import akasha.core.Float32Array;
+import akasha.core.Int16Array;
+import akasha.core.Int8Array;
+import akasha.core.Uint16Array;
+import akasha.core.Uint8Array;
+import akasha.gl.AttributeComponentDataType;
+import akasha.gl.AttributeComponentIntegerDataType;
+import akasha.gl.VertexDimensions;
+import akasha.gl.WebGL2RenderingContext;
 
 /**
  * The Accessor class describes how a buffers memory is structured and should be accessed.

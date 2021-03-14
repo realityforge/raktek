@@ -1,7 +1,7 @@
 package raktek.util;
 
-import elemental3.HTMLCanvasElement;
-import elemental3.gl.WebGL2RenderingContext;
+import akasha.HTMLCanvasElement;
+import akasha.gl.WebGL2RenderingContext;
 import javax.annotation.Nonnull;
 
 public final class PerspectiveViewport

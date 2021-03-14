@@ -1,7 +1,7 @@
 package raktek.util;
 
-import elemental3.gl.UniformDataType;
-import elemental3.gl.WebGLUniformLocation;
+import akasha.gl.UniformDataType;
+import akasha.gl.WebGLUniformLocation;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import raktek.Raktek;

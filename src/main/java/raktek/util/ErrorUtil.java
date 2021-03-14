@@ -1,7 +1,7 @@
 package raktek.util;
 
-import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLContextError;
+import akasha.gl.WebGL2RenderingContext;
+import akasha.gl.WebGLContextError;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 

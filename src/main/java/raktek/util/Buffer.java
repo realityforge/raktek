@@ -1,10 +1,10 @@
 package raktek.util;
 
-import elemental3.core.ArrayBufferView;
-import elemental3.gl.BufferTargetType;
-import elemental3.gl.UsageType;
-import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLBuffer;
+import akasha.core.ArrayBufferView;
+import akasha.gl.BufferTargetType;
+import akasha.gl.UsageType;
+import akasha.gl.WebGL2RenderingContext;
+import akasha.gl.WebGLBuffer;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 

@@ -1,11 +1,11 @@
 package raktek.util;
 
-import elemental3.gl.AttributeDataType;
-import elemental3.gl.UniformDataType;
-import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLActiveInfo;
-import elemental3.gl.WebGLProgram;
-import elemental3.gl.WebGLUniformLocation;
+import akasha.gl.AttributeDataType;
+import akasha.gl.UniformDataType;
+import akasha.gl.WebGL2RenderingContext;
+import akasha.gl.WebGLActiveInfo;
+import akasha.gl.WebGLProgram;
+import akasha.gl.WebGLUniformLocation;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

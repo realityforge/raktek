@@ -1,9 +1,9 @@
 package raktek.util.geometries;
 
-import elemental3.core.Float32Array;
-import elemental3.gl.DrawMode;
-import elemental3.gl.WebGL2RenderingContext;
-import elemental3.lang.JsArray;
+import akasha.core.Float32Array;
+import akasha.gl.DrawMode;
+import akasha.gl.WebGL2RenderingContext;
+import akasha.lang.JsArray;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nonnull;
@@ -12,8 +12,8 @@ import org.intellij.lang.annotations.MagicConstant;
 import raktek.util.Accessor;
 import raktek.util.Attribute;
 import raktek.util.Buffer;
-import raktek.util.VertexArrayObject;
 import raktek.util.Program;
+import raktek.util.VertexArrayObject;
 
 public final class CubeGeometryFactory
 {

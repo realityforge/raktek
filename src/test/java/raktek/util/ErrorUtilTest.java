@@ -1,6 +1,6 @@
 package raktek.util;
 
-import elemental3.gl.WebGL2RenderingContext;
+import akasha.gl.WebGL2RenderingContext;
 import org.testng.annotations.Test;
 import static org.mockito.Mockito.*;
 import static org.testng.Assert.*;

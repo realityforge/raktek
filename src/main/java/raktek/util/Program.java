@@ -1,8 +1,8 @@
 package raktek.util;
 
-import elemental3.gl.KHR_parallel_shader_compile;
-import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLProgram;
+import akasha.gl.KHR_parallel_shader_compile;
+import akasha.gl.WebGL2RenderingContext;
+import akasha.gl.WebGLProgram;
 import java.util.Arrays;
 import java.util.Objects;
 import javax.annotation.Nonnull;

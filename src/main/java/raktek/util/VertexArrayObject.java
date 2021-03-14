@@ -1,9 +1,9 @@
 package raktek.util;
 
-import elemental3.gl.AttributeComponentIntegerDataType;
-import elemental3.gl.DrawMode;
-import elemental3.gl.WebGL2RenderingContext;
-import elemental3.gl.WebGLVertexArrayObject;
+import akasha.gl.AttributeComponentIntegerDataType;
+import akasha.gl.DrawMode;
+import akasha.gl.WebGL2RenderingContext;
+import akasha.gl.WebGLVertexArrayObject;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

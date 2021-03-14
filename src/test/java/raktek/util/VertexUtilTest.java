@@ -1,7 +1,7 @@
 package raktek.util;
 
-import elemental3.gl.DrawMode;
-import elemental3.gl.WebGL2RenderingContext;
+import akasha.gl.DrawMode;
+import akasha.gl.WebGL2RenderingContext;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 

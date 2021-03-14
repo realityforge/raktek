@@ -1,6 +1,6 @@
 package raktek.util;
 
-import elemental3.core.Float32Array;
+import akasha.core.Float32Array;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 

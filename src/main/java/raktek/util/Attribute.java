@@ -1,6 +1,6 @@
 package raktek.util;
 
-import elemental3.core.ArrayBufferView;
+import akasha.core.ArrayBufferView;
 import java.util.Objects;
 import javax.annotation.Nonnull;
 

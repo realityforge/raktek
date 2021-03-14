@@ -1,6 +1,6 @@
 package raktek.util;
 
-import elemental3.gl.WebGL2RenderingContext;
+import akasha.gl.WebGL2RenderingContext;
 import javax.annotation.Nonnull;
 
 public abstract class BindableResource<T>
