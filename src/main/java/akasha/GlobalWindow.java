@@ -104,6 +104,7 @@ public final class GlobalWindow extends Window {
    * @see <a href="https://tc39.es/ecma262/#sec-escape-string">escape() - ECMA</a>
    * @deprecated
    */
+  @Deprecated
   @Nonnull
   public native String escape(@Nonnull String str);
 
@@ -170,6 +171,7 @@ public final class GlobalWindow extends Window {
    * @see <a href="https://tc39.es/ecma262/#sec-unescape-string">unescape() - ECMA</a>
    * @deprecated
    */
+  @Deprecated
   @Nonnull
   public native String unescape(@Nonnull String str);
 }

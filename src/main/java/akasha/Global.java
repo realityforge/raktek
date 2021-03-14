@@ -4069,6 +4069,7 @@ public final class Global {
    * @see <a href="https://tc39.es/ecma262/#sec-escape-string">escape() - ECMA</a>
    * @deprecated
    */
+  @Deprecated
   @Nonnull
   public static String escape(@Nonnull String str) {
     return globalThis().escape(str);
@@ -4149,6 +4150,7 @@ public final class Global {
    * @see <a href="https://tc39.es/ecma262/#sec-unescape-string">unescape() - ECMA</a>
    * @deprecated
    */
+  @Deprecated
   @Nonnull
   public static String unescape(@Nonnull String str) {
     return globalThis().unescape(str);
