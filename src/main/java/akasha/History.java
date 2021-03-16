@@ -103,7 +103,7 @@ public class History {
    * @see <a href="https://html.spec.whatwg.org/multipage/history.html#dom-history-pushstate">History.pushState() - HTML Living Standard</a>
    * @see <a href="https://www.w3.org/TR/html52/history.html#dom-history-pushstate">History.pushState() - HTML5</a>
    */
-  public native void pushState(@DoNotAutobox @Nullable Object data, @Nonnull String title,
+  public native void pushState(@DoNotAutobox @Nullable Object data, @Nonnull String unused,
       @Nullable String url);
 
   /**
@@ -113,7 +113,7 @@ public class History {
    * @see <a href="https://html.spec.whatwg.org/multipage/history.html#dom-history-pushstate">History.pushState() - HTML Living Standard</a>
    * @see <a href="https://www.w3.org/TR/html52/history.html#dom-history-pushstate">History.pushState() - HTML5</a>
    */
-  public native void pushState(@DoNotAutobox @Nullable Object data, @Nonnull String title);
+  public native void pushState(@DoNotAutobox @Nullable Object data, @Nonnull String unused);
 
   /**
    * The History.replaceState() method modifies the current history entry, replacing it with the stateObj, title, and URL passed in the method parameters. This method is particularly useful when you want to update the state object or URL of the current history entry in response to some user action.
@@ -122,7 +122,7 @@ public class History {
    * @see <a href="https://html.spec.whatwg.org/multipage/history.html#dom-history-replacestate">History.replaceState() - HTML Living Standard</a>
    * @see <a href="https://www.w3.org/TR/html52/history.html#dom-history-replacestate">History.replaceState() - HTML5</a>
    */
-  public native void replaceState(@DoNotAutobox @Nullable Object data, @Nonnull String title,
+  public native void replaceState(@DoNotAutobox @Nullable Object data, @Nonnull String unused,
       @Nullable String url);
 
   /**
@@ -132,5 +132,5 @@ public class History {
    * @see <a href="https://html.spec.whatwg.org/multipage/history.html#dom-history-replacestate">History.replaceState() - HTML Living Standard</a>
    * @see <a href="https://www.w3.org/TR/html52/history.html#dom-history-replacestate">History.replaceState() - HTML5</a>
    */
-  public native void replaceState(@DoNotAutobox @Nullable Object data, @Nonnull String title);
+  public native void replaceState(@DoNotAutobox @Nullable Object data, @Nonnull String unused);
 }

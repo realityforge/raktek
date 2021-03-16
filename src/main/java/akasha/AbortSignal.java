@@ -45,6 +45,9 @@ public class AbortSignal extends EventTarget {
   )
   public native boolean aborted();
 
+  @Nonnull
+  public static native AbortSignal abort();
+
   @JsOverlay
   public final void addAbortListener(@Nonnull final EventListener callback,
       @Nonnull final AddEventListenerOptions options) {

@@ -6,7 +6,6 @@ import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Any;
 
 /**
  * The Cache interface provides a persistent storage mechanism for Request / Response object pairs that are cached in long lived memory. How long a Cache lives is browser dependent, but a single origin's scripts can typically rely on the presence of a previously populated Cache. Note that the Cache interface is exposed to windowed scopes as well as workers. You don't have to use it in conjunction with service workers, even though it is defined in the service worker spec.
@@ -199,7 +198,7 @@ public class Cache {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-match">Cache match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull RequestInfo request,
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull RequestInfo request,
       @Nonnull CacheQueryOptions options);
 
   /**
@@ -209,7 +208,8 @@ public class Cache {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-match">Cache match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull Request request, @Nonnull CacheQueryOptions options);
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull Request request,
+      @Nonnull CacheQueryOptions options);
 
   /**
    * The match() method of the Cache interface returns a Promise that resolves to the Response associated with the first matching request in the Cache object. If no match is found, the Promise resolves to undefined.
@@ -218,7 +218,8 @@ public class Cache {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-match">Cache match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull String request, @Nonnull CacheQueryOptions options);
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull String request,
+      @Nonnull CacheQueryOptions options);
 
   /**
    * The match() method of the Cache interface returns a Promise that resolves to the Response associated with the first matching request in the Cache object. If no match is found, the Promise resolves to undefined.
@@ -227,7 +228,7 @@ public class Cache {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-match">Cache match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull RequestInfo request);
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull RequestInfo request);
 
   /**
    * The match() method of the Cache interface returns a Promise that resolves to the Response associated with the first matching request in the Cache object. If no match is found, the Promise resolves to undefined.
@@ -236,7 +237,7 @@ public class Cache {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-match">Cache match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull Request request);
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull Request request);
 
   /**
    * The match() method of the Cache interface returns a Promise that resolves to the Response associated with the first matching request in the Cache object. If no match is found, the Promise resolves to undefined.
@@ -245,7 +246,7 @@ public class Cache {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-match">Cache match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull String request);
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull String request);
 
   /**
    * The matchAll() method of the Cache interface returns a Promise that resolves to an array of all matching responses in the Cache object.

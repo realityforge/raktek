@@ -18,6 +18,8 @@ import jsinterop.annotations.JsType;
     name = "HTMLSourceElement"
 )
 public class HTMLSourceElement extends HTMLElement {
+  public int height;
+
   @Nonnull
   public String media;
 
@@ -32,6 +34,8 @@ public class HTMLSourceElement extends HTMLElement {
 
   @Nonnull
   public String type;
+
+  public int width;
 
   protected HTMLSourceElement() {
   }

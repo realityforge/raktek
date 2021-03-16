@@ -109,7 +109,7 @@ public class JsString {
   public native boolean endsWith(@Nonnull String searchString);
 
   /**
-   * The includes() method determines whether one string may be found within another string, returning true or false as appropriate.
+   * The includes() method performs a case-sensitive search to determine whether one string may be found within another string, returning true or false as appropriate.
    *
    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.includes - MDN</a>
    * @see <a href="https://tc39.es/ecma262/#sec-string.prototype.includes">String.prototype.includes - ECMAScript (ECMA-262)</a>
@@ -117,7 +117,7 @@ public class JsString {
   public native boolean includes(@Nonnull String searchString, int position);
 
   /**
-   * The includes() method determines whether one string may be found within another string, returning true or false as appropriate.
+   * The includes() method performs a case-sensitive search to determine whether one string may be found within another string, returning true or false as appropriate.
    *
    * @see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.includes - MDN</a>
    * @see <a href="https://tc39.es/ecma262/#sec-string.prototype.includes">String.prototype.includes - ECMAScript (ECMA-262)</a>

@@ -9,7 +9,6 @@ import jsinterop.annotations.JsOverlay;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Any;
 import jsinterop.base.Js;
 
 /**
@@ -80,7 +79,8 @@ public class ServiceWorkerContainer extends EventTarget {
    * @see <a href="https://w3c.github.io/ServiceWorker/#dom-serviceworkercontainer-getregistration">ServiceWorkerContainer: getRegistration - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> getRegistration(@Nonnull String clientURL);
+  public native Promise<ServiceWorkerRegistrationOrUndefinedUnion> getRegistration(
+      @Nonnull String clientURL);
 
   /**
    * The getRegistration() method of the ServiceWorkerContainer interface gets a ServiceWorkerRegistration object whose scope URL matches the provided document URL.  The method returns a Promise that resolves to a ServiceWorkerRegistration or undefined.
@@ -89,7 +89,7 @@ public class ServiceWorkerContainer extends EventTarget {
    * @see <a href="https://w3c.github.io/ServiceWorker/#dom-serviceworkercontainer-getregistration">ServiceWorkerContainer: getRegistration - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> getRegistration();
+  public native Promise<ServiceWorkerRegistrationOrUndefinedUnion> getRegistration();
 
   /**
    * The getRegistrations() method of the ServiceWorkerContainer interface gets all ServiceWorkerRegistrations associated with a ServiceWorkerContainer, in an array. The method returns a Promise that resolves to an array of ServiceWorkerRegistration.

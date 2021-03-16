@@ -6,7 +6,6 @@ import javax.annotation.Generated;
 import javax.annotation.Nonnull;
 import jsinterop.annotations.JsPackage;
 import jsinterop.annotations.JsType;
-import jsinterop.base.Any;
 
 /**
  * The CacheStorage interface represents the storage for Cache objects.
@@ -58,7 +57,7 @@ public class CacheStorage {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-storage-match">CacheStorage: match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull RequestInfo request,
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull RequestInfo request,
       @Nonnull MultiCacheQueryOptions options);
 
   /**
@@ -68,7 +67,7 @@ public class CacheStorage {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-storage-match">CacheStorage: match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull Request request,
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull Request request,
       @Nonnull MultiCacheQueryOptions options);
 
   /**
@@ -78,7 +77,7 @@ public class CacheStorage {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-storage-match">CacheStorage: match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull String request,
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull String request,
       @Nonnull MultiCacheQueryOptions options);
 
   /**
@@ -88,7 +87,7 @@ public class CacheStorage {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-storage-match">CacheStorage: match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull RequestInfo request);
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull RequestInfo request);
 
   /**
    * The match() method of the CacheStorage interface checks if a given Request or url string is a key for a stored Response. This method returns a Promise for a Response, or a Promise which resolves to undefined if no match is found.
@@ -97,7 +96,7 @@ public class CacheStorage {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-storage-match">CacheStorage: match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull Request request);
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull Request request);
 
   /**
    * The match() method of the CacheStorage interface checks if a given Request or url string is a key for a stored Response. This method returns a Promise for a Response, or a Promise which resolves to undefined if no match is found.
@@ -106,7 +105,7 @@ public class CacheStorage {
    * @see <a href="https://w3c.github.io/ServiceWorker/#cache-storage-match">CacheStorage: match - Service Workers</a>
    */
   @Nonnull
-  public native Promise<Any> match(@Nonnull String request);
+  public native Promise<ResponseOrUndefinedUnion> match(@Nonnull String request);
 
   /**
    * The open() method of the CacheStorage interface returns a Promise that resolves to the Cache object matching the cacheName.
