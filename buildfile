@@ -13,6 +13,7 @@ define 'raktek' do
   compile.with :javax_annotation,
                :jetbrains_annotations,
                :vecmath,
+               :akasha,
                :grim_annotations,
                :jsinterop_base,
                :jsinterop_annotations,
