@@ -17,7 +17,8 @@ define 'raktek' do
                :grim_annotations,
                :jsinterop_base,
                :jsinterop_annotations,
-               :braincheck,
+               :braincheck_core,
+               :braincheck_jre,
                :gwt_user
 
   test.using :testng
