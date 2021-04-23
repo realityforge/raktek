@@ -114,8 +114,7 @@ public final class Main
       Console.log( "Error", e );
     }
 
-    final Document document = WindowGlobal.document();
-    _control = new FirstPersonControl( _camera, document );
+    _control = new FirstPersonControl( _camera, WindowGlobal.document() );
 
     renderLoop( gl );
   }
