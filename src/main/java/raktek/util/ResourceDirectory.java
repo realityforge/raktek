@@ -1,6 +1,6 @@
 package raktek.util;
 
-import akasha.Global;
+import akasha.WindowGlobal;
 import akasha.promise.Promise;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -19,7 +19,7 @@ public final class ResourceDirectory
   public Promise<String> loadText( @Nonnull final ResourceType resourceType, @Nonnull final String name )
   {
     return
-      Global
+      WindowGlobal
         .fetch( deriveURL( name, resourceType ) )
         .then( response -> {
           if ( !response.ok() )

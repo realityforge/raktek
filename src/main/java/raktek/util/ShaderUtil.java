@@ -1,6 +1,6 @@
 package raktek.util;
 
-import akasha.Global;
+import akasha.WindowGlobal;
 import akasha.core.RegExp;
 import akasha.core.RegExpResult;
 import akasha.gl.GLSL;
@@ -38,7 +38,7 @@ public final class ShaderUtil
       assert null != nameMatch;
       final String name = nameMatch.trim();
       final String base64 = result.getAt( 1 );
-      return null != base64 ? Global.atob( name ) : name;
+      return null != base64 ? WindowGlobal.atob( name ) : name;
     }
   }
 

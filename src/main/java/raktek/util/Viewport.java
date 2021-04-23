@@ -1,8 +1,8 @@
 package raktek.util;
 
 import akasha.Element;
-import akasha.Global;
 import akasha.HTMLCanvasElement;
+import akasha.WindowGlobal;
 import akasha.gl.WebGL2RenderingContext;
 import java.util.Objects;
 import javax.annotation.Nonnull;
@@ -27,7 +27,7 @@ public abstract class Viewport
 
   public final void resize()
   {
-    final Element element = Global.document().documentElement();
+    final Element element = WindowGlobal.document().documentElement();
     assert null != element;
 
     final int displayWidth = element.clientWidth();

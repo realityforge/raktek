@@ -2,8 +2,8 @@ package raktek;
 
 import akasha.Console;
 import akasha.Document;
-import akasha.Global;
 import akasha.HTMLCanvasElement;
+import akasha.WindowGlobal;
 import akasha.core.Float32Array;
 import akasha.gl.WebGL2RenderingContext;
 import akasha.promise.Promise;
@@ -114,7 +114,7 @@ public final class Main
       Console.log( "Error", e );
     }
 
-    final Document document = Global.document();
+    final Document document = WindowGlobal.document();
     _control = new FirstPersonControl( _camera, document );
 
     renderLoop( gl );
@@ -122,7 +122,7 @@ public final class Main
 
   private void renderLoop( @Nonnull final WebGL2RenderingContext gl )
   {
-    Global.requestAnimationFrame( t -> renderLoop( gl ) );
+    WindowGlobal.requestAnimationFrame( t -> renderLoop( gl ) );
     _viewport.resize();
     renderFrame( gl );
   }
